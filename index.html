@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recovery Kneads - Professional Massage Therapy in Naples, FL</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="logo.svg" alt="Recovery Kneads Logo" class="logo-img">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#scheduler">Book Now</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Recovery Kneads</h1>
+                <p class="hero-subtitle">Professional Massage Therapy in Naples, Florida</p>
+                <p class="hero-description">Restore your body and mind with our expert therapeutic massage services. Experience personalized care that addresses your unique wellness needs.</p>
+                <div class="hero-buttons">
+                    <a href="#scheduler" class="btn-primary">Book Appointment</a>
+                    <a href="#services" class="btn-secondary">Our Services</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-placeholder">
+                    <p>Relaxing spa environment image</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🤲</div>
+                        <h3>Therapeutic Massage</h3>
+                        <p>Deep tissue and therapeutic massage to relieve tension, reduce pain, and promote healing.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🌿</div>
+                        <h3>Relaxation Massage</h3>
+                        <p>Gentle, soothing massage designed to reduce stress and promote overall well-being.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">⚡</div>
+                        <h3>Sports Massage</h3>
+                        <p>Specialized massage for athletes and active individuals to enhance performance and recovery.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🧘</div>
+                        <h3>Wellness Consultation</h3>
+                        <p>Personalized wellness plans to help you achieve your health and recovery goals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About Recovery Kneads</h2>
+                        <p>Located in beautiful Naples, Florida, Recovery Kneads is dedicated to helping our clients achieve optimal wellness through professional massage therapy. Our experienced therapists combine traditional techniques with modern approaches to address your specific needs.</p>
+                        <p>Whether you're seeking relief from chronic pain, recovering from an injury, or simply looking to relax and rejuvenate, we provide a peaceful, professional environment where healing begins.</p>
+                        <div class="about-features">
+                            <div class="feature">
+                                <h4>Licensed Professionals</h4>
+                                <p>All our therapists are licensed and experienced</p>
+                            </div>
+                            <div class="feature">
+                                <h4>Personalized Care</h4>
+                                <p>Customized treatments for your unique needs</p>
+                            </div>
+                            <div class="feature">
+                                <h4>Peaceful Environment</h4>
+                                <p>Relaxing atmosphere to enhance your experience</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="about-placeholder">
+                            <p>Professional massage therapy image</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="scheduler" class="scheduler">
+            <div class="container">
+                <h2>Book Your Appointment</h2>
+                <div class="scheduler-container">
+                    <div class="booking-form">
+                        <form id="appointmentForm">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Type</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Select a service</option>
+                                    <option value="therapeutic">Therapeutic Massage (60 min) - $80</option>
+                                    <option value="therapeutic-90">Therapeutic Massage (90 min) - $120</option>
+                                    <option value="relaxation">Relaxation Massage (60 min) - $70</option>
+                                    <option value="relaxation-90">Relaxation Massage (90 min) - $105</option>
+                                    <option value="sports">Sports Massage (60 min) - $85</option>
+                                    <option value="consultation">Wellness Consultation (30 min) - $40</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="date">Preferred Date</label>
+                                    <input type="date" id="date" name="date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="time">Preferred Time</label>
+                                    <select id="time" name="time" required>
+                                        <option value="">Select time</option>
+                                        <option value="09:00">9:00 AM</option>
+                                        <option value="10:00">10:00 AM</option>
+                                        <option value="11:00">11:00 AM</option>
+                                        <option value="12:00">12:00 PM</option>
+                                        <option value="13:00">1:00 PM</option>
+                                        <option value="14:00">2:00 PM</option>
+                                        <option value="15:00">3:00 PM</option>
+                                        <option value="16:00">4:00 PM</option>
+                                        <option value="17:00">5:00 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="notes">Special Requests or Notes</label>
+                                <textarea id="notes" name="notes" rows="3" placeholder="Any specific areas of concern, allergies, or special requests..."></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary">Request Appointment</button>
+                        </form>
+                    </div>
+                    <div class="booking-info">
+                        <h3>Booking Information</h3>
+                        <ul>
+                            <li>Appointments are available Monday - Saturday</li>
+                            <li>Please arrive 10 minutes early for your appointment</li>
+                            <li>24-hour cancellation notice required</li>
+                            <li>We accept cash, card, and most insurance plans</li>
+                        </ul>
+                        <div class="contact-quick">
+                            <h4>Need to speak with us?</h4>
+                            <p><strong>Phone:</strong> (239) 555-0123</p>
+                            <p><strong>Email:</strong> info@recoverykneads.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact & Location</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h3>📍 Location</h3>
+                            <p>123 Wellness Way<br>
+                            Naples, FL 34102</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>📞 Phone</h3>
+                            <p>(239) 555-0123</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>✉️ Email</h3>
+                            <p>info@recoverykneads.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>🕐 Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 7:00 PM<br>
+                            Saturday: 9:00 AM - 5:00 PM<br>
+                            Sunday: Closed</p>
+                        </div>
+                    </div>
+                    <div class="map-placeholder">
+                        <p>Google Maps integration placeholder<br>
+                        (Map showing Naples, FL location)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                                    <div class="logo">
+                    <img src="logo.svg" alt="Recovery Kneads Logo" class="footer-logo">
+                </div>
+                    <p>Professional massage therapy in Naples, FL. Dedicated to your wellness and recovery.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#scheduler">Book Now</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>(239) 555-0123</p>
+                    <p>info@recoverykneads.com</p>
+                    <p>Naples, FL</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Recovery Kneads. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
