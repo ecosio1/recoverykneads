@@ -1078,7 +1078,7 @@ p {
 
 /* Services Section */
 .services {
-    padding: var(--space-16) 0;
+    padding: var(--section-padding);
     background: var(--light-bg);
     position: relative;
 }
@@ -1102,8 +1102,9 @@ p {
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--space-6);
-    align-items: start;
+    gap: var(--space-5);
+    align-items: stretch;
+    justify-items: center;
 }
 
 .service-card {
@@ -1119,6 +1120,10 @@ p {
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(1px);
+    /* Ensure consistent card dimensions */
+    min-height: 600px;
+    width: 100%;
+    max-width: 380px;
 }
 
 .service-card::before {
@@ -1149,12 +1154,13 @@ p {
 }
 
 .service-card.featured {
-    transform: scale(1.05);
+    /* Removed scale transform to maintain grid alignment */
     z-index: 2;
     box-shadow: 0 12px 48px rgba(139, 74, 59, 0.12), 
                 0 8px 24px rgba(244, 168, 124, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.9),
                 0 0 0 2px rgba(244, 168, 124, 0.1);
+    border: 2px solid rgba(244, 168, 124, 0.3);
 }
 
 .service-card.featured::before {
@@ -1388,7 +1394,8 @@ p {
 .about-content {
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: var(--space-8);
+    min-height: 500px;
 }
 
 .about-text {
@@ -1416,9 +1423,9 @@ p {
 }
 
 .about p {
-    font-size: 1.1rem;
-    color: var(--light-text);
-    margin-bottom: 25px;
+    font-size: var(--font-size-lg);
+    color: var(--neutral-medium);
+    margin-bottom: var(--space-4);
     line-height: 1.7;
 }
 
@@ -1432,8 +1439,8 @@ p {
 .about-features {
     display: flex;
     flex-direction: column;
-    gap: var(--space-5);
-    margin-top: var(--space-6);
+    gap: var(--space-4);
+    margin-top: var(--space-5);
 }
 
 .feature {
@@ -1798,9 +1805,9 @@ p {
 
 .scheduler-container {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: var(--space-6);
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
     align-items: start;
 }
@@ -2397,22 +2404,24 @@ p {
 
 .contact h2 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: var(--font-size-3xl);
     text-align: center;
     color: var(--primary-brown);
-    margin-bottom: 50px;
+    margin-bottom: var(--space-8);
 }
 
 .contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: var(--space-8);
+    align-items: start;
 }
 
 .contact-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: var(--space-5);
+    align-content: start;
 }
 
 .contact-item h3 {
@@ -2459,14 +2468,17 @@ p {
 
 .map-placeholder {
     background: var(--secondary-tan);
-    height: 300px;
-    border-radius: var(--border-radius);
+    min-height: 300px;
+    height: 100%;
+    border-radius: var(--border-radius-lg);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--primary-brown);
     font-style: italic;
     text-align: center;
+    border: 1px solid rgba(244, 168, 124, 0.2);
+    box-shadow: 0 4px 20px rgba(139, 74, 59, 0.1);
 }
 
 /* Enhanced Footer */
@@ -2701,6 +2713,27 @@ footer::before {
     }
 }
 
+/* Tablet Responsive Design */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .scheduler-container {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+        max-width: 700px;
+    }
+    
+    .about-content {
+        gap: var(--space-6);
+    }
+    
+    .services-grid {
+        gap: var(--space-4);
+    }
+    
+    .service-card {
+        max-width: 450px;
+    }
+}
+
 /* Enhanced Mobile Responsive Design */
 @media (max-width: 768px) {
     /* Enhanced Typography Scale for Mobile */
@@ -2867,10 +2900,13 @@ footer::before {
     .services-grid {
         grid-template-columns: 1fr;
         gap: var(--space-4);
+        justify-items: center;
     }
     
     .service-card {
         padding: var(--space-6) var(--space-4);
+        min-height: auto;
+        max-width: 100%;
     }
     
     .service-card h3 {
@@ -2883,7 +2919,8 @@ footer::before {
 
     .about-content {
         flex-direction: column;
-        gap: var(--space-8);
+        gap: var(--space-6);
+        min-height: auto;
     }
 
     .about {
@@ -2896,7 +2933,7 @@ footer::before {
 
     .scheduler-container {
         grid-template-columns: 1fr;
-        gap: var(--space-6);
+        gap: var(--space-5);
     }
 
     .booking-info {
@@ -2917,6 +2954,10 @@ footer::before {
     .contact-info {
         grid-template-columns: 1fr;
         gap: var(--space-4);
+    }
+    
+    .contact-item {
+        text-align: center;
     }
 
     .contact {
