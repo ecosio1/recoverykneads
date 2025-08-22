@@ -1,0 +1,49 @@
+{
+  "name": "recovery-kneads-secure-booking",
+  "version": "1.0.0",
+  "description": "Secure server-side booking proxy for Recovery Kneads massage therapy",
+  "main": "secure-booking-proxy.js",
+  "scripts": {
+    "start": "node secure-booking-proxy.js",
+    "dev": "nodemon secure-booking-proxy.js",
+    "test": "jest",
+    "lint": "eslint .",
+    "security-audit": "npm audit && snyk test",
+    "setup": "node setup-square.js",
+    "test-square": "node setup-square.js --test",
+    "website": "npx serve . -p 3000",
+    "start-all": "concurrently \"npm run start\" \"npm run website\""
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "nodemailer": "^6.9.7",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "eslint": "^8.55.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2",
+    "snyk": "^1.1248.0"
+  },
+  "keywords": [
+    "massage-therapy",
+    "booking",
+    "square",
+    "healthcare",
+    "security"
+  ],
+  "author": "Recovery Kneads",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
