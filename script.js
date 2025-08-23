@@ -1,5 +1,379 @@
 // Recovery Kneads Website JavaScript
 
+// Custom Booking Calendar System
+function initCustomBookingCalendar() {
+    let bookingState = {
+        step: 1,
+        selectedService: null,
+        selectedDate: null,
+        selectedTime: null,
+        currentMonth: new Date().getMonth(),
+        currentYear: new Date().getFullYear(),
+        bookedSlots: generateRealisticBookedSlots() // Simulate booked appointments
+    };
+    
+    // Generate realistic booked time slots for the next 30 days
+    function generateRealisticBookedSlots() {
+        const bookedSlots = {};
+        const today = new Date();
+        
+        // Generate realistic booking patterns for the next 30 days
+        for (let i = 0; i < 30; i++) {
+            const date = new Date(today);
+            date.setDate(today.getDate() + i);
+            
+            // Skip weekends
+            if (date.getDay() === 0 || date.getDay() === 6) continue;
+            
+            const dateKey = date.toISOString().split('T')[0];
+            bookedSlots[dateKey] = [];
+            
+            // Randomly book some slots (30-60% occupancy)
+            const allSlots = generateTimeSlotsForDate(date);
+            const numToBook = Math.floor(allSlots.length * (0.3 + Math.random() * 0.3));
+            
+            for (let j = 0; j < numToBook; j++) {
+                const randomSlot = allSlots[Math.floor(Math.random() * allSlots.length)];
+                if (!bookedSlots[dateKey].includes(randomSlot)) {
+                    bookedSlots[dateKey].push(randomSlot);
+                }
+            }
+        }
+        
+        return bookedSlots;
+    }
+    
+    function generateTimeSlotsForDate(date) {
+        const day = date.getDay();
+        const endHour = day === 6 ? 17 : 19; // Saturday ends at 5 PM, others at 7 PM
+        const slots = [];
+        
+        for (let hour = 9; hour < endHour; hour++) {
+            slots.push(`${hour}:00`);
+            if (hour < endHour - 1) {
+                slots.push(`${hour}:30`);
+            }
+        }
+        
+        return slots;
+    }
+
+    // Service selection
+    document.querySelectorAll('.service-option').forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove previous selection
+            document.querySelectorAll('.service-option').forEach(opt => opt.classList.remove('selected'));
+            
+            // Select current service
+            this.classList.add('selected');
+            bookingState.selectedService = {
+                name: this.querySelector('.service-name').textContent,
+                duration: this.dataset.duration,
+                price: this.dataset.price,
+                service: this.dataset.service
+            };
+            
+            // Auto-advance to next step after 1 second
+            setTimeout(() => {
+                advanceToStep(2);
+            }, 800);
+        });
+    });
+
+    // Calendar navigation
+    document.getElementById('prev-month')?.addEventListener('click', () => {
+        bookingState.currentMonth--;
+        if (bookingState.currentMonth < 0) {
+            bookingState.currentMonth = 11;
+            bookingState.currentYear--;
+        }
+        renderCalendar();
+    });
+
+    document.getElementById('next-month')?.addEventListener('click', () => {
+        bookingState.currentMonth++;
+        if (bookingState.currentMonth > 11) {
+            bookingState.currentMonth = 0;
+            bookingState.currentYear++;
+        }
+        renderCalendar();
+    });
+
+    // Back button
+    document.getElementById('back-btn')?.addEventListener('click', () => {
+        if (bookingState.step > 1) {
+            advanceToStep(bookingState.step - 1);
+        }
+    });
+
+    function advanceToStep(step) {
+        // Hide all steps
+        document.querySelectorAll('.booking-step').forEach(s => s.classList.remove('active'));
+        
+        // Show target step
+        document.getElementById(`step-${getStepName(step)}`)?.classList.add('active');
+        
+        // Update progress indicators
+        document.querySelectorAll('.step-indicator').forEach((indicator, index) => {
+            indicator.classList.remove('active', 'completed');
+            if (index + 1 < step) {
+                indicator.classList.add('completed');
+            } else if (index + 1 === step) {
+                indicator.classList.add('active');
+            }
+        });
+        
+        bookingState.step = step;
+        
+        // Initialize step-specific functionality
+        if (step === 2) {
+            renderCalendar();
+        } else if (step === 3) {
+            renderTimeSlots();
+        } else if (step === 4) {
+            renderBookingSummary();
+        }
+    }
+
+    function getStepName(step) {
+        const stepNames = { 1: 'service', 2: 'date', 3: 'time', 4: 'book' };
+        return stepNames[step];
+    }
+
+    function renderCalendar() {
+        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                           'July', 'August', 'September', 'October', 'November', 'December'];
+        
+        // Update month display
+        const currentMonthElement = document.getElementById('current-month');
+        if (currentMonthElement) {
+            currentMonthElement.textContent = `${monthNames[bookingState.currentMonth]} ${bookingState.currentYear}`;
+        }
+
+        // Generate calendar days
+        const firstDay = new Date(bookingState.currentYear, bookingState.currentMonth, 1);
+        const lastDay = new Date(bookingState.currentYear, bookingState.currentMonth + 1, 0);
+        const startDate = new Date(firstDay);
+        startDate.setDate(startDate.getDate() - firstDay.getDay());
+
+        const calendarDays = document.getElementById('calendar-days');
+        if (!calendarDays) return;
+
+        // Clear existing calendar days and ensure clean state
+        calendarDays.innerHTML = '';
+        
+        console.log('Rendering calendar: Creating 42 days in single continuous grid');
+
+        for (let i = 0; i < 42; i++) {
+            const currentDate = new Date(startDate);
+            currentDate.setDate(startDate.getDate() + i);
+            
+            const dayElement = document.createElement('div');
+            dayElement.className = 'calendar-day';
+            
+            // Check if day is in current month
+            if (currentDate.getMonth() === bookingState.currentMonth) {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0); // Reset time for accurate comparison
+                const currentDateReset = new Date(currentDate);
+                currentDateReset.setHours(0, 0, 0, 0);
+                
+                const isFuture = currentDateReset >= today;
+                const isPast = currentDateReset < today;
+                const isWeekday = currentDate.getDay() >= 1 && currentDate.getDay() <= 6; // Mon-Sat
+                
+                if (isPast) {
+                    // Past dates get X mark
+                    dayElement.classList.add('past-date');
+                    dayElement.innerHTML = `
+                        <span class="date-number">${currentDate.getDate()}</span>
+                        <span class="x-mark">✕</span>
+                    `;
+                    dayElement.style.cursor = 'not-allowed';
+                    dayElement.title = 'Date has passed';
+                } else if (isFuture && isWeekday) {
+                    // Check availability based on booked slots
+                    const dateKey = currentDate.toISOString().split('T')[0];
+                    const bookedSlots = bookingState.bookedSlots[dateKey] || [];
+                    const totalSlots = generateTimeSlotsForDate(currentDate).length;
+                    const availableSlots = totalSlots - bookedSlots.length;
+                    
+                    dayElement.classList.add('available');
+                    dayElement.innerHTML = `
+                        <span class="date-number">${currentDate.getDate()}</span>
+                        ${availableSlots < 3 ? '<span class="limited-availability">●</span>' : ''}
+                    `;
+                    dayElement.style.cursor = 'pointer';
+                    dayElement.title = availableSlots === 0 ? 'Fully booked' : 
+                                     availableSlots < 3 ? `${availableSlots} slots remaining` : 
+                                     'Available';
+                    
+                    if (availableSlots === 0) {
+                        dayElement.classList.remove('available');
+                        dayElement.classList.add('fully-booked');
+                        dayElement.style.cursor = 'not-allowed';
+                    } else {
+                        dayElement.addEventListener('click', () => {
+                            console.log('Date clicked:', currentDate);
+                            
+                            // Remove previous selection
+                            document.querySelectorAll('.calendar-day').forEach(day => {
+                                day.classList.remove('selected');
+                            });
+                            
+                            // Select current day
+                            dayElement.classList.add('selected');
+                            bookingState.selectedDate = new Date(currentDate);
+                            
+                            console.log('Selected date:', bookingState.selectedDate);
+                            
+                            // Auto-advance to time selection
+                            setTimeout(() => {
+                                advanceToStep(3);
+                            }, 500);
+                        });
+                    }
+                } else if (!isWeekday) {
+                    // Weekend
+                    dayElement.classList.add('weekend');
+                    dayElement.innerHTML = `
+                        <span class="date-number">${currentDate.getDate()}</span>
+                        <span class="closed-text">Closed</span>
+                    `;
+                    dayElement.style.cursor = 'not-allowed';
+                    dayElement.title = 'Closed on weekends';
+                } else {
+                    dayElement.classList.add('disabled');
+                    dayElement.textContent = currentDate.getDate();
+                    dayElement.style.cursor = 'not-allowed';
+                }
+            } else {
+                // Days from other months
+                dayElement.classList.add('other-month');
+                dayElement.textContent = currentDate.getDate();
+                dayElement.style.cursor = 'default';
+            }
+
+            calendarDays.appendChild(dayElement);
+        }
+        
+        console.log(`Calendar rendered: ${calendarDays.children.length} days added to single calendar container`);
+    }
+
+    function renderTimeSlots() {
+        const timeSlots = document.getElementById('time-slots');
+        if (!timeSlots) return;
+
+        if (!bookingState.selectedDate) return;
+
+        // Business hours: 9 AM - 7 PM (Mon-Fri), 9 AM - 5 PM (Sat)
+        const selectedDay = bookingState.selectedDate.getDay();
+        const endHour = selectedDay === 6 ? 17 : 19; // Saturday ends at 5 PM, others at 7 PM
+        
+        // Get all possible slots
+        const allSlots = [];
+        for (let hour = 9; hour < endHour; hour++) {
+            allSlots.push(`${hour}:00`);
+            if (hour < endHour - 1) { // Don't add :30 slot for the last hour
+                allSlots.push(`${hour}:30`);
+            }
+        }
+
+        // Get booked slots for the selected date
+        const dateKey = bookingState.selectedDate.toISOString().split('T')[0];
+        const bookedSlots = bookingState.bookedSlots[dateKey] || [];
+        
+        // Filter out booked slots
+        const availableSlots = allSlots.filter(slot => !bookedSlots.includes(slot));
+
+        timeSlots.innerHTML = '';
+        
+        // Show message if no slots available
+        if (availableSlots.length === 0) {
+            const noSlotsMessage = document.createElement('div');
+            noSlotsMessage.className = 'no-slots-message';
+            noSlotsMessage.innerHTML = `
+                <p>😔 No available time slots for this date</p>
+                <p><small>Please select another date or <a href="tel:(239)427-4757">call us at (239) 427-4757</a></small></p>
+            `;
+            timeSlots.appendChild(noSlotsMessage);
+            return;
+        }
+        
+        availableSlots.forEach(time => {
+            const slotElement = document.createElement('div');
+            slotElement.className = 'time-slot available-time';
+            
+            // Convert to 12-hour format
+            const [hour, minute] = time.split(':');
+            const hour12 = hour > 12 ? hour - 12 : (hour === '0' ? 12 : hour);
+            const ampm = hour >= 12 ? 'PM' : 'AM';
+            const displayTime = `${hour12}:${minute} ${ampm}`;
+            
+            slotElement.textContent = displayTime;
+            slotElement.title = 'Click to select this time slot';
+            
+            slotElement.addEventListener('click', () => {
+                // Remove previous selection
+                document.querySelectorAll('.time-slot').forEach(slot => slot.classList.remove('selected'));
+                
+                // Select current slot
+                slotElement.classList.add('selected');
+                bookingState.selectedTime = displayTime;
+                
+                console.log('Time selected:', displayTime);
+                
+                // Auto-advance to booking summary
+                setTimeout(() => {
+                    advanceToStep(4);
+                }, 500);
+            });
+            
+            timeSlots.appendChild(slotElement);
+        });
+        
+        // Add info about booked slots
+        if (bookedSlots.length > 0) {
+            const infoElement = document.createElement('div');
+            infoElement.className = 'booking-info-text';
+            infoElement.innerHTML = `
+                <small>📅 ${availableSlots.length} of ${allSlots.length} time slots available</small>
+            `;
+            timeSlots.appendChild(infoElement);
+        }
+    }
+
+    function renderBookingSummary() {
+        const service = bookingState.selectedService;
+        const date = bookingState.selectedDate;
+        const time = bookingState.selectedTime;
+
+        if (service) {
+            document.getElementById('summary-service').textContent = `${service.name} (${service.duration} min)`;
+            document.getElementById('summary-price').textContent = `$${service.price}`;
+        }
+
+        if (date) {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('summary-date').textContent = date.toLocaleDateString('en-US', options);
+        }
+
+        if (time) {
+            document.getElementById('summary-time').textContent = time;
+        }
+
+        // Generate Square booking URL with pre-filled info
+        const completeBookingBtn = document.getElementById('complete-booking');
+        if (completeBookingBtn) {
+            const squareUrl = `https://square.site/book/7kl091khfcdu9k/recovery-kneads-llc`;
+            completeBookingBtn.href = squareUrl;
+        }
+    }
+
+    // Initialize the first step
+    renderCalendar(); // Pre-load calendar
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile Navigation Toggle with Accessibility
     const hamburger = document.querySelector('.hamburger');
@@ -292,6 +666,9 @@ function initContactForm() {
 // Initialize contact form when DOM is loaded
 document.addEventListener('DOMContentLoaded', initContactForm);
 
+// Initialize custom booking calendar
+document.addEventListener('DOMContentLoaded', initCustomBookingCalendar);
+
 // Utility function for formatting phone numbers as user types
 function formatPhoneNumber(value) {
     const phoneNumber = value.replace(/[^\d]/g, '');
@@ -327,368 +704,27 @@ function showDirectBookingOption() {
     }
 }
 
-// Calendar booking system functionality
-let currentBooking = {
-    service: null,
-    serviceData: null,
-    date: null,
-    time: null,
-    currentMonth: new Date().getMonth(),
-    currentYear: new Date().getFullYear()
-};
+// Remove conflicting calendar booking system - unified in initCustomBookingCalendar
 
-function initCalendarBooking() {
-    // Service selection
-    document.querySelectorAll('.service-option').forEach(option => {
-        option.addEventListener('click', function() {
-            // Remove previous selection
-            document.querySelectorAll('.service-option').forEach(opt => opt.classList.remove('selected'));
-            
-            // Add selection to clicked option
-            this.classList.add('selected');
-            
-            // Store service data
-            currentBooking.service = this.dataset.service;
-            currentBooking.serviceData = {
-                name: this.querySelector('h4').textContent,
-                description: this.querySelector('p').textContent,
-                duration: this.dataset.duration,
-                price: this.dataset.price
-            };
-            
-            // Enable continue button
-            document.querySelector('.step-1 .continue-btn').disabled = false;
-        });
-    });
-    
-    // Initialize calendar
-    initCalendar();
-    
-    // Step navigation
-    setupStepNavigation();
-    
-    // Form submission
-    setupFormSubmission();
-}
+// Removed - unified in initCustomBookingCalendar
 
-function initCalendar() {
-    renderCalendar();
-    
-    // Month navigation
-    document.querySelector('.prev-month').addEventListener('click', () => {
-        currentBooking.currentMonth--;
-        if (currentBooking.currentMonth < 0) {
-            currentBooking.currentMonth = 11;
-            currentBooking.currentYear--;
-        }
-        renderCalendar();
-    });
-    
-    document.querySelector('.next-month').addEventListener('click', () => {
-        currentBooking.currentMonth++;
-        if (currentBooking.currentMonth > 11) {
-            currentBooking.currentMonth = 0;
-            currentBooking.currentYear++;
-        }
-        renderCalendar();
-    });
-}
+// Removed duplicate - using unified renderCalendar in initCustomBookingCalendar
 
-function renderCalendar() {
-    const today = new Date();
-    const firstDay = new Date(currentBooking.currentYear, currentBooking.currentMonth, 1);
-    const lastDay = new Date(currentBooking.currentYear, currentBooking.currentMonth + 1, 0);
-    const startDate = new Date(firstDay);
-    startDate.setDate(startDate.getDate() - firstDay.getDay());
-    
-    // Update calendar title
-    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-                       'July', 'August', 'September', 'October', 'November', 'December'];
-    document.querySelector('.calendar-title').textContent = 
-        `${monthNames[currentBooking.currentMonth]} ${currentBooking.currentYear}`;
-    
-    // Render calendar days safely
-    const calendarDays = document.querySelector('.calendar-days');
-    // Clear existing content safely
-    while (calendarDays.firstChild) {
-        calendarDays.removeChild(calendarDays.firstChild);
-    }
-    
-    for (let i = 0; i < 42; i++) {
-        const currentDate = new Date(startDate);
-        currentDate.setDate(startDate.getDate() + i);
-        
-        const dayElement = document.createElement('div');
-        dayElement.classList.add('calendar-day');
-        dayElement.textContent = currentDate.getDate();
-        
-        // Check if date is in current month
-        if (currentDate.getMonth() !== currentBooking.currentMonth) {
-            dayElement.classList.add('other-month');
-        }
-        
-        // Check if date is in the past
-        if (currentDate < today.setHours(0, 0, 0, 0)) {
-            dayElement.classList.add('past-date');
-        }
-        
-        // Check if it's Sunday (closed)
-        if (currentDate.getDay() === 0) {
-            dayElement.classList.add('closed');
-            dayElement.title = 'Closed on Sundays';
-        }
-        
-        // Add click event for future dates that aren't Sunday
-        if (currentDate >= today && currentDate.getDay() !== 0 && currentDate.getMonth() === currentBooking.currentMonth) {
-            dayElement.classList.add('available');
-            dayElement.addEventListener('click', () => selectDate(currentDate, dayElement));
-        }
-        
-        calendarDays.appendChild(dayElement);
-    }
-}
+// Removed - calendar date selection is handled in the unified renderCalendar function
 
-function selectDate(date, dayElement) {
-    // Remove previous selection
-    document.querySelectorAll('.calendar-day').forEach(day => day.classList.remove('selected'));
-    
-    // Add selection to clicked day
-    dayElement.classList.add('selected');
-    
-    // Store selected date
-    currentBooking.date = date;
-    
-    // Generate time slots
-    generateTimeSlots(date);
-}
+// Removed - time slot generation is handled in the unified renderTimeSlots function
 
-function generateTimeSlots(date) {
-    const timeSlotsContainer = document.querySelector('.time-slots');
-    // Clear existing content safely
-    while (timeSlotsContainer.firstChild) {
-        timeSlotsContainer.removeChild(timeSlotsContainer.firstChild);
-    }
-    
-    // Define business hours based on day of week
-    let startHour, endHour;
-    const dayOfWeek = date.getDay();
-    
-    if (dayOfWeek >= 1 && dayOfWeek <= 5) { // Monday to Friday
-        startHour = 9;
-        endHour = 19; // 7 PM
-    } else if (dayOfWeek === 6) { // Saturday
-        startHour = 9;
-        endHour = 17; // 5 PM
-    } else { // Sunday - closed
-        const closedMessage = document.createElement('p');
-        closedMessage.className = 'closed-message';
-        closedMessage.textContent = 'Closed on Sundays';
-        timeSlotsContainer.appendChild(closedMessage);
-        return;
-    }
-    
-    // Generate time slots (every hour)
-    for (let hour = startHour; hour < endHour; hour++) {
-        const timeSlot = document.createElement('button');
-        timeSlot.classList.add('time-slot');
-        timeSlot.textContent = formatTime(hour);
-        timeSlot.dataset.time = hour;
-        
-        // Randomly mark some slots as unavailable for demo
-        const isAvailable = Math.random() > 0.3; // 70% chance of availability
-        
-        if (isAvailable) {
-            timeSlot.classList.add('available');
-            timeSlot.addEventListener('click', () => selectTimeSlot(hour, timeSlot));
-        } else {
-            timeSlot.classList.add('unavailable');
-            timeSlot.disabled = true;
-        }
-        
-        timeSlotsContainer.appendChild(timeSlot);
-    }
-}
+// Removed - formatTime functionality exists in the main booking system
 
-function formatTime(hour) {
-    if (hour === 0) return '12:00 AM';
-    if (hour < 12) return `${hour}:00 AM`;
-    if (hour === 12) return '12:00 PM';
-    return `${hour - 12}:00 PM`;
-}
+// Removed - time slot selection is handled in the unified renderTimeSlots function
 
-function selectTimeSlot(hour, timeSlotElement) {
-    // Remove previous selection
-    document.querySelectorAll('.time-slot').forEach(slot => slot.classList.remove('selected'));
-    
-    // Add selection to clicked slot
-    timeSlotElement.classList.add('selected');
-    
-    // Store selected time
-    currentBooking.time = hour;
-    
-    // Enable continue button
-    document.querySelector('.step-2 .continue-btn').disabled = false;
-}
+// Removed - step navigation is handled in the unified booking system
 
-function setupStepNavigation() {
-    // Continue buttons
-    document.querySelectorAll('.continue-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const currentStep = this.closest('.booking-step');
-            const stepNumber = Array.from(currentStep.parentElement.children).indexOf(currentStep) + 1;
-            
-            if (stepNumber === 1) {
-                // Moving from service to calendar
-                goToStep(2);
-            } else if (stepNumber === 2) {
-                // Moving from calendar to details
-                updateBookingSummary();
-                goToStep(3);
-            }
-        });
-    });
-    
-    // Back buttons
-    document.querySelectorAll('.back-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const currentStep = this.closest('.booking-step');
-            const stepNumber = Array.from(currentStep.parentElement.children).indexOf(currentStep) + 1;
-            
-            if (stepNumber === 2) {
-                goToStep(1);
-            } else if (stepNumber === 3) {
-                goToStep(2);
-            }
-        });
-    });
-}
+// Removed - step navigation is handled by advanceToStep function in the unified system
 
-function goToStep(stepNumber) {
-    // Update step indicators
-    document.querySelectorAll('.step').forEach((step, index) => {
-        if (index + 1 <= stepNumber) {
-            step.classList.add('active');
-        } else {
-            step.classList.remove('active');
-        }
-    });
-    
-    // Show/hide step content
-    document.querySelectorAll('.booking-step').forEach((step, index) => {
-        if (index + 1 === stepNumber) {
-            step.classList.add('active');
-        } else {
-            step.classList.remove('active');
-        }
-    });
-}
+// Removed - booking summary is handled by renderBookingSummary function in the unified system
 
-function updateBookingSummary() {
-    if (currentBooking.serviceData) {
-        document.querySelector('.selected-service').textContent = currentBooking.serviceData.name;
-        document.querySelector('.selected-duration').textContent = currentBooking.serviceData.duration;
-        document.querySelector('.selected-price').textContent = currentBooking.serviceData.price;
-    }
-    
-    if (currentBooking.date) {
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.querySelector('.selected-date').textContent = currentBooking.date.toLocaleDateString('en-US', options);
-    }
-    
-    if (currentBooking.time !== null) {
-        document.querySelector('.selected-time').textContent = formatTime(currentBooking.time);
-    }
-}
-
-function setupFormSubmission() {
-    const appointmentForm = document.getElementById('appointmentForm');
-    if (appointmentForm) {
-        appointmentForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Clear previous errors
-            clearFormErrors();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const appointmentData = {
-                name: formData.get('name')?.trim(),
-                email: formData.get('email')?.trim(),
-                phone: formData.get('phone')?.trim(),
-                service: currentBooking.serviceData.name,
-                date: currentBooking.date.toLocaleDateString(),
-                time: formatTime(currentBooking.time),
-                duration: currentBooking.serviceData.duration,
-                price: currentBooking.serviceData.price,
-                notes: formData.get('notes')?.trim(),
-                newClient: formData.get('new-client') === 'on',
-                consent: formData.get('consent') === 'on'
-            };
-            
-            // Enhanced form validation
-            let isValid = true;
-            
-            // Name validation
-            if (!appointmentData.name || appointmentData.name.length < 2) {
-                showFieldError('name', 'Please enter your full name (at least 2 characters)');
-                isValid = false;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!appointmentData.email) {
-                showFieldError('email', 'Email address is required');
-                isValid = false;
-            } else if (!emailRegex.test(appointmentData.email)) {
-                showFieldError('email', 'Please enter a valid email address');
-                isValid = false;
-            }
-            
-            // Phone validation (enhanced)
-            const phoneRegex = /^\(?([0-9]{3})\)?[-.\s]?([0-9]{3})[-.\s]?([0-9]{4})$/;
-            if (!appointmentData.phone) {
-                showFieldError('phone', 'Phone number is required');
-                isValid = false;
-            } else if (!phoneRegex.test(appointmentData.phone.replace(/\D/g, ''))) {
-                showFieldError('phone', 'Please enter a valid 10-digit phone number');
-                isValid = false;
-            }
-            
-            // Consent validation
-            if (!appointmentData.consent) {
-                alert('Please review and accept our privacy policy to continue.');
-                isValid = false;
-            }
-            
-            if (!isValid) {
-                // Focus on first error field
-                const firstError = document.querySelector('.error-message.show');
-                if (firstError) {
-                    const fieldId = firstError.id.replace('-error', '');
-                    document.getElementById(fieldId)?.focus();
-                }
-                return;
-            }
-            
-            // Submit the appointment
-            submitEnhancedAppointment(appointmentData);
-        });
-        
-        // Real-time validation
-        setupRealTimeValidation();
-    }
-}
-    
-    // Apply phone formatting
-    setTimeout(() => {
-        const phoneInput = document.getElementById('phone');
-        if (phoneInput) {
-            phoneInput.addEventListener('input', function(e) {
-                e.target.value = formatPhoneNumber(e.target.value);
-            });
-        }
-    }, 100);
-}
+// Removed - form submission is handled in the unified booking system via Square integration
 
 // Secure Square Appointments Integration
 function initializeSquareAppointments() {
@@ -768,38 +804,51 @@ function initializeSquareAppointments() {
     initializeSecureSquareIntegration();
 }
 
-// Secure Square integration without exposing credentials
+// Check if Square embed loaded, if not provide fallback
 function initializeSecureSquareIntegration() {
-    // Check if Square is available
-    if (window.Square && window.Square.Appointments) {
-        // Make secure API call to get configuration
-        fetch('/api/square-config')
-            .then(response => response.json())
-            .then(config => {
-                if (config.success) {
-                    window.Square.Appointments.render({
-                        applicationId: config.applicationId,
-                        locationId: config.locationId,
-                        environment: config.environment,
-                        elementId: 'square-appointments-widget',
-                        styles: {
-                            primaryColor: '#f4a87c',
-                            secondaryColor: '#e8906b',
-                            fontFamily: 'Open Sans, sans-serif'
-                        }
-                    });
-                } else {
-                    showCustomBookingSystem();
-                }
-            })
-            .catch(() => {
-                // Fallback to custom booking system
+    console.log('Checking Square Appointments integration...');
+    
+    // Wait for Square embed to load
+    setTimeout(() => {
+        const widgetContainer = document.getElementById('square-appointments-widget');
+        const loadingMessage = widgetContainer.querySelector('.loading-message');
+        
+        // Check if Square widget has loaded content
+        if (widgetContainer.children.length <= 1 || (loadingMessage && loadingMessage.style.display !== 'none')) {
+            console.log('Square embed not detected, trying iframe approach...');
+            
+            // Clear container
+            widgetContainer.innerHTML = '';
+            
+            // Create direct iframe to Square booking site
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://square.site/book/7kl091khfcdu9k/recovery-kneads-llc';
+            iframe.width = '100%';
+            iframe.height = '700px';
+            iframe.style.border = 'none';
+            iframe.style.borderRadius = '12px';
+            iframe.style.backgroundColor = '#ffffff';
+            iframe.title = 'Book Appointment - Recovery Kneads';
+            iframe.loading = 'lazy';
+            
+            // Add loading handler
+            iframe.onload = function() {
+                console.log('Square booking iframe loaded successfully');
+            };
+            
+            iframe.onerror = function() {
+                console.error('Square booking iframe failed, showing fallback');
                 showCustomBookingSystem();
-            });
-    } else {
-        // Square not available, use custom booking system
-        showCustomBookingSystem();
-    }
+            };
+            
+            widgetContainer.appendChild(iframe);
+        } else {
+            console.log('Square embed loaded successfully');
+            if (loadingMessage) {
+                loadingMessage.style.display = 'none';
+            }
+        }
+    }, 3000); // Wait 3 seconds for Square embed to load
 }
 
 // Enhanced custom booking system (fallback)
@@ -814,7 +863,8 @@ function showCustomBookingSystem() {
     // Create custom booking system using secure DOM methods
     const customBookingContainer = generateSecureCustomBookingHTML();
     widgetContainer.appendChild(customBookingContainer);
-    initCalendarBooking();
+    // Use the unified custom booking calendar system
+    // initCalendarBooking(); // Removed - using initCustomBookingCalendar instead
 }
 
 // Generate secure booking HTML using DOM methods (prevents XSS)
@@ -906,7 +956,6 @@ function generateSecureCustomBookingHTML() {
     container.appendChild(securityNotice);
     
     return container;
-}
 }
 
 // Enhanced form validation functions
