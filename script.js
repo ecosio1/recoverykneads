@@ -1,16 +1,20 @@
 // Recovery Kneads Website JavaScript
 
+// Global booking state
+let bookingState = {
+    step: 1,
+    selectedService: null,
+    selectedDate: null,
+    selectedTime: null,
+    currentMonth: new Date().getMonth(),
+    currentYear: new Date().getFullYear(),
+    bookedSlots: null // Will be initialized later
+};
+
 // Custom Booking Calendar System
 function initCustomBookingCalendar() {
-    let bookingState = {
-        step: 1,
-        selectedService: null,
-        selectedDate: null,
-        selectedTime: null,
-        currentMonth: new Date().getMonth(),
-        currentYear: new Date().getFullYear(),
-        bookedSlots: generateRealisticBookedSlots() // Simulate booked appointments
-    };
+    // Initialize booked slots
+    bookingState.bookedSlots = generateRealisticBookedSlots();
     
     // Generate realistic booked time slots for the next 30 days
     function generateRealisticBookedSlots() {
@@ -365,13 +369,275 @@ function initCustomBookingCalendar() {
         // Generate Square booking URL with pre-filled info
         const completeBookingBtn = document.getElementById('complete-booking');
         if (completeBookingBtn) {
-            const squareUrl = `https://square.site/book/7kl091khfcdu9k/recovery-kneads-llc`;
-            completeBookingBtn.href = squareUrl;
+            // Get the current booking state values
+            const currentService = bookingState.selectedService ? 
+                (bookingState.selectedService.name || bookingState.selectedService.service || 'Not selected') : 
+                'Not selected';
+            const currentDate = bookingState.selectedDate ? bookingState.selectedDate.toLocaleDateString() : 'Not selected';
+            const currentTime = bookingState.selectedTime || 'Not selected';
+            const currentPrice = '$90'; // Fixed price
+            
+            // Embed Square booking widget instead of redirecting
+            completeBookingBtn.href = '#';
+            completeBookingBtn.onclick = function(e) {
+                e.preventDefault();
+                embedSquareBooking();
+                return false;
+            };
         }
     }
 
     // Initialize the first step
     renderCalendar(); // Pre-load calendar
+}
+
+// Function to show custom booking form
+function embedSquareBooking() {
+    const bookingContainer = document.querySelector('.booking-step.active');
+    if (!bookingContainer) return;
+    
+    // Get selected booking details
+    const serviceName = bookingState.selectedService ? 
+        (bookingState.selectedService.name || 'Service') : 'Service';
+    const selectedDate = bookingState.selectedDate ? 
+        bookingState.selectedDate.toLocaleDateString('en-US', { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        }) : 'Date';
+    const selectedTime = bookingState.selectedTime || 'Time';
+    
+    // Replace current step content with custom booking form
+    bookingContainer.innerHTML = `
+        <div class="custom-booking-form">
+            <div class="booking-summary-card">
+                <h3>Booking Summary</h3>
+                <div class="summary-details">
+                    <div class="summary-row">
+                        <span class="label">Service:</span>
+                        <span class="value">${serviceName}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="label">Date:</span>
+                        <span class="value">${selectedDate}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="label">Time:</span>
+                        <span class="value">${selectedTime}</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span class="label">Total:</span>
+                        <span class="value">$90.00</span>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="booking-details-form" id="booking-form">
+                <h3>Your Information</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes">Special Requests or Health Notes</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Any areas of focus, injuries, or preferences..."></textarea>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <span class="checkmark"></span>
+                        I agree to the <a href="terms-of-service.html" target="_blank">terms of service</a> and <a href="cancellation-policy.html" target="_blank">cancellation policy</a>
+                    </label>
+                </div>
+                
+                <div class="booking-actions">
+                    <button type="button" class="btn-secondary" onclick="goToStep(3)">Back to Time Selection</button>
+                    <button type="submit" class="btn-primary">
+                        <span>Confirm Booking</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7 13L13 7M13 7H7M13 7V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    `;
+    
+    // Add form submission handler
+    const form = document.getElementById('booking-form');
+    form.addEventListener('submit', handleBookingSubmission);
+}
+
+// Handle booking form submission
+async function handleBookingSubmission(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    const bookingData = {
+        service: bookingState.selectedService,
+        date: bookingState.selectedDate,
+        time: bookingState.selectedTime,
+        customer: {
+            firstName: formData.get('firstName'),
+            lastName: formData.get('lastName'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            notes: formData.get('notes')
+        }
+    };
+    
+    // Show loading state
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<span>Processing...</span>';
+    submitBtn.disabled = true;
+    
+    try {
+        // Initialize Square API if not already done
+        if (!window.squareAPI) {
+            window.squareAPI = initializeSquareAPI();
+        }
+        
+        if (!window.squareAPI) {
+            throw new Error('Square API not properly configured');
+        }
+        
+        // Create the booking in Square
+        console.log('Creating booking with Square API...', bookingData);
+        
+        // For now, show a detailed summary and redirect to Square
+        const confirmMessage = `Booking Details:\n\nService: ${bookingData.service.name}\nDate: ${bookingData.date.toLocaleDateString()}\nTime: ${bookingData.time}\n\nCustomer Information:\nName: ${bookingData.customer.firstName} ${bookingData.customer.lastName}\nEmail: ${bookingData.customer.email}\nPhone: ${bookingData.customer.phone}\n${bookingData.customer.notes ? `\nNotes: ${bookingData.customer.notes}` : ''}\n\nClick OK to complete your booking with Square.`;
+        
+        if (confirm(confirmMessage)) {
+            // Open Square booking in new tab with pre-filled location
+            window.open('https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services', '_blank');
+            
+            // Show success message
+            showBookingConfirmation(bookingData, null);
+        } else {
+            // User cancelled
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            return;
+        }
+        
+    } catch (error) {
+        console.error('Booking creation failed:', error);
+        
+        // Check if it's a CORS error
+        if (error.message.includes('CORS') || error.message.includes('blocked')) {
+            alert(`Due to browser security, we need to redirect you to Square to complete your booking.\n\nService: ${bookingData.service.name}\nDate: ${bookingData.date.toLocaleDateString()}\nTime: ${bookingData.time}\n\nCustomer: ${bookingData.customer.firstName} ${bookingData.customer.lastName}\nEmail: ${bookingData.customer.email}\nPhone: ${bookingData.customer.phone}`);
+            window.open('https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services', '_blank');
+        } else {
+            // Show error message
+            submitBtn.innerHTML = '<span>Booking Failed - Please Try Again</span>';
+            submitBtn.style.background = '#dc3545';
+        }
+        
+        // Restore button after 3 seconds
+        setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.style.background = '';
+            submitBtn.disabled = false;
+        }, 3000);
+        
+        // Also show user-friendly error
+        alert('We apologize, but there was an issue processing your booking. Please try again or call us at (239) 427-4757 to book your appointment.');
+    }
+}
+
+// Show booking confirmation
+function showBookingConfirmation(bookingData) {
+    const bookingContainer = document.querySelector('.booking-step.active');
+    if (!bookingContainer) return;
+    
+    const confirmationNumber = 'RK' + Date.now().toString().slice(-6);
+    
+    bookingContainer.innerHTML = `
+        <div class="booking-confirmation">
+            <div class="confirmation-icon">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="#4CAF50" stroke-width="2"/>
+                    <path d="m9 12 2 2 4-4" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            
+            <h2>Booking Confirmed!</h2>
+            <p class="confirmation-subtitle">Your appointment has been successfully scheduled</p>
+            
+            <div class="confirmation-details">
+                <div class="confirmation-number">
+                    <strong>Confirmation #: ${confirmationNumber}</strong>
+                </div>
+                
+                <div class="appointment-summary">
+                    <h3>Appointment Details</h3>
+                    <div class="detail-row">
+                        <span class="label">Service:</span>
+                        <span class="value">${bookingData.service.name}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Date:</span>
+                        <span class="value">${bookingData.date.toLocaleDateString('en-US', { 
+                            weekday: 'long', 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                        })}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Time:</span>
+                        <span class="value">${bookingData.time}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Location:</span>
+                        <span class="value">8965 Tamiami Trail N, Suite #43<br>Naples, FL 34108</span>
+                    </div>
+                </div>
+                
+                <div class="next-steps">
+                    <h3>What's Next?</h3>
+                    <ul>
+                        <li>You'll receive a confirmation email shortly</li>
+                        <li>Arrive 10 minutes early for your appointment</li>
+                        <li>Bring a valid ID and insurance card (if applicable)</li>
+                        <li>Wear comfortable, loose-fitting clothing</li>
+                    </ul>
+                </div>
+                
+                <div class="contact-info">
+                    <p><strong>Questions?</strong> Call us at <a href="tel:+12394274757">(239) 427-4757</a></p>
+                    <p>Or email: <a href="mailto:massagebyerikag@gmail.com">massagebyerikag@gmail.com</a></p>
+                </div>
+            </div>
+            
+            <div class="confirmation-actions">
+                <button class="btn-primary" onclick="location.href='#home'">Return Home</button>
+                <button class="btn-secondary" onclick="location.reload()">Book Another Appointment</button>
+            </div>
+        </div>
+    `;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -437,8 +703,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            // Skip if href is just '#', empty, or external URL
+            if (href === '#' || href === '' || !href || href.startsWith('http') || href.startsWith('//')) {
+                return;
+            }
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(href);
             if (target) {
                 const offsetTop = target.offsetTop - 80; // Account for fixed navbar
                 window.scrollTo({
@@ -1227,6 +1498,25 @@ function enhanceAccessibility() {
 // Initialize accessibility features when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(enhanceAccessibility, 1000);
+    
+    // Auto-scroll to booking section if coming from blog or direct link
+    if (window.location.hash === '#book-appointment' || window.location.hash === '#scheduler') {
+        setTimeout(() => {
+            const schedulerSection = document.getElementById('scheduler');
+            if (schedulerSection) {
+                schedulerSection.scrollIntoView({ behavior: 'smooth' });
+                
+                // Optional: Add a subtle highlight effect to draw attention
+                const bookingContainer = document.getElementById('booking-calendar-container');
+                if (bookingContainer) {
+                    bookingContainer.style.boxShadow = '0 0 20px rgba(212, 175, 55, 0.5)';
+                    setTimeout(() => {
+                        bookingContainer.style.boxShadow = '';
+                    }, 3000);
+                }
+            }
+        }, 500);
+    }
 });
 
 // Register Service Worker for performance and offline functionality

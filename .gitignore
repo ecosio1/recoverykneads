@@ -45,7 +45,7 @@ coverage/
 
 # Square API Keys - NEVER COMMIT
 square-credentials.json
-square-config.json
+square-config.js
 
 # SSL Certificates
 *.pem

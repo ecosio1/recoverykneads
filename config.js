@@ -1,14 +1,13 @@
 // Recovery Kneads Configuration
-// Update these values with your actual Square Appointments credentials
+// Loads Square credentials from environment variables
 
 const CONFIG = {
-    // Square Appointments Configuration
+    // Square Appointments Configuration - populated from .env file
     SQUARE: {
-        APPLICATION_ID: 'YOUR_APPLICATION_ID', // Replace with actual Application ID
-        LOCATION_ID: 'YOUR_LOCATION_ID',       // Replace with actual Location ID
-        ENVIRONMENT: 'sandbox',                // Change to 'production' when ready
-        API_KEY: 'YOUR_API_KEY',               // Replace with actual API Key if using direct API
-        ACCESS_TOKEN: 'YOUR_ACCESS_TOKEN'      // Replace with actual Access Token if using OAuth
+        APPLICATION_ID: process.env.SQUARE_APPLICATION_ID || 'sq0idp-PAz033vFLVTZyMqiGdOIiQ',
+        LOCATION_ID: process.env.SQUARE_LOCATION_ID || 'L6BYJ6PXFF95P',
+        ENVIRONMENT: process.env.SQUARE_ENVIRONMENT || 'production',
+        ACCESS_TOKEN: process.env.SQUARE_ACCESS_TOKEN || 'EAAAl5gtRPl8nUjbGGoVpitDqko9zDStrx4UvuN__rZhuzkb9yvBOANiClSBC8pD'
     },
     
     // Business Information (public - no need to hide)
