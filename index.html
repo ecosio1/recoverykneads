@@ -459,93 +459,44 @@
                 <h2>Take the First Step Toward Pain-Free Living</h2>
                 <p class="section-subtitle">Your breakthrough session is just a click away. Experience lasting relief with Recovery Kneads' expert therapeutic care.</p>
                 <div class="scheduler-container">
-                    <!-- Custom Booking Calendar -->
-                    <div id="booking-calendar-container" class="booking-calendar-widget">
-                            <div class="calendar-header">
-                                <h3>Select Your Appointment</h3>
-                                <p>Choose a service, date, and time that works for you</p>
-                            </div>
-                            
-                            <!-- Step 1: Service Selection -->
-                            <div class="booking-step active" id="step-service">
-                                <h4>Step 1: Choose Your Service</h4>
-                                <div class="services-grid">
-                                    <div class="service-option" data-service="therapeutic-45" data-price="90" data-duration="45">
-                                        <div class="service-name">Therapeutic Massage</div>
-                                        <div class="service-duration">45 minutes</div>
-                                        <div class="service-price">$90</div>
-                                    </div>
-                                    <div class="service-option" data-service="sports-45" data-price="90" data-duration="45">
-                                        <div class="service-name">Sports Massage</div>
-                                        <div class="service-duration">45 minutes</div>
-                                        <div class="service-price">$90</div>
-                                    </div>
+                    <!-- Simple Square Booking Button -->
+                    <div class="booking-widget" style="text-align: center; padding: 40px 20px; background: white; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="margin-bottom: 15px; font-size: 1.8rem; color: #333;">Book Your Appointment</h3>
+                        <p style="margin-bottom: 30px; color: #666; font-size: 1.1rem;">Click below to schedule your session with our secure online booking system</p>
+                        
+                        <!-- Direct Square Booking Button -->
+                        <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" 
+                           target="_blank" 
+                           class="btn-primary btn-large"
+                           style="display: inline-flex; align-items: center; font-size: 1.2rem; padding: 18px 35px; background: #D4AF37; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);">
+                            <span>Book Your Appointment Now</span>
+                            <svg width="24" height="24" viewBox="0 0 20 20" fill="none" style="margin-left: 10px;">
+                                <path d="M11 3L18 10M18 10L11 17M18 10H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        
+                        <!-- Services Info -->
+                        <div class="services-info" style="margin-top: 40px;">
+                            <h4 style="margin-bottom: 20px; font-size: 1.3rem; color: #333;">Available Services:</h4>
+                            <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto;">
+                                <div class="service-card" style="padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: left;">
+                                    <strong style="color: #333; font-size: 1.1rem;">Therapeutic Massage</strong>
+                                    <div style="color: #666; margin-top: 8px;">45 minutes - $90</div>
+                                </div>
+                                <div class="service-card" style="padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: left;">
+                                    <strong style="color: #333; font-size: 1.1rem;">Deep Tissue Massage</strong>
+                                    <div style="color: #666; margin-top: 8px;">45 minutes - $90</div>
+                                </div>
+                                <div class="service-card" style="padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: left;">
+                                    <strong style="color: #333; font-size: 1.1rem;">Sports Massage</strong>
+                                    <div style="color: #666; margin-top: 8px;">45 minutes - $90</div>
+                                </div>
+                                <div class="service-card" style="padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: left;">
+                                    <strong style="color: #333; font-size: 1.1rem;">Couples Massage</strong>
+                                    <div style="color: #666; margin-top: 8px;">45 min each - $180</div>
                                 </div>
                             </div>
-                            
-                            <!-- Step 2: Date Selection -->
-                            <div class="booking-step" id="step-date">
-                                <h4>Step 2: Pick Your Date</h4>
-                                <div class="calendar-widget">
-                                    <div class="calendar-nav">
-                                        <button class="nav-btn" id="prev-month">&lt;</button>
-                                        <div class="current-month" id="current-month">Loading...</div>
-                                        <button class="nav-btn" id="next-month">&gt;</button>
-                                    </div>
-                                    <div class="calendar-grid">
-                                        <div class="calendar-header-days">
-                                            <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
-                                        </div>
-                                        <div class="calendar-days" id="calendar-days">
-                                            <!-- Calendar days will be populated by JavaScript -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Step 3: Time Selection -->
-                            <div class="booking-step" id="step-time">
-                                <h4>Step 3: Choose Your Time</h4>
-                                <div class="time-slots" id="time-slots">
-                                    <!-- Available time slots will be populated -->
-                                </div>
-                            </div>
-                            
-                            <!-- Step 4: Book via Square -->
-                            <div class="booking-step" id="step-book">
-                                <h4>Step 4: Complete Your Booking</h4>
-                                <div class="booking-summary">
-                                    <div class="summary-item">
-                                        <span class="label">Service:</span>
-                                        <span class="value" id="summary-service">-</span>
-                                    </div>
-                                    <div class="summary-item">
-                                        <span class="label">Date:</span>
-                                        <span class="value" id="summary-date">-</span>
-                                    </div>
-                                    <div class="summary-item">
-                                        <span class="label">Time:</span>
-                                        <span class="value" id="summary-time">-</span>
-                                    </div>
-                                    <div class="summary-item total">
-                                        <span class="label">Total:</span>
-                                        <span class="value" id="summary-price">-</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="booking-actions">
-                                    <button class="btn-secondary" id="back-btn">Back</button>
-                                    <a href="#" class="btn-primary" id="complete-booking" target="_blank">Complete Booking via Square</a>
-                                </div>
-                            </div>
-                            
-                            <!-- Step Navigation -->
-                            <div class="step-progress">
-                                <div class="step-indicator active" data-step="1">1</div>
-                                <div class="step-indicator" data-step="2">2</div>
-                                <div class="step-indicator" data-step="3">3</div>
-                                <div class="step-indicator" data-step="4">4</div>
-                            </div>
+                        </div>
                     </div>
                     <div class="booking-info">
                         <h3>What to Expect</h3>
