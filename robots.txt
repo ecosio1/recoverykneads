@@ -13,8 +13,11 @@ Allow: /index.html
 Allow: /services.html
 Allow: /massage-therapy-naples-fl.html
 Allow: /back-pain-massage-naples.html
-Allow: /prenatal-massage-naples-fl.html
-Allow: /couples-massage-naples-fl.html
+Allow: /therapeutic-massage-naples.html
+Allow: /deep-tissue-massage-naples.html
+Allow: /sports-massage-naples.html
+Allow: /pricing.html
+Allow: /faq.html
 Allow: /north-naples-massage-therapy.html
 Allow: /old-naples-massage-therapy.html
 
