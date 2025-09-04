@@ -1,0 +1,54 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://recoverykneads.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all search engines to index the website
+# Priority pages for faster crawling
+Allow: /index.html
+Allow: /services.html
+Allow: /massage-therapy-naples-fl.html
+Allow: /back-pain-massage-naples.html
+Allow: /prenatal-massage-naples-fl.html
+Allow: /couples-massage-naples-fl.html
+Allow: /north-naples-massage-therapy.html
+Allow: /old-naples-massage-therapy.html
+
+# Block access to any system files if they exist
+Disallow: /.*
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /admin/
+
+# Allow access to CSS, JS, and images for proper rendering
+Allow: *.css
+Allow: *.js
+Allow: *.png
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.gif
+Allow: *.svg
+Allow: *.webp
+
+# Special instructions for specific bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot  
+Allow: /
+Crawl-delay: 2
+
+# Block any aggressive crawlers or scrapers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

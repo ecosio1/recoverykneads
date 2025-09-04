@@ -20,13 +20,15 @@
     <meta property="og:url" content="https://recoverykneads.com/massage-therapy-naples-fl.html">
     <meta property="og:image" content="https://recoverykneads.com/images/massage-therapy-naples-fl.jpg">
     
-    <!-- Schema.org structured data -->
+    <!-- Enhanced Service-Specific Schema.org structured data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
+      "@id": "https://recoverykneads.com/#localbusiness",
       "name": "Recovery Kneads",
-      "description": "Professional massage therapy services in Naples, Florida",
+      "alternateName": "Recovery Kneads Massage Therapy Naples FL",
+      "description": "Professional licensed massage therapy services in Naples, Florida specializing in therapeutic massage, deep tissue, sports massage, prenatal massage, and pain relief treatments.",
       "url": "https://recoverykneads.com",
       "telephone": "+1-239-427-4757",
       "email": "massagebyerikag@gmail.com",
@@ -35,20 +37,157 @@
         "streetAddress": "8965 Tamiami Trail N, Suite #43",
         "addressLocality": "Naples",
         "addressRegion": "FL",
+        "postalCode": "34108",
         "addressCountry": "US"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "26.1420",
-        "longitude": "-81.7948"
+        "latitude": "26.2540",
+        "longitude": "-81.8020"
       },
-      "openingHours": "Mo-Sa 09:00-18:00",
-      "priceRange": "$90-$170",
-      "servedCuisine": [],
-      "hasMap": "https://maps.google.com/?q=Recovery+Kneads+Naples+FL",
-      "areaServed": ["Naples", "North Naples", "Old Naples", "East Naples", "Golden Gate", "Bonita Springs"],
-      "serviceType": "Massage Therapy",
-      "knowsAbout": ["Therapeutic Massage", "Deep Tissue Massage", "Sports Massage", "Prenatal Massage", "Pain Relief"]
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00", 
+          "closes": "16:00"
+        }
+      ],
+      "priceRange": "$120-$170",
+      "paymentAccepted": ["Cash", "Credit Card", "HSA", "FSA"],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Naples",
+          "addressRegion": "FL"
+        },
+        {
+          "@type": "Place",
+          "name": "North Naples",
+          "addressRegion": "FL"
+        },
+        {
+          "@type": "Place", 
+          "name": "Old Naples",
+          "addressRegion": "FL"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Massage Therapy Services Naples FL",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "@id": "https://recoverykneads.com/#therapeutic-massage",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Therapeutic Massage Naples FL",
+              "description": "Professional therapeutic massage for stress relief, muscle relaxation, and overall wellness. Perfect for reducing anxiety and promoting healing.",
+              "provider": {
+                "@id": "https://recoverykneads.com/#localbusiness"
+              },
+              "serviceType": "Therapeutic Massage",
+              "areaServed": {
+                "@type": "City",
+                "name": "Naples", 
+                "addressRegion": "FL"
+              }
+            },
+            "price": "120",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "120",
+              "priceCurrency": "USD",
+              "eligibleDuration": "PT60M"
+            }
+          },
+          {
+            "@type": "Offer",
+            "@id": "https://recoverykneads.com/#deep-tissue-massage",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Deep Tissue Massage Naples FL",
+              "description": "Intensive deep tissue massage targeting chronic pain, muscle knots, and deep-seated tension. Ideal for pain relief and injury recovery.",
+              "provider": {
+                "@id": "https://recoverykneads.com/#localbusiness"
+              },
+              "serviceType": "Deep Tissue Massage",
+              "areaServed": {
+                "@type": "City",
+                "name": "Naples",
+                "addressRegion": "FL"
+              }
+            },
+            "price": "120",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+              "@type": "PriceSpecification", 
+              "price": "120",
+              "priceCurrency": "USD",
+              "eligibleDuration": "PT60M"
+            }
+          },
+          {
+            "@type": "Offer",
+            "@id": "https://recoverykneads.com/#sports-massage",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Sports Massage Naples FL",
+              "description": "Specialized sports massage for athletes and active individuals. Enhances performance, prevents injuries, and speeds recovery.",
+              "provider": {
+                "@id": "https://recoverykneads.com/#localbusiness"
+              },
+              "serviceType": "Sports Massage",
+              "areaServed": {
+                "@type": "City",
+                "name": "Naples",
+                "addressRegion": "FL"
+              }
+            },
+            "price": "120",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "120", 
+              "priceCurrency": "USD",
+              "eligibleDuration": "PT60M"
+            }
+          },
+          {
+            "@type": "Offer",
+            "@id": "https://recoverykneads.com/#prenatal-massage",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Prenatal Massage Naples FL",
+              "description": "Safe, specialized prenatal massage for expecting mothers. Reduces pregnancy discomfort and promotes maternal wellness.",
+              "provider": {
+                "@id": "https://recoverykneads.com/#localbusiness"
+              },
+              "serviceType": "Prenatal Massage",
+              "areaServed": {
+                "@type": "City",
+                "name": "Naples",
+                "addressRegion": "FL"
+              }
+            },
+            "price": "120",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "120",
+              "priceCurrency": "USD", 
+              "eligibleDuration": "PT60M"
+            }
+          }
+        ]
+      }
     }
     </script>
     
@@ -312,21 +451,23 @@
                     <p>Professional massage therapy in Naples, FL. Licensed massage therapist dedicated to your wellness and recovery.</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Massage Services</h4>
+                    <h4>Specialized Massage Services</h4>
                     <ul>
+                        <li><a href="back-pain-massage-naples.html">Back Pain Relief Massage</a></li>
+                        <li><a href="prenatal-massage-naples-fl.html">Prenatal Massage Naples FL</a></li>
+                        <li><a href="couples-massage-naples-fl.html">Couples Massage Naples FL</a></li>
                         <li><a href="therapeutic-massage-naples.html">Therapeutic Massage</a></li>
                         <li><a href="deep-tissue-massage-naples.html">Deep Tissue Massage</a></li>
-                        <li><a href="sports-massage-naples.html">Sports Massage</a></li>
-                        <li><a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" target="_blank">Book Now</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Naples Service Areas</h4>
                     <ul>
-                        <li>North Naples Massage</li>
-                        <li>Old Naples Massage</li>
-                        <li>East Naples Massage</li>
-                        <li>Golden Gate Massage</li>
+                        <li><a href="north-naples-massage-therapy.html">North Naples Massage Therapy</a></li>
+                        <li><a href="old-naples-massage-therapy.html">Old Naples Historic District</a></li>
+                        <li><a href="sports-massage-naples.html">Sports Massage Naples FL</a></li>
+                        <li><a href="services.html">View All Services</a></li>
+                        <li><a href="contact.html">Contact & Directions</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
