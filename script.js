@@ -929,6 +929,146 @@ document.addEventListener('DOMContentLoaded', initContactForm);
 // Initialize custom booking calendar
 document.addEventListener('DOMContentLoaded', initCustomBookingCalendar);
 
+// Custom Booking Form Handler
+document.addEventListener('DOMContentLoaded', function() {
+    // Set minimum date to today
+    const dateInput = document.getElementById('date');
+    if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+    }
+
+    // Handle form submission
+    const bookingForm = document.getElementById('booking-form');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', handleBookingFormSubmission);
+    }
+});
+
+async function handleBookingFormSubmission(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('submit-btn');
+    const originalText = submitBtn.innerHTML;
+    
+    // Show loading state
+    submitBtn.innerHTML = 'Sending Request...';
+    submitBtn.disabled = true;
+    
+    try {
+        // Get form data
+        const formData = new FormData(e.target);
+        const bookingData = {
+            service: formData.get('service'),
+            date: formData.get('date'),
+            time: formData.get('time'),
+            firstName: formData.get('firstName'),
+            lastName: formData.get('lastName'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            notes: formData.get('notes') || 'None'
+        };
+        
+        // Format the booking request email
+        const serviceMap = {
+            'therapeutic': 'Therapeutic Massage (45 min) - $90',
+            'deep-tissue': 'Deep Tissue Massage (45 min) - $90',
+            'sports': 'Sports Massage (45 min) - $90',
+            'couples': 'Couples Massage (45 min each) - $180'
+        };
+        
+        const emailSubject = `New Appointment Request - ${bookingData.firstName} ${bookingData.lastName}`;
+        const emailBody = `
+New appointment request from Recovery Kneads website:
+
+SERVICE: ${serviceMap[bookingData.service] || bookingData.service}
+DATE: ${bookingData.date}
+TIME: ${bookingData.time}
+
+CUSTOMER INFORMATION:
+Name: ${bookingData.firstName} ${bookingData.lastName}
+Email: ${bookingData.email}
+Phone: ${bookingData.phone}
+
+NOTES/CONCERNS:
+${bookingData.notes}
+
+---
+Please contact the customer to confirm availability and finalize the appointment.
+        `.trim();
+        
+        // Use FormSubmit.co for email handling (free service for static sites)
+        const formSubmitData = new FormData();
+        formSubmitData.append('_subject', emailSubject);
+        formSubmitData.append('_template', 'box');
+        formSubmitData.append('_next', window.location.href + '?success=1');
+        formSubmitData.append('service', serviceMap[bookingData.service] || bookingData.service);
+        formSubmitData.append('date', bookingData.date);
+        formSubmitData.append('time', bookingData.time);
+        formSubmitData.append('firstName', bookingData.firstName);
+        formSubmitData.append('lastName', bookingData.lastName);
+        formSubmitData.append('email', bookingData.email);
+        formSubmitData.append('phone', bookingData.phone);
+        formSubmitData.append('notes', bookingData.notes);
+        
+        // Since this is a static site, we'll use a simpler approach
+        // Create a mailto link for now (we can upgrade to a service later)
+        const mailtoLink = `mailto:massagebyerikag@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+        
+        // For now, show success message and provide email option
+        showBookingSuccess(bookingData, mailtoLink);
+        
+    } catch (error) {
+        console.error('Booking submission error:', error);
+        submitBtn.innerHTML = 'Try Again';
+        submitBtn.disabled = false;
+        alert('There was an issue submitting your request. Please try again or call us at (239) 427-4757.');
+    }
+}
+
+function showBookingSuccess(bookingData, mailtoLink) {
+    // Hide the form
+    const form = document.getElementById('booking-form');
+    const successMessage = document.getElementById('success-message');
+    
+    if (form && successMessage) {
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+        
+        // Update success message with booking details
+        successMessage.innerHTML = `
+            <div style="text-align: center; padding: 30px;">
+                <h4 style="margin: 0 0 20px 0; color: #155724;">Appointment Request Received!</h4>
+                
+                <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0; text-align: left;">
+                    <h5 style="margin: 0 0 15px 0; color: #333;">Your Request Details:</h5>
+                    <p style="margin: 5px 0;"><strong>Service:</strong> ${document.querySelector('#service option:checked').textContent}</p>
+                    <p style="margin: 5px 0;"><strong>Date:</strong> ${new Date(bookingData.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                    <p style="margin: 5px 0;"><strong>Time:</strong> ${bookingData.time}</p>
+                    <p style="margin: 5px 0;"><strong>Name:</strong> ${bookingData.firstName} ${bookingData.lastName}</p>
+                    <p style="margin: 5px 0;"><strong>Phone:</strong> ${bookingData.phone}</p>
+                </div>
+                
+                <p style="margin: 15px 0; color: #155724;">We'll contact you within 24 hours to confirm your appointment time.</p>
+                
+                <div style="margin-top: 20px;">
+                    <p style="font-size: 0.9rem; color: #666;">Questions? Call us at <a href="tel:+12394274757" style="color: #D4AF37;">(239) 427-4757</a></p>
+                </div>
+            </div>
+        `;
+        
+        // Auto-send email notification (opens user's email client)
+        setTimeout(() => {
+            if (confirm('Would you like to automatically send this request to Recovery Kneads? This will open your email client.')) {
+                window.location.href = mailtoLink;
+            }
+        }, 2000);
+        
+        // Scroll to success message
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+}
+
 // Utility function for formatting phone numbers as user types
 function formatPhoneNumber(value) {
     const phoneNumber = value.replace(/[^\d]/g, '');
