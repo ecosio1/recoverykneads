@@ -459,43 +459,33 @@
                 <h2>Take the First Step Toward Pain-Free Living</h2>
                 <p class="section-subtitle">Your breakthrough session is just a click away. Experience lasting relief with Recovery Kneads' expert therapeutic care.</p>
                 <div class="scheduler-container">
-                    <!-- Simple Square Booking Button -->
-                    <div class="booking-widget" style="text-align: center; padding: 40px 20px; background: white; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                        <h3 style="margin-bottom: 15px; font-size: 1.8rem; color: #333;">Book Your Appointment</h3>
-                        <p style="margin-bottom: 30px; color: #666; font-size: 1.1rem;">Click below to schedule your session with our secure online booking system</p>
+                    <!-- Embedded Square Booking -->
+                    <div class="booking-widget" style="padding: 20px; background: white; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="text-align: center; margin-bottom: 20px; font-size: 1.8rem; color: #333;">Book Your Appointment</h3>
+                        <p style="text-align: center; margin-bottom: 30px; color: #666; font-size: 1.1rem;">Select your service and preferred time below</p>
                         
-                        <!-- Direct Square Booking Button -->
-                        <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" 
-                           target="_blank" 
-                           class="btn-primary btn-large"
-                           style="display: inline-flex; align-items: center; font-size: 1.2rem; padding: 18px 35px; background: #D4AF37; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);">
-                            <span>Book Your Appointment Now</span>
-                            <svg width="24" height="24" viewBox="0 0 20 20" fill="none" style="margin-left: 10px;">
-                                <path d="M11 3L18 10M18 10L11 17M18 10H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
+                        <!-- Square Booking Iframe -->
+                        <div style="width: 100%; max-width: 100%; margin: 0 auto;">
+                            <iframe 
+                                src="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" 
+                                style="width: 100%; height: 800px; border: none; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);"
+                                title="Book an appointment with Recovery Kneads"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
                         
-                        <!-- Services Info -->
-                        <div class="services-info" style="margin-top: 40px;">
-                            <h4 style="margin-bottom: 20px; font-size: 1.3rem; color: #333;">Available Services:</h4>
-                            <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto;">
-                                <div class="service-card" style="padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: left;">
-                                    <strong style="color: #333; font-size: 1.1rem;">Therapeutic Massage</strong>
-                                    <div style="color: #666; margin-top: 8px;">45 minutes - $90</div>
-                                </div>
-                                <div class="service-card" style="padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: left;">
-                                    <strong style="color: #333; font-size: 1.1rem;">Deep Tissue Massage</strong>
-                                    <div style="color: #666; margin-top: 8px;">45 minutes - $90</div>
-                                </div>
-                                <div class="service-card" style="padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: left;">
-                                    <strong style="color: #333; font-size: 1.1rem;">Sports Massage</strong>
-                                    <div style="color: #666; margin-top: 8px;">45 minutes - $90</div>
-                                </div>
-                                <div class="service-card" style="padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: left;">
-                                    <strong style="color: #333; font-size: 1.1rem;">Couples Massage</strong>
-                                    <div style="color: #666; margin-top: 8px;">45 min each - $180</div>
-                                </div>
-                            </div>
+                        <!-- Fallback Info -->
+                        <div style="text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
+                            <p style="color: #999; font-size: 0.9rem;">
+                                Having trouble with the booking form? 
+                                <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" 
+                                   target="_blank" 
+                                   style="color: #D4AF37; text-decoration: underline;">
+                                    Click here to open in a new window
+                                </a> 
+                                or call us at <a href="tel:+12394274757" style="color: #D4AF37;">(239) 427-4757</a>
+                            </p>
                         </div>
                     </div>
                     <div class="booking-info">
