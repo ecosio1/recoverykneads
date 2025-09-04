@@ -15,42 +15,150 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Deep Tissue Massage",
-        "description": "Professional deep tissue massage therapy in Naples, FL for chronic pain relief and muscle tension",
-        "provider": {
-            "@type": "LocalBusiness",
-            "name": "Recovery Kneads",
-            "telephone": "(239) 427-4757",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "8965 Tamiami Trail N, Suite #43",
-                "addressLocality": "Naples",
-                "addressRegion": "FL",
-                "postalCode": "34108"
+        "@type": "LocalBusiness",
+        "@id": "https://recoverykneads.com/#localbusiness",
+        "name": "Recovery Kneads",
+        "alternateName": "Recovery Kneads Massage Therapy Naples FL",
+        "description": "Professional licensed massage therapy services in Naples, Florida specializing in therapeutic massage, deep tissue, and sports massage for pain relief and wellness.",
+        "url": "https://recoverykneads.com",
+        "telephone": "+1-239-427-4757",
+        "email": "massagebyerikag@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "8965 Tamiami Trail N, Suite #43",
+            "addressLocality": "Naples",
+            "addressRegion": "FL",
+            "postalCode": "34108",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "26.2540",
+            "longitude": "-81.8020"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "09:00", 
+                "closes": "16:00"
             }
-        },
-        "offers": {
-            "@type": "Offer",
-            "price": "90",
-            "priceCurrency": "USD",
-            "description": "45-minute deep tissue massage session"
-        },
-        "serviceType": "Deep Tissue Massage Therapy",
+        ],
+        "priceRange": "$90-$170",
+        "paymentAccepted": ["Cash", "Credit Card", "HSA", "FSA"],
         "areaServed": [
             {
+                "@type": "City",
+                "name": "Naples",
+                "addressRegion": "FL"
+            },
+            {
                 "@type": "Place",
-                "name": "Naples, FL"
+                "name": "North Naples",
+                "addressRegion": "FL"
             },
             {
                 "@type": "Place", 
-                "name": "North Naples, FL"
-            },
-            {
-                "@type": "Place",
-                "name": "Collier County, FL"
+                "name": "Old Naples",
+                "addressRegion": "FL"
             }
-        ]
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Deep Tissue Massage Services Naples FL",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "@id": "https://recoverykneads.com/#deep-tissue-massage-45",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Deep Tissue Massage - 45 Minutes",
+                        "description": "Intensive deep tissue massage targeting chronic pain, muscle knots, and deep-seated tension.",
+                        "provider": {
+                            "@id": "https://recoverykneads.com/#localbusiness"
+                        },
+                        "serviceType": "Deep Tissue Massage"
+                    },
+                    "price": "90",
+                    "priceCurrency": "USD",
+                    "priceSpecification": {
+                        "@type": "PriceSpecification",
+                        "price": "90",
+                        "priceCurrency": "USD",
+                        "eligibleDuration": "PT45M"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "@id": "https://recoverykneads.com/#deep-tissue-massage-60",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Deep Tissue Massage - 60 Minutes",
+                        "description": "Intensive deep tissue massage targeting chronic pain, muscle knots, and deep-seated tension.",
+                        "provider": {
+                            "@id": "https://recoverykneads.com/#localbusiness"
+                        },
+                        "serviceType": "Deep Tissue Massage"
+                    },
+                    "price": "120",
+                    "priceCurrency": "USD",
+                    "priceSpecification": {
+                        "@type": "PriceSpecification",
+                        "price": "120",
+                        "priceCurrency": "USD",
+                        "eligibleDuration": "PT60M"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "@id": "https://recoverykneads.com/#deep-tissue-massage-75",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Deep Tissue Massage - 75 Minutes",
+                        "description": "Intensive deep tissue massage targeting chronic pain, muscle knots, and deep-seated tension.",
+                        "provider": {
+                            "@id": "https://recoverykneads.com/#localbusiness"
+                        },
+                        "serviceType": "Deep Tissue Massage"
+                    },
+                    "price": "145",
+                    "priceCurrency": "USD",
+                    "priceSpecification": {
+                        "@type": "PriceSpecification",
+                        "price": "145",
+                        "priceCurrency": "USD",
+                        "eligibleDuration": "PT75M"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "@id": "https://recoverykneads.com/#deep-tissue-massage-90",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Deep Tissue Massage - 90 Minutes",
+                        "description": "Intensive deep tissue massage targeting chronic pain, muscle knots, and deep-seated tension.",
+                        "provider": {
+                            "@id": "https://recoverykneads.com/#localbusiness"
+                        },
+                        "serviceType": "Deep Tissue Massage"
+                    },
+                    "price": "170",
+                    "priceCurrency": "USD",
+                    "priceSpecification": {
+                        "@type": "PriceSpecification",
+                        "price": "170",
+                        "priceCurrency": "USD",
+                        "eligibleDuration": "PT90M"
+                    }
+                }
+            ]
+        }
     }
     </script>
     

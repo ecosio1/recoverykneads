@@ -33,6 +33,70 @@
                 "addressRegion": "FL",
                 "postalCode": "34108",
                 "addressCountry": "US"
+            },
+            "openingHoursSpecification": [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "09:00",
+                    "closes": "18:00"
+                },
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": "Saturday",
+                    "opens": "09:00",
+                    "closes": "16:00"
+                }
+            ],
+            "priceRange": "$90-$170",
+            "paymentAccepted": ["Cash", "Credit Card", "HSA", "FSA"],
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Massage Therapy Services Naples FL",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Therapeutic Massage",
+                            "serviceType": "Therapeutic Massage"
+                        },
+                        "priceSpecification": {
+                            "@type": "PriceSpecification",
+                            "minPrice": "90",
+                            "maxPrice": "170",
+                            "priceCurrency": "USD"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Deep Tissue Massage",
+                            "serviceType": "Deep Tissue Massage"
+                        },
+                        "priceSpecification": {
+                            "@type": "PriceSpecification",
+                            "minPrice": "90",
+                            "maxPrice": "170",
+                            "priceCurrency": "USD"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Sports Massage",
+                            "serviceType": "Sports Massage"
+                        },
+                        "priceSpecification": {
+                            "@type": "PriceSpecification",
+                            "minPrice": "90",
+                            "maxPrice": "170",
+                            "priceCurrency": "USD"
+                        }
+                    }
+                ]
             }
         }
     }
