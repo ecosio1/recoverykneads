@@ -459,95 +459,55 @@
                 <h2>Take the First Step Toward Pain-Free Living</h2>
                 <p class="section-subtitle">Your breakthrough session is just a click away. Experience lasting relief with Recovery Kneads' expert therapeutic care.</p>
                 <div class="scheduler-container">
-                    <!-- Custom Booking Form -->
-                    <div class="booking-widget" style="padding: 30px; background: white; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 800px; margin: 0 auto;">
-                        <h3 style="text-align: center; margin-bottom: 20px; font-size: 1.8rem; color: #333;">Book Your Appointment</h3>
-                        <p style="text-align: center; margin-bottom: 30px; color: #666; font-size: 1.1rem;">Fill out the form below to request your appointment. We'll confirm availability and send you a confirmation.</p>
+                    <!-- Square Booking Integration -->
+                    <div class="booking-widget" style="text-align: center; padding: 40px 20px; background: white; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="margin-bottom: 15px; font-size: 1.8rem; color: #333;">Book Your Appointment</h3>
+                        <p style="margin-bottom: 30px; color: #666; font-size: 1.1rem;">Schedule your session with our secure Square booking system</p>
                         
-                        <!-- Booking Form -->
-                        <form id="booking-form" style="display: grid; gap: 20px;">
-                            <!-- Service Selection -->
-                            <div style="display: grid; gap: 8px;">
-                                <label for="service" style="font-weight: 600; color: #333;">Select Service *</label>
-                                <select id="service" name="service" required style="padding: 12px; border: 2px solid #e5e5e5; border-radius: 6px; font-size: 1rem; background: white;">
-                                    <option value="">Choose your service...</option>
-                                    <option value="therapeutic">Therapeutic Massage (45 min) - $90</option>
-                                    <option value="deep-tissue">Deep Tissue Massage (45 min) - $90</option>
-                                    <option value="sports">Sports Massage (45 min) - $90</option>
-                                    <option value="couples">Couples Massage (45 min each) - $180</option>
-                                </select>
-                            </div>
-                            
-                            <!-- Date and Time -->
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                                <div style="display: grid; gap: 8px;">
-                                    <label for="date" style="font-weight: 600; color: #333;">Preferred Date *</label>
-                                    <input type="date" id="date" name="date" required style="padding: 12px; border: 2px solid #e5e5e5; border-radius: 6px; font-size: 1rem;" min="">
-                                </div>
-                                <div style="display: grid; gap: 8px;">
-                                    <label for="time" style="font-weight: 600; color: #333;">Preferred Time *</label>
-                                    <select id="time" name="time" required style="padding: 12px; border: 2px solid #e5e5e5; border-radius: 6px; font-size: 1rem; background: white;">
-                                        <option value="">Select time...</option>
-                                        <option value="9:00 AM">9:00 AM</option>
-                                        <option value="10:00 AM">10:00 AM</option>
-                                        <option value="11:00 AM">11:00 AM</option>
-                                        <option value="12:00 PM">12:00 PM</option>
-                                        <option value="1:00 PM">1:00 PM</option>
-                                        <option value="2:00 PM">2:00 PM</option>
-                                        <option value="3:00 PM">3:00 PM</option>
-                                        <option value="4:00 PM">4:00 PM</option>
-                                        <option value="5:00 PM">5:00 PM</option>
-                                        <option value="6:00 PM">6:00 PM</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <!-- Customer Information -->
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                                <div style="display: grid; gap: 8px;">
-                                    <label for="firstName" style="font-weight: 600; color: #333;">First Name *</label>
-                                    <input type="text" id="firstName" name="firstName" required style="padding: 12px; border: 2px solid #e5e5e5; border-radius: 6px; font-size: 1rem;">
-                                </div>
-                                <div style="display: grid; gap: 8px;">
-                                    <label for="lastName" style="font-weight: 600; color: #333;">Last Name *</label>
-                                    <input type="text" id="lastName" name="lastName" required style="padding: 12px; border: 2px solid #e5e5e5; border-radius: 6px; font-size: 1rem;">
-                                </div>
-                            </div>
-                            
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                                <div style="display: grid; gap: 8px;">
-                                    <label for="email" style="font-weight: 600; color: #333;">Email Address *</label>
-                                    <input type="email" id="email" name="email" required style="padding: 12px; border: 2px solid #e5e5e5; border-radius: 6px; font-size: 1rem;">
-                                </div>
-                                <div style="display: grid; gap: 8px;">
-                                    <label for="phone" style="font-weight: 600; color: #333;">Phone Number *</label>
-                                    <input type="tel" id="phone" name="phone" required style="padding: 12px; border: 2px solid #e5e5e5; border-radius: 6px; font-size: 1rem;">
-                                </div>
-                            </div>
-                            
-                            <!-- Additional Information -->
-                            <div style="display: grid; gap: 8px;">
-                                <label for="notes" style="font-weight: 600; color: #333;">Any specific areas of concern or preferences?</label>
-                                <textarea id="notes" name="notes" rows="3" style="padding: 12px; border: 2px solid #e5e5e5; border-radius: 6px; font-size: 1rem; resize: vertical;" placeholder="Let us know about any pain areas, pressure preferences, or other details..."></textarea>
-                            </div>
-                            
-                            <!-- Submit Button -->
-                            <button type="submit" id="submit-btn" style="padding: 18px 30px; background: #D4AF37; color: white; border: none; border-radius: 8px; font-size: 1.2rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-top: 10px;">
-                                Request Appointment
-                            </button>
-                            
-                            <!-- Payment Info -->
-                            <div style="text-align: center; padding: 15px; background: #f8f9fa; border-radius: 6px; margin-top: 10px;">
-                                <p style="margin: 0; color: #666; font-size: 0.95rem;">
-                                    <strong>Payment:</strong> You'll pay after your appointment. We accept cash, card, HSA/FSA, and select insurance plans.
-                                </p>
-                            </div>
-                        </form>
+                        <!-- Square Booking Button -->
+                        <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" 
+                           target="_blank" 
+                           class="btn-primary btn-large"
+                           style="display: inline-flex; align-items: center; font-size: 1.2rem; padding: 18px 35px; background: #D4AF37; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);">
+                            <span>Book Your Appointment Now</span>
+                            <svg width="24" height="24" viewBox="0 0 20 20" fill="none" style="margin-left: 10px;">
+                                <path d="M11 3L18 10M18 10L11 17M18 10H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
                         
-                        <!-- Success Message (hidden initially) -->
-                        <div id="success-message" style="display: none; text-align: center; padding: 30px; background: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; color: #155724;">
-                            <h4 style="margin: 0 0 10px 0;">Appointment Request Submitted!</h4>
-                            <p style="margin: 0;">We'll contact you within 24 hours to confirm your appointment time and answer any questions.</p>
+                        <!-- Services Info -->
+                        <div class="services-info" style="margin-top: 40px;">
+                            <h4 style="margin-bottom: 20px; font-size: 1.3rem; color: #333;">Available Services:</h4>
+                            <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto;">
+                                <div class="service-card" style="padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: left;">
+                                    <strong style="color: #333; font-size: 1.1rem;">Therapeutic Massage</strong>
+                                    <div style="color: #666; margin-top: 8px;">45 minutes - $90</div>
+                                </div>
+                                <div class="service-card" style="padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: left;">
+                                    <strong style="color: #333; font-size: 1.1rem;">Deep Tissue Massage</strong>
+                                    <div style="color: #666; margin-top: 8px;">45 minutes - $90</div>
+                                </div>
+                                <div class="service-card" style="padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: left;">
+                                    <strong style="color: #333; font-size: 1.1rem;">Sports Massage</strong>
+                                    <div style="color: #666; margin-top: 8px;">45 minutes - $90</div>
+                                </div>
+                                <div class="service-card" style="padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: left;">
+                                    <strong style="color: #333; font-size: 1.1rem;">Couples Massage</strong>
+                                    <div style="color: #666; margin-top: 8px;">45 min each - $180</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- What to Expect -->
+                        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: left;">
+                            <h4 style="margin: 0 0 15px 0; color: #333;">What to Expect:</h4>
+                            <ul style="margin: 0; padding-left: 20px; color: #666;">
+                                <li>Select your preferred service and time slot</li>
+                                <li>Automatic confirmation email and text reminders</li>
+                                <li>Professional scheduling through Square</li>
+                                <li>Pay after your appointment (cash, card, HSA/FSA accepted)</li>
+                                <li>Flexible 24-hour cancellation policy</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="booking-info">
