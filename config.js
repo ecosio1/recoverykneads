@@ -1,13 +1,13 @@
 // Recovery Kneads Configuration
-// Loads Square credentials from environment variables
+// Public configuration only - no sensitive credentials
 
 const CONFIG = {
-    // Square Appointments Configuration - populated from .env file
+    // Square Appointments Configuration - Public URLs only
     SQUARE: {
-        APPLICATION_ID: process.env.SQUARE_APPLICATION_ID || 'sq0idp-PAz033vFLVTZyMqiGdOIiQ',
-        LOCATION_ID: process.env.SQUARE_LOCATION_ID || 'L6BYJ6PXFF95P',
-        ENVIRONMENT: process.env.SQUARE_ENVIRONMENT || 'production',
-        ACCESS_TOKEN: process.env.SQUARE_ACCESS_TOKEN || 'EAAAl5gtRPl8nUjbGGoVpitDqko9zDStrx4UvuN__rZhuzkb9yvBOANiClSBC8pD'
+        // Direct booking URL for your Square appointments page
+        BOOKING_URL: 'https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services',
+        LOCATION_ID: 'L6BYJ6PXFF95P',
+        ENVIRONMENT: 'production'
     },
     
     // Business Information (public - no need to hide)

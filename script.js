@@ -391,22 +391,11 @@ function initCustomBookingCalendar() {
     renderCalendar(); // Pre-load calendar
 }
 
-// Function to show custom booking form
+// Function to show Square booking (simplified)
 function embedSquareBooking() {
-    const bookingContainer = document.querySelector('.booking-step.active');
-    if (!bookingContainer) return;
-    
-    // Get selected booking details
-    const serviceName = bookingState.selectedService ? 
-        (bookingState.selectedService.name || 'Service') : 'Service';
-    const selectedDate = bookingState.selectedDate ? 
-        bookingState.selectedDate.toLocaleDateString('en-US', { 
-            weekday: 'long', 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
-        }) : 'Date';
-    const selectedTime = bookingState.selectedTime || 'Time';
+    // Simply redirect to Square booking page
+    window.open(CONFIG.SQUARE.BOOKING_URL, '_blank');
+    return;
     
     // Replace current step content with custom booking form
     bookingContainer.innerHTML = `
