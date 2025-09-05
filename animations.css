@@ -1,0 +1,557 @@
+/* Enhanced Animation Styles for Recovery Kneads */
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+    40%, 43% {
+        transform: translate3d(0, -8px, 0);
+    }
+    70% {
+        transform: translate3d(0, -4px, 0);
+    }
+    90% {
+        transform: translate3d(0, -2px, 0);
+    }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Enhanced Button Animations */
+button, .btn, .cta-button, a[role="button"] {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+}
+
+button:hover, .btn:hover, .cta-button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(244, 168, 124, 0.3);
+}
+
+button:active, .btn:active, .cta-button:active {
+    transform: translateY(0) scale(0.98);
+    transition-duration: 0.2s;
+}
+
+/* Ripple Effect */
+button::after, .btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s, height 0.5s;
+    pointer-events: none;
+}
+
+button:active::after, .btn:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Form Element Animations */
+input, textarea, select {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+input:focus, textarea:focus, select:focus {
+    transform: scale(1.01);
+    box-shadow: 0 0 0 3px rgba(244, 168, 124, 0.1);
+    border-color: #f4a87c;
+}
+
+/* Card Hover Effects */
+.service-card, .testimonial-card, .pricing-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+}
+
+.service-card:hover, .testimonial-card:hover, .pricing-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Navigation Link Animations */
+.nav-menu a {
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-menu a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: #f4a87c;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-menu a:hover::before, .nav-menu a:focus::before {
+    left: 0;
+}
+
+/* Mobile Menu Animation */
+@media (max-width: 768px) {
+    .nav-menu {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .nav-menu.active {
+        animation: slideInRight 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    .hamburger {
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .hamburger:active {
+        transform: scale(0.9);
+    }
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: inline-block;
+    animation: spin 1s linear infinite;
+}
+
+/* Calendar Animations */
+.calendar-day {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calendar-day:hover:not(.disabled):not(.past-date) {
+    transform: scale(1.1);
+    background-color: rgba(244, 168, 124, 0.1);
+}
+
+.calendar-day.selected {
+    animation: pulse 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Time Slot Animations */
+.time-slot {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.time-slot:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(244, 168, 124, 0.2);
+}
+
+.time-slot.selected {
+    animation: bounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Success Message */
+.success-message {
+    animation: slideInUp 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Header Animation */
+#main-header {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#main-header.header-hidden {
+    transform: translateY(-100%);
+}
+
+/* Scroll Progress */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #f4a87c 0%, #e8906b 100%);
+    z-index: 9999;
+    transition: width 0.2s linear;
+}
+
+/* Staggered Animation Classes */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Interactive Elements */
+.interactive-element {
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-element:hover {
+    transform: translateY(-1px);
+}
+
+.interactive-element:active {
+    transform: translateY(0);
+}
+
+/* Booking Flow Animations */
+.booking-step {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.booking-step.active {
+    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Service Card Selection */
+.service-option.selected {
+    animation: pulse 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border-color: #f4a87c !important;
+    box-shadow: 0 8px 25px rgba(244, 168, 124, 0.3) !important;
+}
+
+/* Page Transitions */
+.page-transition-enter {
+    animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-transition-exit {
+    animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) reverse;
+}
+
+/* Logo Styling */
+.header-logo {
+    height: 60px;
+    width: auto;
+    max-width: 100%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-logo:hover {
+    transform: scale(1.02);
+    filter: brightness(1.05);
+}
+
+.header-icon {
+    height: 60px;
+    width: auto;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-icon:hover {
+    transform: scale(1.02);
+    filter: brightness(1.05);
+}
+
+/* Responsive Logo */
+@media (max-width: 768px) {
+    .header-logo {
+        height: 50px;
+    }
+    .header-icon {
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-logo {
+        height: 45px;
+    }
+    .header-icon {
+        height: 45px;
+    }
+}
+
+/* FAQ Page Styles */
+.faq-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.faq-category-btn {
+    background: white;
+    border: 2px solid #e5e5e5;
+    color: #666;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+}
+
+.faq-category-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(244, 168, 124, 0.2);
+    border-color: #f4a87c;
+}
+
+.faq-category-btn.active {
+    background: #f4a87c;
+    border-color: #f4a87c;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(244, 168, 124, 0.3);
+}
+
+.faq-search {
+    max-width: 600px;
+    margin: 0 auto 50px;
+}
+
+.faq-search input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #e5e5e5;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-search input:focus {
+    outline: none;
+    border-color: #f4a87c;
+    box-shadow: 0 0 0 3px rgba(244, 168, 124, 0.1);
+    transform: scale(1.01);
+}
+
+.faq-section {
+    margin-bottom: 50px;
+}
+
+.faq-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #8b4a3b;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+}
+
+.faq-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #f4a87c 0%, #e8906b 100%);
+    border-radius: 2px;
+}
+
+.faq-item {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.faq-item.active {
+    border-color: #f4a87c;
+    box-shadow: 0 8px 25px rgba(244, 168, 124, 0.15);
+}
+
+.faq-question {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 20px 25px;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-question:hover {
+    color: #f4a87c;
+    background: rgba(244, 168, 124, 0.05);
+}
+
+.faq-question span:first-child {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f4a87c;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(244, 168, 124, 0.1);
+}
+
+.faq-item.active .faq-icon {
+    background: #f4a87c;
+    color: white;
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-answer > div {
+    padding: 0 25px 25px;
+}
+
+.faq-answer p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.faq-answer ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.faq-answer li {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.faq-answer strong {
+    color: #8b4a3b;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .faq-categories {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    .faq-category-btn {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+    }
+    
+    .faq-question {
+        padding: 16px 20px;
+        font-size: 1rem;
+    }
+    
+    .faq-question span:first-child {
+        margin-right: 15px;
+    }
+    
+    .faq-answer > div {
+        padding: 0 20px 20px;
+    }
+    
+    .faq-section-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

@@ -39,15 +39,21 @@
         "openingHoursSpecification": [
             {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "dayOfWeek": ["Monday", "Tuesday"],
                 "opens": "09:00",
-                "closes": "18:00"
+                "closes": "16:30"
             },
             {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Saturday",
-                "opens": "09:00", 
-                "closes": "16:00"
+                "dayOfWeek": "Wednesday",
+                "opens": "09:00",
+                "closes": "13:30"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Friday",
+                "opens": "09:00",
+                "closes": "16:30"
             }
         ],
         "priceRange": "$90-$170",
@@ -335,60 +341,56 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
 </head>
-<body>
+<body style="padding-top: 100px;">
     <!-- Skip Navigation -->
-    <!-- Conversion-Optimized Top Bar -->
-    <div style="background: #8b4a3b; color: white; padding: 10px 0; font-size: 0.9rem; position: sticky; top: 0; z-index: 1000;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-            <div style="display: flex; align-items: center; gap: 8px;">
+    <!-- Combined Auto-Hide Header -->
+    <header id="main-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: transform 0.3s ease-in-out;">
+        <!-- Announcement Bar -->
+        <div style="background: #8b4a3b; color: white; padding: 8px 0; font-size: 0.9rem; text-align: center;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
                 <span style="color: #4CAF50;">●</span>
                 <span>Same-Day Appointments Available</span>
-            </div>
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <a href="tel:239-427-4757" style="color: white; text-decoration: none; font-weight: 600;">
-                    📞 (239) 427-4757
-                </a>
-                <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" 
-                   target="_blank" 
-                   style="background: #f4a87c; color: #8b4a3b; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: 600;">
-                    Book Now
-                </a>
+                <span style="margin: 0 10px;">•</span>
+                <span>Licensed & Insured</span>
+                <span style="margin: 0 10px;">•</span>
+                <span>HSA/FSA Accepted</span>
             </div>
         </div>
-    </div>
 
-    <!-- Header -->
-    <header style="background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 62px; z-index: 999;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 15px 20px;">
-            <nav style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 40px; height: 40px; background: #f4a87c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">RK</div>
-                    <div>
-                        <div style="font-size: 1.4rem; font-weight: 700; color: #8b4a3b;">Recovery Kneads</div>
-                        <div style="font-size: 0.85rem; color: #666;">Professional Massage Therapy</div>
+        <!-- Navigation Bar -->
+        <div style="background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 15px 20px;">
+                <nav style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                    <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                        <img src="icon only.png" alt="Recovery Kneads Icon" class="header-icon" loading="eager">
+                        <img src="text-logo.jpeg" alt="Recovery Kneads - Professional Massage Therapy Naples FL" class="header-logo" loading="eager">
+                    </a>
+                    
+                    <div style="display: flex; gap: 25px; align-items: center; flex-wrap: wrap;">
+                        <a href="services.html" style="color: #f4a87c; text-decoration: none; font-weight: 600;">Services</a>
+                        <a href="pricing.html" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Pricing</a>
+                        <a href="about.html" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">About</a>
+                        <a href="faq.html" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">FAQ</a>
+                        <a href="contact.html" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Contact</a>
+                        <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" 
+                           target="_blank" 
+                           style="background: #f4a87c; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600;">
+                            Book Online
+                        </a>
+                        <a href="tel:239-427-4757" style="color: #8b4a3b; text-decoration: none; font-weight: 600;">
+                            📞 (239) 427-4757
+                        </a>
                     </div>
-                </div>
-                
-                <div style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
-                    <a href="services.html" style="color: #f4a87c; text-decoration: none; font-weight: 600;">Services & Pricing</a>
-                    <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" 
-                       target="_blank" 
-                       style="background: #f4a87c; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600;">
-                        Book Online
-                    </a>
-                    <a href="tel:239-427-4757" style="color: #8b4a3b; text-decoration: none; font-weight: 600;">
-                        📞 (239) 427-4757
-                    </a>
-                    <a href="contact.html" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Location</a>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </div>
     </header>
 
     <main id="main-content" role="main">
         <!-- Hero Section -->
-        <section style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.9), rgba(184, 134, 11, 0.9)), url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=85') center/cover; padding: 100px 0; color: white; text-align: center;">
+        <section style="background: linear-gradient(135deg, rgba(244, 168, 124, 0.9), rgba(232, 144, 107, 0.9)), url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=85') center/cover; padding: 100px 0; color: white; text-align: center;">
             <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
                 <div style="max-width: 800px; margin: 0 auto;">
                     <div style="background: rgba(255,255,255,0.2); display: inline-block; padding: 8px 20px; border-radius: 20px; margin-bottom: 20px; font-size: 0.9rem;">

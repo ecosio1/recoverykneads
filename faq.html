@@ -58,79 +58,83 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
 </head>
-<body>
-    <!-- Skip Navigation -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <header role="banner">
-        <nav class="navbar" role="navigation" aria-label="Main navigation">
-            <div class="nav-container">
-                <div class="logo" role="img" aria-label="Recovery Kneads Professional Massage Therapy">
-                    <img src="logo-optimized.svg" alt="Recovery Kneads - Professional Massage Therapy Naples FL" class="logo-img" width="40" height="40" loading="eager">
-                    <div class="logo-text">
-                        <span class="logo-title">Recovery Kneads</span>
-                        <span class="logo-subtitle">Professional Massage Therapy</span>
-                    </div>
-                </div>
-                <ul class="nav-menu" role="menubar" id="nav-menu">
-                    <li role="none"><a href="index.html" role="menuitem">Home</a></li>
-                    <li role="none"><a href="services.html" role="menuitem">Services</a></li>
-                    <li role="none"><a href="about.html" role="menuitem">About</a></li>
-                    <li role="none"><a href="blog/index.html" role="menuitem">Blog</a></li>
-                    <li role="none"><a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" role="menuitem" class="book-now-nav">Book Now</a></li>
-                    <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
-                </ul>
-                <button class="hamburger" aria-label="Toggle mobile navigation" aria-expanded="false" aria-controls="nav-menu">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </button>
+<body style="padding-top: 100px;">
+    <!-- Combined Auto-Hide Header -->
+    <header id="main-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: transform 0.3s ease-in-out;">
+        <!-- Announcement Bar -->
+        <div style="background: #8b4a3b; color: white; padding: 8px 0; font-size: 0.9rem; text-align: center;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <span style="color: #4CAF50;">●</span>
+                <span>Same-Day Appointments Available</span>
+                <span style="margin: 0 10px;">•</span>
+                <span>Licensed & Insured</span>
+                <span style="margin: 0 10px;">•</span>
+                <span>HSA/FSA Accepted</span>
             </div>
-        </nav>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div style="background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 15px 20px;">
+                <nav style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                    <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                        <img src="icon only.png" alt="Recovery Kneads Icon" class="header-icon" loading="eager">
+                        <img src="text-logo.jpeg" alt="Recovery Kneads - Professional Massage Therapy Naples FL" class="header-logo" loading="eager">
+                    </a>
+                    
+                    <div style="display: flex; gap: 25px; align-items: center; flex-wrap: wrap;">
+                        <a href="services.html" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Services</a>
+                        <a href="pricing.html" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Pricing</a>
+                        <a href="about.html" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">About</a>
+                        <a href="faq.html" style="color: #f4a87c; text-decoration: none; font-weight: 600;">FAQ</a>
+                        <a href="contact.html" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Contact</a>
+                        <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" 
+                           target="_blank" 
+                           style="background: #f4a87c; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600;">
+                            Book Online
+                        </a>
+                        <a href="tel:239-427-4757" style="color: #8b4a3b; text-decoration: none; font-weight: 600;">
+                            📞 (239) 427-4757
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
     </header>
 
     <main id="main-content" role="main">
         <!-- Hero Section -->
-        <section class="hero hero-secondary" aria-labelledby="faq-hero-heading">
-            <div class="hero-background">
-                <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=85" alt="Professional massage therapy consultation" class="hero-bg-image" loading="eager" width="1920" height="600">
-                <div class="hero-overlay"></div>
-            </div>
-            <div class="container">
-                <div class="hero-container">
-                    <div class="hero-content">
-                        <div class="hero-badge">Your Questions Answered</div>
-                        <h1 id="faq-hero-heading">Frequently Asked Questions</h1>
-                        <p class="hero-subtitle">Everything you need to know about Recovery Kneads massage therapy</p>
-                    </div>
-                </div>
+        <section style="background: linear-gradient(135deg, rgba(139, 74, 59, 0.9), rgba(244, 168, 124, 0.8)), url('https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1920') center/cover; padding: 80px 20px; text-align: center; color: white;">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <span style="background: rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 20px; font-size: 0.9rem;">Your Questions Answered</span>
+                <h1 style="font-size: 3rem; margin: 20px 0; font-family: 'Playfair Display', serif;">Frequently Asked Questions</h1>
+                <p style="font-size: 1.2rem; opacity: 0.95;">Everything you need to know about Recovery Kneads massage therapy</p>
             </div>
         </section>
 
         <!-- FAQ Categories -->
-        <section class="section-padding" aria-labelledby="faq-categories-heading">
-            <div class="container">
-                <div class="section-header text-center">
-                    <div class="section-badge">Quick Answers</div>
-                    <h2 id="faq-categories-heading">Find What You're Looking For</h2>
-                    <p class="section-description">Choose a category below or scroll through all questions</p>
-                </div>
+        <section style="padding: 60px 20px; max-width: 1200px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <span style="color: #f4a87c; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;">Quick Answers</span>
+                <h2 style="font-size: 2.5rem; color: #8b4a3b; margin: 10px 0; font-family: 'Playfair Display', serif;">Find What You're Looking For</h2>
+                <p style="color: #666; font-size: 1.1rem;">Choose a category below or scroll through all questions</p>
+            </div>
 
-                <div class="faq-categories">
-                    <button class="faq-category-btn active" data-category="all">All Questions</button>
-                    <button class="faq-category-btn" data-category="booking">Booking & Scheduling</button>
-                    <button class="faq-category-btn" data-category="pricing">Pricing & Payment</button>
-                    <button class="faq-category-btn" data-category="services">Services & Treatments</button>
-                    <button class="faq-category-btn" data-category="first-time">First-Time Clients</button>
-                    <button class="faq-category-btn" data-category="policies">Policies</button>
-                </div>
+            <div class="faq-categories">
+                <button class="faq-category-btn active" data-category="all">All Questions</button>
+                <button class="faq-category-btn" data-category="booking">Booking & Scheduling</button>
+                <button class="faq-category-btn" data-category="pricing">Pricing & Payment</button>
+                <button class="faq-category-btn" data-category="services">Services & Treatments</button>
+                <button class="faq-category-btn" data-category="first-time">First-Time Clients</button>
+                <button class="faq-category-btn" data-category="policies">Policies</button>
             </div>
         </section>
 
         <!-- FAQ Content -->
-        <section class="section-padding bg-light" aria-labelledby="faq-content-heading">
-            <div class="container">
+        <section style="padding: 60px 20px; background: #f8f9fa;">
+            <div style="max-width: 900px; margin: 0 auto;">
                 <div class="faq-search">
                     <input type="text" id="faq-search" placeholder="Search questions..." aria-label="Search FAQ">
                 </div>
@@ -145,13 +149,15 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>You have several convenient options to book your appointment:</p>
-                            <ul>
-                                <li><strong>Online:</strong> Use our online scheduler available 24/7 on our website</li>
-                                <li><strong>Phone:</strong> Call or text (239) 427-4757 for immediate assistance</li>
-                                <li><strong>Email:</strong> Send a message to massagebyerikag@gmail.com</li>
-                            </ul>
-                            <p>We often have same-day availability and will do our best to accommodate your preferred time.</p>
+                            <div>
+                                <p>You have several convenient options to book your appointment:</p>
+                                <ul>
+                                    <li><strong>Online:</strong> Use our <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" target="_blank">online scheduler</a> available 24/7 for instant booking</li>
+                                    <li><strong>Phone:</strong> Call or text <a href="tel:239-427-4757">(239) 427-4757</a> for immediate assistance</li>
+                                    <li><strong>Email:</strong> Send a message to <a href="mailto:massagebyerikag@gmail.com">massagebyerikag@gmail.com</a></li>
+                                </ul>
+                                <p>We often have same-day availability and will do our best to accommodate your preferred time. For fastest booking, use our online scheduler or call directly.</p>
+                            </div>
                         </div>
                     </div>
 
@@ -161,12 +167,16 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>While we often have same-day availability, we recommend booking:</p>
-                            <ul>
-                                <li><strong>Regular appointments:</strong> 1-3 days in advance</li>
-                                <li><strong>Weekends:</strong> 3-5 days in advance</li>
-                                <li><strong>Holiday periods:</strong> 1-2 weeks in advance</li>
-                            </ul>
+                            <div>
+                                <p>While we often have same-day availability, we recommend booking:</p>
+                                <ul>
+                                    <li><strong>Regular appointments:</strong> 1-3 days in advance</li>
+                                    <li><strong>Weekend appointments:</strong> 3-5 days in advance</li>
+                                    <li><strong>Holiday periods:</strong> 1-2 weeks in advance</li>
+                                    <li><strong>Specific time preferences:</strong> 3-5 days in advance</li>
+                                </ul>
+                                <p>Last-minute bookings? Call us directly at <a href="tel:239-427-4757">(239) 427-4757</a> - we'll do everything possible to fit you in!</p>
+                            </div>
                         </div>
                     </div>
 
@@ -176,23 +186,40 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Our regular business hours are:</p>
-                            <ul>
-                                <li><strong>Monday - Friday:</strong> 9:00 AM - 7:00 PM</li>
-                                <li><strong>Saturday:</strong> 9:00 AM - 5:00 PM</li>
-                                <li><strong>Sunday:</strong> Closed</li>
-                            </ul>
-                            <p>Extended hours may be available by special arrangement for existing clients.</p>
+                            <div>
+                                <p>Our regular business hours are:</p>
+                                <ul>
+                                    <li><strong>Sunday:</strong> Closed</li>
+                                    <li><strong>Monday:</strong> 9:00 AM - 4:30 PM</li>
+                                    <li><strong>Tuesday:</strong> 9:00 AM - 4:30 PM</li>
+                                    <li><strong>Wednesday:</strong> 9:00 AM - 1:30 PM</li>
+                                    <li><strong>Thursday:</strong> Closed</li>
+                                    <li><strong>Friday:</strong> 9:00 AM - 4:30 PM</li>
+                                    <li><strong>Saturday:</strong> Closed</li>
+                                </ul>
+                                <p>Extended hours may be available by special arrangement for existing clients. Please call to discuss your scheduling needs.</p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            <span>Can I request a specific therapist?</span>
+                            <span>Where are you located?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Recovery Kneads is operated by our licensed massage therapist who provides all treatments. This ensures consistency in your care and allows us to develop a personalized treatment plan that evolves with your needs over time.</p>
+                            <div>
+                                <p>Recovery Kneads is conveniently located in North Naples:</p>
+                                <p><strong>Address:</strong> 8965 Tamiami Trail N, Suite #43, Naples, FL 34108</p>
+                                <p>We're located in a professional office complex with:</p>
+                                <ul>
+                                    <li>Free parking available</li>
+                                    <li>Ground floor access (no stairs required)</li>
+                                    <li>Private treatment room for your comfort</li>
+                                    <li>Easy access from US-41 (Tamiami Trail)</li>
+                                </ul>
+                                <p><a href="contact.html">View directions and map</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -207,12 +234,24 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Our massage services are priced as follows:</p>
-                            <ul>
-                                <li><strong>Therapeutic Massage:</strong> $90 (45 min), $120 (60 min), $145 (75 min), $170 (90 min)</li>
-                                <li><strong>Sports/Deep Tissue Massage:</strong> $90 (45 min), $120 (60 min), $145 (75 min), $170 (90 min)</li>
-                            </ul>
-                            <p>No hidden fees or surprise charges - the price you see is what you pay.</p>
+                            <div>
+                                <p>Our massage services are competitively priced:</p>
+                                <h4>Therapeutic Massage:</h4>
+                                <ul>
+                                    <li><strong>45 minutes:</strong> $90</li>
+                                    <li><strong>60 minutes:</strong> $120</li>
+                                    <li><strong>75 minutes:</strong> $145</li>
+                                    <li><strong>90 minutes:</strong> $170</li>
+                                </ul>
+                                <h4>Sports/Deep Tissue Massage:</h4>
+                                <ul>
+                                    <li><strong>45 minutes:</strong> $90</li>
+                                    <li><strong>60 minutes:</strong> $120</li>
+                                    <li><strong>75 minutes:</strong> $145</li>
+                                    <li><strong>90 minutes:</strong> $170</li>
+                                </ul>
+                                <p>No hidden fees or surprise charges - the price you see is what you pay. Gratuity is appreciated but never expected.</p>
+                            </div>
                         </div>
                     </div>
 
@@ -222,30 +261,38 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p><strong>Yes!</strong> We work with several payment options:</p>
-                            <ul>
-                                <li><strong>HSA/FSA:</strong> We accept Health Savings Accounts and Flexible Spending Accounts</li>
-                                <li><strong>Insurance:</strong> We work with select insurance plans</li>
-                                <li><strong>Cash and Cards:</strong> We accept all major credit and debit cards</li>
-                            </ul>
-                            <p>Contact us at (239) 427-4757 to verify your specific insurance coverage or HSA/FSA eligibility.</p>
+                            <div>
+                                <p><strong>Yes!</strong> We work with several payment options to make massage therapy accessible:</p>
+                                <ul>
+                                    <li><strong>HSA/FSA Cards:</strong> We accept Health Savings Account and Flexible Spending Account cards directly</li>
+                                    <li><strong>Insurance:</strong> We work with select insurance plans that cover massage therapy</li>
+                                    <li><strong>Reimbursement:</strong> We provide detailed receipts for insurance submission</li>
+                                    <li><strong>Doctor's Referral:</strong> We accept physician referrals for medical massage</li>
+                                </ul>
+                                <p>Contact us at <a href="tel:239-427-4757">(239) 427-4757</a> to verify your specific insurance coverage or HSA/FSA eligibility. We'll help you understand your benefits and maximize your coverage.</p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            <span>When is payment due?</span>
+                            <span>What payment methods do you accept?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Payment is due at the time of service. We accept:</p>
-                            <ul>
-                                <li>Cash</li>
-                                <li>Credit cards (Visa, Mastercard, American Express, Discover)</li>
-                                <li>Debit cards</li>
-                                <li>HSA/FSA cards</li>
-                            </ul>
-                            <p>For insurance billing, we'll work with you to handle the paperwork and reimbursement process.</p>
+                            <div>
+                                <p>We accept multiple payment methods for your convenience:</p>
+                                <ul>
+                                    <li><strong>Cash</strong></li>
+                                    <li><strong>Check</strong> (local checks with ID)</li>
+                                    <li><strong>Credit Cards:</strong> Visa, Mastercard, American Express, Discover</li>
+                                    <li><strong>Debit Cards</strong></li>
+                                    <li><strong>HSA/FSA Cards</strong></li>
+                                    <li><strong>Digital Payments:</strong> Apple Pay, Google Pay</li>
+                                    <li><strong>Venmo/Zelle</strong> (by arrangement)</li>
+                                </ul>
+                                <p>Payment is due at the time of service. We provide detailed receipts for all services.</p>
+                            </div>
                         </div>
                     </div>
 
@@ -255,13 +302,16 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>We focus on providing consistent, high-quality care at fair prices. While we don't currently offer formal packages, regular clients often benefit from:</p>
-                            <ul>
-                                <li>Priority scheduling</li>
-                                <li>Personalized treatment plans</li>
-                                <li>Flexible appointment times</li>
-                            </ul>
-                            <p>Contact us to discuss options for ongoing care that work within your budget.</p>
+                            <div>
+                                <p>We focus on providing consistent, high-quality care at fair prices. While we don't currently offer formal packages, regular clients benefit from:</p>
+                                <ul>
+                                    <li><strong>Priority scheduling:</strong> First access to appointment slots</li>
+                                    <li><strong>Flexible booking:</strong> Extended hours when available</li>
+                                    <li><strong>Personalized care:</strong> We track your progress and preferences</li>
+                                    <li><strong>Special considerations:</strong> We work with your budget needs</li>
+                                </ul>
+                                <p>Many clients schedule monthly maintenance massages for optimal wellness. Contact us to discuss a regular care plan that fits your budget and health goals.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -276,26 +326,27 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>We offer a comprehensive range of therapeutic massage services:</p>
-                            <ul>
-                                <li><strong>Therapeutic Massage:</strong> Stress relief and overall wellness</li>
-                                <li><strong>Sports/Deep Tissue Massage:</strong> Athletic performance, recovery, and chronic pain relief</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            <span>What's the difference between your massage types?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Each type focuses on different needs:</p>
-                            <ul>
-                                <li><strong>Therapeutic:</strong> General stress relief, relaxation, improved circulation</li>
-                                <li><strong>Sports/Deep Tissue:</strong> Targets chronic pain, muscle knots, postural issues, enhances athletic performance, prevents injury, speeds recovery</li>
-                            </ul>
-                            <p>Not sure which is right for you? We'll discuss your needs during consultation.</p>
+                            <div>
+                                <p>We offer two comprehensive categories of professional massage therapy:</p>
+                                <h4>Therapeutic Massage:</h4>
+                                <ul>
+                                    <li>Swedish massage techniques</li>
+                                    <li>Stress relief and relaxation</li>
+                                    <li>Improved circulation and lymphatic drainage</li>
+                                    <li>General muscle tension relief</li>
+                                    <li>Enhanced overall wellness</li>
+                                </ul>
+                                <h4>Sports/Deep Tissue Massage:</h4>
+                                <ul>
+                                    <li>Deep pressure techniques for chronic pain</li>
+                                    <li>Athletic performance enhancement</li>
+                                    <li>Injury prevention and recovery</li>
+                                    <li>Trigger point therapy</li>
+                                    <li>Myofascial release</li>
+                                    <li>Postural correction work</li>
+                                </ul>
+                                <p>Each session is customized to your specific needs and preferences.</p>
+                            </div>
                         </div>
                     </div>
 
@@ -305,31 +356,68 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>We offer massage sessions in <strong>45, 60, 75, and 90-minute</strong> options to best address your needs and fit your schedule.</p>
-                            <p>Your appointment time includes:</p>
-                            <ul>
-                                <li>Brief consultation</li>
-                                <li>Hands-on massage therapy</li>
-                                <li>Time to dress and any after-care discussion</li>
-                            </ul>
-                            <p>Total appointment time varies based on the session length you choose.</p>
+                            <div>
+                                <p>We offer flexible session lengths to meet your needs:</p>
+                                <ul>
+                                    <li><strong>45 minutes:</strong> Perfect for focused work on 1-2 specific areas</li>
+                                    <li><strong>60 minutes:</strong> Our most popular option, allows full-body massage or concentrated therapeutic work</li>
+                                    <li><strong>75 minutes:</strong> Extended session for comprehensive treatment</li>
+                                    <li><strong>90 minutes:</strong> Ultimate relaxation with detailed attention to all areas</li>
+                                </ul>
+                                <p>Your appointment time includes:</p>
+                                <ul>
+                                    <li>Brief consultation (5 minutes)</li>
+                                    <li>Full hands-on massage time</li>
+                                    <li>Time to dress/undress privately</li>
+                                    <li>After-care recommendations</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            <span>Can you customize the pressure during my massage?</span>
+                            <span>Can you focus on specific problem areas?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p><strong>Absolutely!</strong> Your comfort is our priority. We can adjust:</p>
-                            <ul>
-                                <li>Pressure intensity (light, medium, firm, deep)</li>
-                                <li>Focus areas based on your needs</li>
-                                <li>Techniques used during the session</li>
-                                <li>Room temperature and music volume</li>
-                            </ul>
-                            <p>Please communicate with us throughout the session - we want you to be completely comfortable.</p>
+                            <div>
+                                <p><strong>Absolutely!</strong> We specialize in targeted therapeutic work. Common focus areas include:</p>
+                                <ul>
+                                    <li><strong>Neck & shoulders:</strong> Computer/desk work tension</li>
+                                    <li><strong>Lower back:</strong> Sciatica, chronic pain</li>
+                                    <li><strong>Hips:</strong> Hip flexor tightness, IT band issues</li>
+                                    <li><strong>Legs:</strong> Runner's issues, restless legs</li>
+                                    <li><strong>Arms & hands:</strong> Carpal tunnel, tennis elbow</li>
+                                    <li><strong>Feet:</strong> Plantar fasciitis, general soreness</li>
+                                </ul>
+                                <p>We'll discuss your specific concerns during consultation and create a treatment plan targeting your problem areas while maintaining overall body balance.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Do you use oils or lotions?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div>
+                                <p>Yes, we use high-quality, professional massage products:</p>
+                                <ul>
+                                    <li><strong>Standard:</strong> Unscented, hypoallergenic massage cream</li>
+                                    <li><strong>Alternative options:</strong> Available for sensitive skin</li>
+                                    <li><strong>No oils/lotions:</strong> Can work through clothing if preferred</li>
+                                    <li><strong>Your products:</strong> You're welcome to bring your preferred products</li>
+                                </ul>
+                                <p>Please inform us of any allergies or skin sensitivities. All our products are:</p>
+                                <ul>
+                                    <li>Paraben-free</li>
+                                    <li>Not tested on animals</li>
+                                    <li>Professional grade</li>
+                                    <li>Easy to wash out of clothing</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -344,73 +432,121 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Your first visit will include:</p>
-                            <ol>
-                                <li><strong>Arrival:</strong> Please arrive 10 minutes early</li>
-                                <li><strong>Intake Forms:</strong> Brief health history and goals</li>
-                                <li><strong>Consultation:</strong> Discussion of your needs and any concerns</li>
-                                <li><strong>Treatment Plan:</strong> Customized approach based on your input</li>
-                                <li><strong>Massage Session:</strong> 45 minutes of therapeutic care</li>
-                                <li><strong>After-Care:</strong> Recommendations for ongoing wellness</li>
-                            </ol>
+                            <div>
+                                <p>Your first visit is designed to be comfortable and informative:</p>
+                                <ol>
+                                    <li><strong>Arrival (10 minutes early):</strong> Complete brief intake forms</li>
+                                    <li><strong>Consultation (5-10 minutes):</strong> Discuss your health history, areas of concern, and goals</li>
+                                    <li><strong>Privacy:</strong> You'll have privacy to undress to your comfort level</li>
+                                    <li><strong>The Massage:</strong> Customized treatment based on your needs</li>
+                                    <li><strong>Communication:</strong> We'll check in on pressure and comfort</li>
+                                    <li><strong>After Care:</strong> Recommendations for stretches, water intake, and follow-up</li>
+                                </ol>
+                                <p>Remember: This is YOUR session. We encourage questions and feedback throughout to ensure you're completely comfortable.</p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            <span>What should I wear to my appointment?</span>
+                            <span>What should I wear?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Wear comfortable, loose-fitting clothing that's easy to remove and put back on. You'll undress to your comfort level and be properly draped with sheets and towels throughout the session.</p>
-                            <p>Most clients undress completely for optimal treatment, but you should only do what makes you comfortable. Your privacy and comfort are always respected.</p>
+                            <div>
+                                <p>Wear whatever makes you comfortable:</p>
+                                <ul>
+                                    <li><strong>To your appointment:</strong> Comfortable, loose-fitting clothing</li>
+                                    <li><strong>During massage:</strong> Undress to YOUR comfort level</li>
+                                    <li><strong>Most clients:</strong> Undress completely for full-body work</li>
+                                    <li><strong>Always okay:</strong> Keep underwear on or stay fully clothed</li>
+                                </ul>
+                                <p><strong>Professional draping is always maintained:</strong> You'll be properly covered with sheets and blankets throughout the session. Only the area being worked on is uncovered. Your privacy and dignity are our top priorities.</p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            <span>Will I be covered during the massage?</span>
+                            <span>Will massage hurt?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p><strong>Yes, absolutely.</strong> Professional draping is maintained at all times. Only the area being worked on is uncovered, and you're properly covered with clean sheets and towels throughout the entire session.</p>
-                            <p>Your privacy, comfort, and dignity are our highest priorities.</p>
+                            <div>
+                                <p>Massage should never be painful! Here's what to expect:</p>
+                                <ul>
+                                    <li><strong>"Good hurt":</strong> Deep pressure that feels therapeutic</li>
+                                    <li><strong>Tender spots:</strong> Some areas may be sensitive</li>
+                                    <li><strong>Your control:</strong> You dictate the pressure level</li>
+                                    <li><strong>Communication:</strong> Speak up immediately if anything is uncomfortable</li>
+                                </ul>
+                                <p>We use a 1-10 pressure scale:</p>
+                                <ul>
+                                    <li>1-3: Light touch, very relaxing</li>
+                                    <li>4-6: Medium pressure, most common</li>
+                                    <li>7-8: Deep tissue work</li>
+                                    <li>9-10: Too much - we never work here!</li>
+                                </ul>
+                                <p>Remember: More pressure doesn't always mean better results. We'll find your perfect pressure level.</p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            <span>I've never had a massage. Will it hurt?</span>
+                            <span>What if I fall asleep during the massage?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Massage should never be painful. You may experience:</p>
-                            <ul>
-                                <li><strong>"Good hurt":</strong> Pressure that feels intense but therapeutic</li>
-                                <li><strong>Muscle release:</strong> Sensation of tension melting away</li>
-                                <li><strong>Increased circulation:</strong> Warmth and tingling</li>
-                            </ul>
-                            <p>We start gently and adjust based on your feedback. Always communicate if anything feels uncomfortable - we can modify pressure, technique, or focus areas immediately.</p>
+                            <div>
+                                <p><strong>That's perfectly normal and actually encouraged!</strong></p>
+                                <p>Many clients fall asleep during massage, which indicates:</p>
+                                <ul>
+                                    <li>Deep relaxation is occurring</li>
+                                    <li>Your nervous system is calming</li>
+                                    <li>Stress hormones are decreasing</li>
+                                    <li>Healing processes are activating</li>
+                                </ul>
+                                <p>Don't worry about:</p>
+                                <ul>
+                                    <li>Snoring (it happens!)</li>
+                                    <li>Stomach gurgling (sign of relaxation)</li>
+                                    <li>Twitching (muscles releasing)</li>
+                                    <li>Drooling (we have extra face cradle covers)</li>
+                                </ul>
+                                <p>We'll gently wake you when it's time to turn over or when the session ends.</p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            <span>What health conditions should I mention?</span>
+                            <span>What health conditions should I disclose?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Please inform us of any:</p>
-                            <ul>
-                                <li>Recent injuries or surgeries</li>
-                                <li>Chronic conditions (arthritis, fibromyalgia, etc.)</li>
-                                <li>High blood pressure or heart conditions</li>
-                                <li>Pregnancy</li>
-                                <li>Allergies or skin sensitivities</li>
-                                <li>Areas you prefer we avoid</li>
-                                <li>Current medications that affect circulation</li>
-                            </ul>
-                            <p>This information helps us provide safe, effective treatment tailored to your needs.</p>
+                            <div>
+                                <p>Please inform us of ALL health conditions for your safety:</p>
+                                <h4>Must Disclose:</h4>
+                                <ul>
+                                    <li>Pregnancy (any trimester)</li>
+                                    <li>Recent surgeries or injuries</li>
+                                    <li>Blood clots or clotting disorders</li>
+                                    <li>Heart conditions or high blood pressure</li>
+                                    <li>Cancer (current or history)</li>
+                                    <li>Diabetes</li>
+                                    <li>Skin conditions or infections</li>
+                                    <li>Contagious conditions</li>
+                                </ul>
+                                <h4>Also Important:</h4>
+                                <ul>
+                                    <li>Current medications</li>
+                                    <li>Allergies or sensitivities</li>
+                                    <li>Areas to avoid</li>
+                                    <li>Previous massage experiences</li>
+                                </ul>
+                                <p>All information is kept strictly confidential and helps us provide safe, effective treatment.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -425,29 +561,22 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>We have a flexible <strong>24-hour cancellation policy</strong>:</p>
-                            <ul>
-                                <li><strong>24+ hours notice:</strong> No charge, full refund if prepaid</li>
-                                <li><strong>Less than 24 hours:</strong> 50% session fee</li>
-                                <li><strong>No-show:</strong> Full session fee</li>
-                            </ul>
-                            <p>We understand life happens - emergencies and illness are handled with compassion. Call or text (239) 427-4757 to cancel or reschedule.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            <span>Can I reschedule my appointment?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p><strong>Yes!</strong> Rescheduling is easy:</p>
-                            <ul>
-                                <li><strong>24+ hours notice:</strong> Free rescheduling to any available time</li>
-                                <li><strong>Same day:</strong> We'll do our best to accommodate if schedule allows</li>
-                                <li><strong>Contact methods:</strong> Call, text, or email us</li>
-                            </ul>
-                            <p>We prefer to reschedule rather than cancel, so contact us even if it's short notice.</p>
+                            <div>
+                                <p>We have a flexible 24-hour cancellation policy:</p>
+                                <ul>
+                                    <li><strong>24+ hours notice:</strong> No charge, full refund if prepaid</li>
+                                    <li><strong>12-24 hours:</strong> 50% cancellation fee</li>
+                                    <li><strong>Less than 12 hours:</strong> Full session fee</li>
+                                    <li><strong>No-show:</strong> Full session fee</li>
+                                </ul>
+                                <p><strong>Exceptions made for:</strong></p>
+                                <ul>
+                                    <li>Sudden illness (contagious conditions)</li>
+                                    <li>Emergency situations</li>
+                                    <li>Severe weather</li>
+                                </ul>
+                                <p>We understand life happens! Please call or text <a href="tel:239-427-4757">(239) 427-4757</a> as soon as possible. We appreciate your consideration of our time.</p>
+                            </div>
                         </div>
                     </div>
 
@@ -457,177 +586,118 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p><strong>Yes!</strong> Gift certificates make wonderful presents for:</p>
-                            <ul>
-                                <li>Birthdays and anniversaries</li>
-                                <li>Holidays and special occasions</li>
-                                <li>Employee appreciation</li>
-                                <li>Wellness gifts</li>
-                            </ul>
-                            <p>Contact us to purchase gift certificates. They can be customized with personal messages and have flexible expiration dates.</p>
+                            <div>
+                                <p><strong>Yes!</strong> Gift certificates make wonderful presents for:</p>
+                                <ul>
+                                    <li>Birthdays and anniversaries</li>
+                                    <li>Holidays (Christmas, Mother's Day, Father's Day)</li>
+                                    <li>Employee appreciation</li>
+                                    <li>Thank you gifts</li>
+                                    <li>Retirement celebrations</li>
+                                    <li>New parents</li>
+                                    <li>Athletes and fitness enthusiasts</li>
+                                </ul>
+                                <p><strong>Gift Certificate Options:</strong></p>
+                                <ul>
+                                    <li>Any dollar amount</li>
+                                    <li>Specific service packages</li>
+                                    <li>Digital or physical certificates</li>
+                                    <li>Custom messages available</li>
+                                    <li>1-year expiration from purchase date</li>
+                                </ul>
+                                <p>Contact us at <a href="tel:239-427-4757">(239) 427-4757</a> to purchase.</p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            <span>What safety protocols do you follow?</span>
+                            <span>What are your hygiene and safety protocols?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>We maintain the highest standards of health and safety:</p>
-                            <ul>
-                                <li><strong>Sanitation:</strong> All linens washed in hot water after each use</li>
-                                <li><strong>Equipment:</strong> Professional-grade massage table and supplies</li>
-                                <li><strong>Hygiene:</strong> Hand washing and sanitizing between clients</li>
-                                <li><strong>Licensing:</strong> Florida state licensed and insured</li>
-                                <li><strong>Training:</strong> Ongoing education in safety protocols</li>
-                            </ul>
-                            <p>Your health and safety are our top priorities.</p>
+                            <div>
+                                <p>We maintain the highest standards of cleanliness and safety:</p>
+                                <h4>Sanitation Practices:</h4>
+                                <ul>
+                                    <li>Fresh linens for every client</li>
+                                    <li>Hospital-grade laundry procedures</li>
+                                    <li>Equipment sanitized between clients</li>
+                                    <li>Hand washing before and after each session</li>
+                                    <li>Clean, private treatment room</li>
+                                </ul>
+                                <h4>Professional Standards:</h4>
+                                <ul>
+                                    <li>Florida State Licensed (MA96905)</li>
+                                    <li>Liability insurance coverage</li>
+                                    <li>Continuing education requirements met</li>
+                                    <li>HIPAA compliant for health information</li>
+                                    <li>Professional boundaries maintained</li>
+                                </ul>
+                                <p>Your health and safety are our top priorities.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Do you offer mobile/outcall services?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div>
+                                <p>Currently, all massages are provided at our professional Naples location:</p>
+                                <p><strong>Benefits of our in-office service:</strong></p>
+                                <ul>
+                                    <li>Professional massage table and equipment</li>
+                                    <li>Controlled, peaceful environment</li>
+                                    <li>Optimal temperature and lighting</li>
+                                    <li>Complete privacy</li>
+                                    <li>All supplies readily available</li>
+                                    <li>Consistent, high-quality experience</li>
+                                </ul>
+                                <p>Our office provides the ideal setting for therapeutic massage. We may consider mobile services for special circumstances - please inquire if you have mobility limitations.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Is tipping expected?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div>
+                                <p>Gratuity is appreciated but never expected or required.</p>
+                                <p><strong>Industry standard:</strong> 15-20% for exceptional service</p>
+                                <p><strong>Other ways to show appreciation:</strong></p>
+                                <ul>
+                                    <li>Refer friends and family</li>
+                                    <li>Leave a positive review</li>
+                                    <li>Book regular appointments</li>
+                                    <li>Provide feedback for improvement</li>
+                                </ul>
+                                <p>Your satisfaction and wellness are our primary rewards. We're grateful for the opportunity to support your health journey.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Still Have Questions -->
-        <section class="section-padding" aria-labelledby="contact-cta-heading">
-            <div class="container">
-                <div class="cta-content text-center">
-                    <h2 id="contact-cta-heading">Still Have Questions?</h2>
-                    <p>Can't find what you're looking for? We're here to help with any questions about our massage therapy services.</p>
-                    <div class="cta-buttons">
-                        <a href="tel:+12394274757" class="btn-primary">Call (239) 427-4757</a>
-                        <a href="contact.html" class="btn-secondary">Send a Message</a>
-                    </div>
+        <!-- Still Have Questions CTA -->
+        <section style="padding: 80px 20px; background: linear-gradient(135deg, #f4a87c, #e8906b); text-align: center; color: white;">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px; font-family: 'Playfair Display', serif;">Still Have Questions?</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 30px;">Can't find what you're looking for? We're here to help with any questions about our massage therapy services.</p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="tel:+12394274757" style="background: white; color: #8b4a3b; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">📞 Call (239) 427-4757</a>
+                    <a href="contact.html" style="background: rgba(255,255,255,0.2); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; border: 2px solid white; display: inline-block;">Send a Message</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="logo">
-                        <img src="logo.svg" alt="Recovery Kneads Logo" class="footer-logo">
-                        <div class="logo-text">
-                            <span class="logo-title">Recovery Kneads</span>
-                            <span class="logo-subtitle">Professional Massage Therapy</span>
-                        </div>
-                    </div>
-                    <p>Professional massage therapy in Naples, FL. Dedicated to your wellness and recovery.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><a href="therapeutic-massage-naples.html">Therapeutic Massage</a></li>
-                        <li><a href="deep-tissue-massage-naples.html">Deep Tissue Massage</a></li>
-                        <li><a href="sports-massage-naples.html">Sports Massage</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Service Areas</h4>
-                    <ul>
-                        <li><a href="massage-therapy-north-naples.html">North Naples</a></li>
-                        <li><a href="massage-therapy-pelican-bay-naples.html">Pelican Bay</a></li>
-                        <li><a href="massage-therapy-vanderbilt-beach-naples.html">Vanderbilt Beach</a></li>
-                        <li><a href="massage-therapy-collier-county.html">Collier County</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p><a href="tel:+12394274757">(239) 427-4757</a></p>
-                    <p><a href="mailto:massagebyerikag@gmail.com">massagebyerikag@gmail.com</a></p>
-                    <p>8965 Tamiami Trail N, Suite #43<br>Naples, FL 34108</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Recovery Kneads. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
-            </div>
-        </div>
-    </footer>
-
     <script src="script.js" defer></script>
-    <script>
-        // FAQ functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Category filtering
-            const categoryButtons = document.querySelectorAll('.faq-category-btn');
-            const faqSections = document.querySelectorAll('.faq-section');
-            const faqItems = document.querySelectorAll('.faq-item');
-
-            categoryButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const category = this.dataset.category;
-                    
-                    // Update active button
-                    categoryButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Show/hide sections
-                    if (category === 'all') {
-                        faqSections.forEach(section => section.style.display = 'block');
-                    } else {
-                        faqSections.forEach(section => {
-                            section.style.display = section.dataset.category === category ? 'block' : 'none';
-                        });
-                    }
-                });
-            });
-
-            // FAQ accordion functionality
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', function() {
-                    const faqItem = this.parentElement;
-                    const answer = faqItem.querySelector('.faq-answer');
-                    const icon = this.querySelector('.faq-icon');
-                    const isOpen = this.getAttribute('aria-expanded') === 'true';
-
-                    // Close all other FAQ items
-                    faqQuestions.forEach(otherQuestion => {
-                        if (otherQuestion !== this) {
-                            otherQuestion.setAttribute('aria-expanded', 'false');
-                            otherQuestion.querySelector('.faq-icon').textContent = '+';
-                            otherQuestion.parentElement.querySelector('.faq-answer').style.display = 'none';
-                        }
-                    });
-
-                    // Toggle current item
-                    if (!isOpen) {
-                        this.setAttribute('aria-expanded', 'true');
-                        icon.textContent = '−';
-                        answer.style.display = 'block';
-                    } else {
-                        this.setAttribute('aria-expanded', 'false');
-                        icon.textContent = '+';
-                        answer.style.display = 'none';
-                    }
-                });
-            });
-
-            // Search functionality
-            const searchInput = document.getElementById('faq-search');
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase();
-                
-                faqItems.forEach(item => {
-                    const question = item.querySelector('.faq-question span').textContent.toLowerCase();
-                    const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
-                    
-                    if (question.includes(searchTerm) || answer.includes(searchTerm)) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-
-                // Show all sections when searching
-                if (searchTerm) {
-                    faqSections.forEach(section => section.style.display = 'block');
-                }
-            });
-        });
-    </script>
 </body>
 </html>

@@ -39,15 +39,21 @@
         "openingHoursSpecification": [
             {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "dayOfWeek": ["Monday", "Tuesday"],
                 "opens": "09:00",
-                "closes": "18:00"
+                "closes": "16:30"
             },
             {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Saturday",
-                "opens": "09:00", 
-                "closes": "16:00"
+                "dayOfWeek": "Wednesday",
+                "opens": "09:00",
+                "closes": "13:30"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Friday",
+                "opens": "09:00",
+                "closes": "16:30"
             }
         ],
         "priceRange": "$90-$170",
@@ -335,298 +341,354 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
 </head>
-<body>
-    <!-- Skip Navigation -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <header role="banner">
-        <nav class="navbar" role="navigation" aria-label="Main navigation">
-            <div class="nav-container">
-                <div class="logo" role="img" aria-label="Recovery Kneads Professional Massage Therapy">
-                    <img src="logo-optimized.svg" alt="Recovery Kneads - Professional Massage Therapy Naples FL" class="logo-img" width="40" height="40" loading="eager">
-                    <div class="logo-text">
-                        <span class="logo-title">Recovery Kneads</span>
-                        <span class="logo-subtitle">Professional Massage Therapy</span>
-                    </div>
-                </div>
-                <ul class="nav-menu" role="menubar" id="nav-menu">
-                    <li role="none"><a href="index.html" role="menuitem">Home</a></li>
-                    <li role="none"><a href="services.html" role="menuitem">Services</a></li>
-                    <li role="none"><a href="about.html" role="menuitem">About</a></li>
-                    <li role="none"><a href="blog/index.html" role="menuitem">Blog</a></li>
-                    <li role="none"><a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" role="menuitem" class="book-now-nav">Book Now</a></li>
-                    <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
-                </ul>
-                <button class="hamburger" aria-label="Toggle mobile navigation" aria-expanded="false" aria-controls="nav-menu">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </button>
+<body style="padding-top: 100px;">
+    <!-- Combined Auto-Hide Header -->
+    <header id="main-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: transform 0.3s ease-in-out;">
+        <!-- Announcement Bar -->
+        <div style="background: #8b4a3b; color: white; padding: 8px 0; font-size: 0.9rem; text-align: center;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <span style="color: #4CAF50;">●</span>
+                <span>Same-Day Appointments Available</span>
+                <span style="margin: 0 10px;">•</span>
+                <span>Licensed & Insured</span>
+                <span style="margin: 0 10px;">•</span>
+                <span>HSA/FSA Accepted</span>
             </div>
-        </nav>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div style="background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 15px 20px;">
+                <nav style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                    <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                        <img src="icon only.png" alt="Recovery Kneads Icon" class="header-icon" loading="eager">
+                        <img src="text-logo.jpeg" alt="Recovery Kneads - Professional Massage Therapy Naples FL" class="header-logo" loading="eager">
+                    </a>
+                    
+                    <div style="display: flex; gap: 25px; align-items: center; flex-wrap: wrap;">
+                        <a href="services.html" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Services</a>
+                        <a href="pricing.html" style="color: #f4a87c; text-decoration: none; font-weight: 600;">Pricing</a>
+                        <a href="about.html" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">About</a>
+                        <a href="faq.html" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">FAQ</a>
+                        <a href="contact.html" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Contact</a>
+                        <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" 
+                           target="_blank" 
+                           style="background: #f4a87c; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600;">
+                            Book Online
+                        </a>
+                        <a href="tel:239-427-4757" style="color: #8b4a3b; text-decoration: none; font-weight: 600;">
+                            📞 (239) 427-4757
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
     </header>
 
     <main id="main-content" role="main">
         <!-- Hero Section -->
-        <section class="hero hero-secondary" aria-labelledby="pricing-hero-heading">
-            <div class="hero-background">
-                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=85" alt="Professional massage therapy pricing" class="hero-bg-image" loading="eager" width="1920" height="600">
-                <div class="hero-overlay"></div>
-            </div>
-            <div class="container">
-                <div class="hero-container">
-                    <div class="hero-content">
-                        <div class="hero-badge">Transparent Pricing</div>
-                        <h1 id="pricing-hero-heading">Simple, Fair Pricing</h1>
-                        <p class="hero-subtitle">Professional Massage Therapy Without Hidden Fees</p>
-                        <p class="hero-description">Professional massage therapy with transparent pricing. Choose from multiple session lengths to fit your needs and budget.</p>
+        <section style="background: linear-gradient(135deg, rgba(244, 168, 124, 0.9), rgba(232, 144, 107, 0.9)), url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=85') center/cover; padding: 100px 0; color: white; text-align: center;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div style="background: rgba(255,255,255,0.2); display: inline-block; padding: 8px 20px; border-radius: 20px; margin-bottom: 20px; font-size: 0.9rem;">
+                        💰 Transparent Pricing
                     </div>
+                    
+                    <h1 style="font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; line-height: 1.1;">
+                        Simple, Fair Pricing
+                    </h1>
+                    
+                    <p style="font-size: 1.3rem; margin-bottom: 15px; opacity: 0.95;">
+                        Professional Massage Therapy Without Hidden Fees
+                    </p>
+                    
+                    <p style="font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; line-height: 1.5;">
+                        Professional massage therapy with transparent pricing. Choose from multiple session lengths to fit your needs and budget.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- Main Pricing -->
-        <section class="section-padding" aria-labelledby="main-pricing-heading">
-            <div class="container">
-                <div class="section-header text-center">
-                    <div class="section-badge">All Services</div>
-                    <h2 id="main-pricing-heading">Clear Pricing for Professional Massage Services</h2>
-                    <p class="section-description">We believe quality massage therapy should be accessible and affordable. Choose the session length that works best for your needs.</p>
+        <!-- Main Pricing Section -->
+        <section style="padding: 80px 0; background: #f9f9f9;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <!-- Section Header -->
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <div style="background: #f4a87c; color: white; display: inline-block; padding: 8px 20px; border-radius: 20px; margin-bottom: 20px; font-size: 0.9rem; font-weight: 600;">
+                        All Services
+                    </div>
+                    <h2 style="font-size: 2.5rem; font-weight: 700; color: #8b4a3b; margin-bottom: 15px;">
+                        Clear Pricing for Professional Massage Services
+                    </h2>
+                    <p style="font-size: 1.1rem; color: #666; max-width: 600px; margin: 0 auto;">
+                        We believe quality massage therapy should be accessible and affordable. Choose the session length that works best for your needs.
+                    </p>
                 </div>
 
-                <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>Therapeutic Massage</h3>
+                <!-- Pricing Cards -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px;">
+                    <!-- Therapeutic Massage Card -->
+                    <div style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        <div style="text-align: center; margin-bottom: 25px;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #8b4a3b; margin-bottom: 8px;">
+                                Therapeutic Massage
+                            </h3>
+                            <p style="color: #666; font-size: 0.95rem;">
+                                Stress relief, relaxation, and overall wellness
+                            </p>
                         </div>
-                        <div class="pricing-options">
-                            <div class="price-option">
-                                <div class="duration">45 minutes</div>
-                                <div class="price">$90</div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div style="text-align: center; padding: 15px; border: 2px solid #f0f0f0; border-radius: 8px;">
+                                <div style="font-size: 0.9rem; color: #8b4a3b; font-weight: 600; margin-bottom: 5px;">45 minutes</div>
+                                <div style="font-size: 1.8rem; font-weight: 700; color: #8b4a3b;">$90</div>
                             </div>
-                            <div class="price-option">
-                                <div class="duration">60 minutes</div>
-                                <div class="price">$120</div>
+                            <div style="text-align: center; padding: 15px; border: 2px solid #f0f0f0; border-radius: 8px;">
+                                <div style="font-size: 0.9rem; color: #8b4a3b; font-weight: 600; margin-bottom: 5px;">60 minutes</div>
+                                <div style="font-size: 1.8rem; font-weight: 700; color: #8b4a3b;">$120</div>
                             </div>
-                            <div class="price-option">
-                                <div class="duration">75 minutes</div>
-                                <div class="price">$145</div>
+                            <div style="text-align: center; padding: 15px; border: 2px solid #f0f0f0; border-radius: 8px;">
+                                <div style="font-size: 0.9rem; color: #8b4a3b; font-weight: 600; margin-bottom: 5px;">75 minutes</div>
+                                <div style="font-size: 1.8rem; font-weight: 700; color: #8b4a3b;">$145</div>
                             </div>
-                            <div class="price-option">
-                                <div class="duration">90 minutes</div>
-                                <div class="price">$170</div>
+                            <div style="text-align: center; padding: 15px; border: 2px solid #f0f0f0; border-radius: 8px;">
+                                <div style="font-size: 0.9rem; color: #8b4a3b; font-weight: 600; margin-bottom: 5px;">90 minutes</div>
+                                <div style="font-size: 1.8rem; font-weight: 700; color: #8b4a3b;">$170</div>
                             </div>
                         </div>
-                        <p style="margin-top: 15px;">Stress relief, relaxation, and overall wellness.</p>
                     </div>
 
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>Sports/Deep Tissue Massage</h3>
+                    <!-- Sports/Deep Tissue Massage Card -->
+                    <div style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        <div style="text-align: center; margin-bottom: 25px;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #8b4a3b; margin-bottom: 8px;">
+                                Sports/Deep Tissue Massage
+                            </h3>
+                            <p style="color: #666; font-size: 0.95rem;">
+                                Targeted pain relief, athletic recovery, and chronic tension
+                            </p>
                         </div>
-                        <div class="pricing-options">
-                            <div class="price-option">
-                                <div class="duration">45 minutes</div>
-                                <div class="price">$90</div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div style="text-align: center; padding: 15px; border: 2px solid #f0f0f0; border-radius: 8px;">
+                                <div style="font-size: 0.9rem; color: #8b4a3b; font-weight: 600; margin-bottom: 5px;">45 minutes</div>
+                                <div style="font-size: 1.8rem; font-weight: 700; color: #8b4a3b;">$90</div>
                             </div>
-                            <div class="price-option">
-                                <div class="duration">60 minutes</div>
-                                <div class="price">$120</div>
+                            <div style="text-align: center; padding: 15px; border: 2px solid #f0f0f0; border-radius: 8px;">
+                                <div style="font-size: 0.9rem; color: #8b4a3b; font-weight: 600; margin-bottom: 5px;">60 minutes</div>
+                                <div style="font-size: 1.8rem; font-weight: 700; color: #8b4a3b;">$120</div>
                             </div>
-                            <div class="price-option">
-                                <div class="duration">75 minutes</div>
-                                <div class="price">$145</div>
+                            <div style="text-align: center; padding: 15px; border: 2px solid #f0f0f0; border-radius: 8px;">
+                                <div style="font-size: 0.9rem; color: #8b4a3b; font-weight: 600; margin-bottom: 5px;">75 minutes</div>
+                                <div style="font-size: 1.8rem; font-weight: 700; color: #8b4a3b;">$145</div>
                             </div>
-                            <div class="price-option">
-                                <div class="duration">90 minutes</div>
-                                <div class="price">$170</div>
+                            <div style="text-align: center; padding: 15px; border: 2px solid #f0f0f0; border-radius: 8px;">
+                                <div style="font-size: 0.9rem; color: #8b4a3b; font-weight: 600; margin-bottom: 5px;">90 minutes</div>
+                                <div style="font-size: 1.8rem; font-weight: 700; color: #8b4a3b;">$170</div>
                             </div>
                         </div>
-                        <p style="margin-top: 15px;">Targeted pain relief, athletic recovery, and chronic tension.</p>
                     </div>
                 </div>
 
-                <div class="whats-included" style="margin-top: 40px; text-align: center;">
-                    <h4>Every Session Includes:</h4>
-                    <ul class="included-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; list-style: none; padding: 0; margin: 20px 0;">
-                        <li>Personal consultation and assessment</li>
-                        <li>Customized treatment approach</li>
-                        <li>Premium massage oils and products</li>
-                        <li>Professional aftercare recommendations</li>
-                        <li>Follow-up treatment planning</li>
-                        <li>Flexible scheduling options</li>
-                    </ul>
+                <!-- What's Included -->
+                <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 40px;">
+                    <h4 style="font-size: 1.8rem; font-weight: 700; color: #8b4a3b; text-align: center; margin-bottom: 30px;">
+                        Every Session Includes:
+                    </h4>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div style="text-align: center; padding: 20px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">🩺</div>
+                            <div style="font-weight: 600; color: #8b4a3b; margin-bottom: 5px;">Personal Consultation</div>
+                            <div style="color: #666; font-size: 0.9rem;">Assessment and customized treatment</div>
+                        </div>
+                        <div style="text-align: center; padding: 20px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">✨</div>
+                            <div style="font-weight: 600; color: #8b4a3b; margin-bottom: 5px;">Premium Products</div>
+                            <div style="color: #666; font-size: 0.9rem;">High-quality oils and products</div>
+                        </div>
+                        <div style="text-align: center; padding: 20px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">📋</div>
+                            <div style="font-weight: 600; color: #8b4a3b; margin-bottom: 5px;">Aftercare Plan</div>
+                            <div style="color: #666; font-size: 0.9rem;">Professional recommendations</div>
+                        </div>
+                        <div style="text-align: center; padding: 20px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">🗓️</div>
+                            <div style="font-weight: 600; color: #8b4a3b; margin-bottom: 5px;">Flexible Scheduling</div>
+                            <div style="color: #666; font-size: 0.9rem;">Same-day appointments available</div>
+                        </div>
+                        <div style="text-align: center; padding: 20px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">🎯</div>
+                            <div style="font-weight: 600; color: #8b4a3b; margin-bottom: 5px;">Customized Approach</div>
+                            <div style="color: #666; font-size: 0.9rem;">Tailored to your specific needs</div>
+                        </div>
+                        <div style="text-align: center; padding: 20px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">📈</div>
+                            <div style="font-weight: 600; color: #8b4a3b; margin-bottom: 5px;">Treatment Planning</div>
+                            <div style="color: #666; font-size: 0.9rem;">Follow-up care strategy</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="pricing-cta" style="text-align: center; margin-top: 30px;">
-                    <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" class="btn-primary">Book Your Session</a>
+                <!-- CTA -->
+                <div style="text-align: center;">
+                    <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" 
+                       target="_blank"
+                       style="background: #f4a87c; color: white; padding: 15px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-block; box-shadow: 0 4px 15px rgba(244, 168, 124, 0.3);">
+                        Book Your Session Now
+                    </a>
                 </div>
             </div>
         </section>
 
 
         <!-- Payment Options -->
-        <section class="section-padding" aria-labelledby="payment-heading">
-            <div class="container">
-                <div class="section-header text-center">
-                    <div class="section-badge">Payment Methods</div>
-                    <h2 id="payment-heading">Flexible Payment Options</h2>
-                    <p class="section-description">We make it easy to pay for your wellness with multiple payment options</p>
+        <section style="padding: 80px 0; background: white;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <div style="background: #f4a87c; color: white; display: inline-block; padding: 8px 20px; border-radius: 20px; margin-bottom: 20px; font-size: 0.9rem; font-weight: 600;">
+                        Payment Methods
+                    </div>
+                    <h2 style="font-size: 2.5rem; font-weight: 700; color: #8b4a3b; margin-bottom: 15px;">
+                        Flexible Payment Options
+                    </h2>
+                    <p style="font-size: 1.1rem; color: #666; max-width: 600px; margin: 0 auto;">
+                        We make it easy to pay for your wellness with multiple payment options
+                    </p>
                 </div>
 
-                <div class="payment-options-grid">
-                    <div class="payment-card">
-                        <div class="payment-icon">💳</div>
-                        <h3>Credit & Debit Cards</h3>
-                        <p>We accept all major credit cards:</p>
-                        <ul>
-                            <li>Visa</li>
-                            <li>Mastercard</li>
-                            <li>American Express</li>
-                            <li>Discover</li>
-                        </ul>
-                        <p class="payment-note">Secure chip readers for your protection</p>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-bottom: 50px;">
+                    <div style="background: #f9f9f9; border-radius: 12px; padding: 30px; text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 15px;">💳</div>
+                        <h3 style="font-size: 1.3rem; font-weight: 700; color: #8b4a3b; margin-bottom: 15px;">Credit & Debit Cards</h3>
+                        <p style="color: #666; margin-bottom: 15px;">We accept all major credit cards</p>
+                        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
+                            <span style="background: white; padding: 8px 12px; border-radius: 6px; font-size: 0.9rem; font-weight: 600;">Visa</span>
+                            <span style="background: white; padding: 8px 12px; border-radius: 6px; font-size: 0.9rem; font-weight: 600;">Mastercard</span>
+                            <span style="background: white; padding: 8px 12px; border-radius: 6px; font-size: 0.9rem; font-weight: 600;">Amex</span>
+                        </div>
+                        <p style="color: #888; font-size: 0.9rem;">Secure chip readers for protection</p>
                     </div>
 
-                    <div class="payment-card featured">
-                        <div class="featured-badge">Popular</div>
-                        <div class="payment-icon">🏥</div>
-                        <h3>HSA/FSA Accounts</h3>
-                        <p>Use your health savings for massage therapy:</p>
-                        <ul>
-                            <li>Health Savings Account (HSA)</li>
-                            <li>Flexible Spending Account (FSA)</li>
-                            <li>Healthcare Reimbursement</li>
-                        </ul>
-                        <p class="payment-note">May require provider documentation</p>
+                    <div style="background: linear-gradient(135deg, #f4a87c, #e8906b); border-radius: 12px; padding: 30px; text-align: center; color: white; position: relative;">
+                        <div style="position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Popular</div>
+                        <div style="font-size: 3rem; margin-bottom: 15px;">🏥</div>
+                        <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 15px;">HSA/FSA Accounts</h3>
+                        <p style="margin-bottom: 15px; opacity: 0.9;">Use your health savings for massage therapy</p>
+                        <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                            <span style="background: rgba(255,255,255,0.2); padding: 6px 10px; border-radius: 6px; font-size: 0.8rem;">HSA</span>
+                            <span style="background: rgba(255,255,255,0.2); padding: 6px 10px; border-radius: 6px; font-size: 0.8rem;">FSA</span>
+                        </div>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">May require provider documentation</p>
                     </div>
 
-                    <div class="payment-card">
-                        <div class="payment-icon">🏛️</div>
-                        <h3>Insurance Plans</h3>
-                        <p>We work with select insurance providers:</p>
-                        <ul>
-                            <li>Medicare (with referral)</li>
-                            <li>Workers' Compensation</li>
-                            <li>Auto Accident Claims</li>
-                            <li>Some Health Plans</li>
-                        </ul>
-                        <p class="payment-note">Call to verify your coverage</p>
+                    <div style="background: #f9f9f9; border-radius: 12px; padding: 30px; text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 15px;">🏛️</div>
+                        <h3 style="font-size: 1.3rem; font-weight: 700; color: #8b4a3b; margin-bottom: 15px;">Insurance Plans</h3>
+                        <p style="color: #666; margin-bottom: 15px;">We work with select providers</p>
+                        <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                            <span style="background: white; padding: 6px 10px; border-radius: 6px; font-size: 0.8rem;">Medicare</span>
+                            <span style="background: white; padding: 6px 10px; border-radius: 6px; font-size: 0.8rem;">Workers' Comp</span>
+                        </div>
+                        <p style="color: #888; font-size: 0.9rem;">Call to verify your coverage</p>
                     </div>
 
-                    <div class="payment-card">
-                        <div class="payment-icon">💵</div>
-                        <h3>Cash Payments</h3>
-                        <p>Traditional cash payments welcome:</p>
-                        <ul>
-                            <li>Pay at time of service</li>
-                            <li>No processing fees</li>
-                            <li>Exact change appreciated</li>
-                        </ul>
-                        <p class="payment-note">Receipts provided for all payments</p>
+                    <div style="background: #f9f9f9; border-radius: 12px; padding: 30px; text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 15px;">💵</div>
+                        <h3 style="font-size: 1.3rem; font-weight: 700; color: #8b4a3b; margin-bottom: 15px;">Cash Payments</h3>
+                        <p style="color: #666; margin-bottom: 15px;">Traditional cash payments welcome</p>
+                        <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                            <span style="background: white; padding: 6px 10px; border-radius: 6px; font-size: 0.8rem;">No Fees</span>
+                            <span style="background: white; padding: 6px 10px; border-radius: 6px; font-size: 0.8rem;">Receipt</span>
+                        </div>
+                        <p style="color: #888; font-size: 0.9rem;">Pay at time of service</p>
                     </div>
                 </div>
 
-                <div class="payment-cta">
-                    <h3>Questions About Payment or Insurance?</h3>
-                    <p>Contact us at <a href="tel:+12394274757">(239) 427-4757</a> to verify your insurance coverage or discuss payment options.</p>
+                <div style="text-align: center; background: #f9f9f9; padding: 30px; border-radius: 12px;">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: #8b4a3b; margin-bottom: 10px;">Questions About Payment or Insurance?</h3>
+                    <p style="color: #666; font-size: 1.1rem;">
+                        Contact us at <a href="tel:+12394274757" style="color: #f4a87c; text-decoration: none; font-weight: 600;">(239) 427-4757</a> to verify your insurance coverage or discuss payment options.
+                    </p>
                 </div>
             </div>
         </section>
 
         <!-- Value Proposition -->
-        <section class="section-padding bg-light" aria-labelledby="value-heading">
-            <div class="container">
-                <div class="section-header text-center">
-                    <div class="section-badge">Exceptional Value</div>
-                    <h2 id="value-heading">Why Our Pricing Offers Exceptional Value</h2>
+        <section style="padding: 80px 0; background: #f9f9f9;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <div style="background: #f4a87c; color: white; display: inline-block; padding: 8px 20px; border-radius: 20px; margin-bottom: 20px; font-size: 0.9rem; font-weight: 600;">
+                        Exceptional Value
+                    </div>
+                    <h2 style="font-size: 2.5rem; font-weight: 700; color: #8b4a3b; margin-bottom: 15px;">
+                        Why Our Pricing Offers Exceptional Value
+                    </h2>
                 </div>
 
-                <div class="value-comparison">
-                    <div class="value-item">
-                        <h3>Professional Expertise</h3>
-                        <div class="value-content">
-                            <div class="value-icon">🎓</div>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-bottom: 60px;">
+                    <div style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        <div style="display: flex; align-items: flex-start; gap: 20px;">
+                            <div style="font-size: 2.5rem; flex-shrink: 0;">🎓</div>
                             <div>
-                                <p><strong>Licensed & Certified</strong></p>
-                                <p>Florida state licensed massage therapist with ongoing professional education</p>
+                                <h3 style="font-size: 1.3rem; font-weight: 700; color: #8b4a3b; margin-bottom: 8px;">Licensed & Certified</h3>
+                                <p style="color: #666; line-height: 1.5;">Florida state licensed massage therapist with ongoing professional education and specialized training.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="value-item">
-                        <h3>Personalized Care</h3>
-                        <div class="value-content">
-                            <div class="value-icon">🎯</div>
+                    <div style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        <div style="display: flex; align-items: flex-start; gap: 20px;">
+                            <div style="font-size: 2.5rem; flex-shrink: 0;">🎯</div>
                             <div>
-                                <p><strong>Customized Treatment</strong></p>
-                                <p>Every session is tailored to your specific needs and health goals</p>
+                                <h3 style="font-size: 1.3rem; font-weight: 700; color: #8b4a3b; margin-bottom: 8px;">Customized Treatment</h3>
+                                <p style="color: #666; line-height: 1.5;">Every session is tailored to your specific needs and health goals for maximum therapeutic benefit.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="value-item">
-                        <h3>Premium Environment</h3>
-                        <div class="value-content">
-                            <div class="value-icon">🌟</div>
+                    <div style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        <div style="display: flex; align-items: flex-start; gap: 20px;">
+                            <div style="font-size: 2.5rem; flex-shrink: 0;">🌟</div>
                             <div>
-                                <p><strong>Professional Facility</strong></p>
-                                <p>Clean, comfortable treatment rooms with professional equipment</p>
+                                <h3 style="font-size: 1.3rem; font-weight: 700; color: #8b4a3b; margin-bottom: 8px;">Professional Facility</h3>
+                                <p style="color: #666; line-height: 1.5;">Clean, comfortable treatment rooms with professional equipment and premium massage products.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="value-item">
-                        <h3>Flexible Scheduling</h3>
-                        <div class="value-content">
-                            <div class="value-icon">📅</div>
+                    <div style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        <div style="display: flex; align-items: flex-start; gap: 20px;">
+                            <div style="font-size: 2.5rem; flex-shrink: 0;">📅</div>
                             <div>
-                                <p><strong>Often Same-Day Available</strong></p>
-                                <p>Convenient scheduling to fit your busy lifestyle</p>
+                                <h3 style="font-size: 1.3rem; font-weight: 700; color: #8b4a3b; margin-bottom: 8px;">Same-Day Available</h3>
+                                <p style="color: #666; line-height: 1.5;">Flexible scheduling to fit your busy lifestyle with often same-day appointments available.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="local-comparison">
-                    <h3>How We Compare in Naples</h3>
-                    <div class="comparison-table">
-                        <div class="comparison-header">
-                            <div class="compare-item"></div>
-                            <div class="compare-item">Recovery Kneads</div>
-                            <div class="compare-item">Chain Spas</div>
-                            <div class="compare-item">Hotel Spas</div>
+                <!-- Simple Comparison -->
+                <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    <h3 style="font-size: 1.8rem; font-weight: 700; color: #8b4a3b; text-align: center; margin-bottom: 30px;">
+                        Great Value in Naples
+                    </h3>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.5rem; color: #f4a87c; font-weight: 700; margin-bottom: 5px;">$90</div>
+                            <div style="color: #8b4a3b; font-weight: 600; margin-bottom: 8px;">Recovery Kneads</div>
+                            <div style="color: #666; font-size: 0.9rem;">45-minute session</div>
                         </div>
-                        <div class="comparison-row">
-                            <div class="compare-item"><strong>45-min Session</strong></div>
-                            <div class="compare-item highlight">$90</div>
-                            <div class="compare-item">$120-150</div>
-                            <div class="compare-item">$180-250</div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.5rem; color: #888; font-weight: 700; margin-bottom: 5px;">$120-150</div>
+                            <div style="color: #888; font-weight: 600; margin-bottom: 8px;">Chain Spas</div>
+                            <div style="color: #888; font-size: 0.9rem;">45-minute session</div>
                         </div>
-                        <div class="comparison-row">
-                            <div class="compare-item"><strong>Licensed Therapist</strong></div>
-                            <div class="compare-item highlight">✓</div>
-                            <div class="compare-item">✓</div>
-                            <div class="compare-item">✓</div>
-                        </div>
-                        <div class="comparison-row">
-                            <div class="compare-item"><strong>Personalized Care</strong></div>
-                            <div class="compare-item highlight">✓</div>
-                            <div class="compare-item">Limited</div>
-                            <div class="compare-item">Limited</div>
-                        </div>
-                        <div class="comparison-row">
-                            <div class="compare-item"><strong>HSA/FSA Accepted</strong></div>
-                            <div class="compare-item highlight">✓</div>
-                            <div class="compare-item">Varies</div>
-                            <div class="compare-item">Rarely</div>
-                        </div>
-                        <div class="comparison-row">
-                            <div class="compare-item"><strong>Same-Day Booking</strong></div>
-                            <div class="compare-item highlight">Often</div>
-                            <div class="compare-item">Rare</div>
-                            <div class="compare-item">Rare</div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.5rem; color: #888; font-weight: 700; margin-bottom: 5px;">$180-250</div>
+                            <div style="color: #888; font-weight: 600; margin-bottom: 8px;">Hotel Spas</div>
+                            <div style="color: #888; font-size: 0.9rem;">45-minute session</div>
                         </div>
                     </div>
                 </div>
@@ -634,49 +696,57 @@
         </section>
 
         <!-- Gift Certificates -->
-        <section class="section-padding" aria-labelledby="gift-heading">
-            <div class="container">
-                <div class="gift-section">
-                    <div class="gift-content">
-                        <div class="section-badge">Perfect Gifts</div>
-                        <h2 id="gift-heading">Gift the Experience of Wellness</h2>
-                        <p>Gift certificates make the perfect present for anyone who deserves some relaxation and healing in their life.</p>
+        <section style="padding: 80px 0; background: white;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                    <div>
+                        <div style="background: #f4a87c; color: white; display: inline-block; padding: 8px 20px; border-radius: 20px; margin-bottom: 20px; font-size: 0.9rem; font-weight: 600;">
+                            Perfect Gifts
+                        </div>
+                        <h2 style="font-size: 2.5rem; font-weight: 700; color: #8b4a3b; margin-bottom: 20px;">
+                            Gift the Experience of Wellness
+                        </h2>
+                        <p style="font-size: 1.1rem; color: #666; line-height: 1.6; margin-bottom: 30px;">
+                            Gift certificates make the perfect present for anyone who deserves some relaxation and healing in their life.
+                        </p>
                         
-                        <div class="gift-occasions">
-                            <h3>Perfect for:</h3>
-                            <div class="occasions-grid">
-                                <span class="occasion">🎂 Birthdays</span>
-                                <span class="occasion">💕 Anniversaries</span>
-                                <span class="occasion">🎄 Holidays</span>
-                                <span class="occasion">👩‍💼 Employee Appreciation</span>
-                                <span class="occasion">🌟 Any Special Occasion</span>
+                        <div style="margin-bottom: 30px;">
+                            <h3 style="font-size: 1.3rem; font-weight: 700; color: #8b4a3b; margin-bottom: 15px;">Perfect for:</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px;">
+                                <span style="background: #f9f9f9; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">🎂 Birthdays</span>
+                                <span style="background: #f9f9f9; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">💕 Anniversaries</span>
+                                <span style="background: #f9f9f9; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">🎄 Holidays</span>
+                                <span style="background: #f9f9f9; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">👩‍💼 Employee Appreciation</span>
+                                <span style="background: #f9f9f9; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">🌟 Any Special Occasion</span>
                             </div>
                         </div>
 
-                        <div class="gift-features">
-                            <ul>
-                                <li>Available in any denomination</li>
-                                <li>Personalized messages included</li>
-                                <li>Flexible expiration dates</li>
-                                <li>Can be used for any service</li>
+                        <div style="background: #f9f9f9; padding: 20px; border-radius: 12px; margin-bottom: 30px;">
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;"><span style="color: #4CAF50;">✓</span>Available in any denomination</li>
+                                <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;"><span style="color: #4CAF50;">✓</span>Personalized messages included</li>
+                                <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;"><span style="color: #4CAF50;">✓</span>Flexible expiration dates</li>
+                                <li style="display: flex; align-items: center; gap: 10px;"><span style="color: #4CAF50;">✓</span>Can be used for any service</li>
                             </ul>
                         </div>
 
-                        <a href="gift-cards.html" class="btn-primary">Purchase Gift Certificate</a>
+                        <a href="contact.html" 
+                           style="background: #f4a87c; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-block;">
+                            Purchase Gift Certificate
+                        </a>
                     </div>
 
-                    <div class="gift-pricing">
-                        <div class="gift-card">
-                            <h3>Single Session Gift Certificate</h3>
-                            <div class="gift-price">$90</div>
-                            <p>Perfect introduction to massage therapy</p>
+                    <div style="display: flex; flex-direction: column; gap: 30px;">
+                        <div style="background: #f9f9f9; border-radius: 12px; padding: 30px; text-align: center;">
+                            <h3 style="font-size: 1.3rem; font-weight: 700; color: #8b4a3b; margin-bottom: 15px;">Single Session Gift Certificate</h3>
+                            <div style="font-size: 2.5rem; font-weight: 700; color: #f4a87c; margin-bottom: 10px;">$90</div>
+                            <p style="color: #666;">Perfect introduction to massage therapy</p>
                         </div>
 
-
-                        <div class="gift-card">
-                            <h3>Custom Amount</h3>
-                            <div class="gift-price">Any $</div>
-                            <p>Choose any amount that fits your budget</p>
+                        <div style="background: #f9f9f9; border-radius: 12px; padding: 30px; text-align: center;">
+                            <h3 style="font-size: 1.3rem; font-weight: 700; color: #8b4a3b; margin-bottom: 15px;">Custom Amount</h3>
+                            <div style="font-size: 2.5rem; font-weight: 700; color: #f4a87c; margin-bottom: 10px;">Any $</div>
+                            <p style="color: #666;">Choose any amount that fits your budget</p>
                         </div>
                     </div>
                 </div>

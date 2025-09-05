@@ -235,15 +235,21 @@
                 "openingHoursSpecification": [
                     {
                         "@type": "OpeningHoursSpecification",
-                        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                        "dayOfWeek": ["Monday", "Tuesday"],
                         "opens": "09:00",
-                        "closes": "19:00"
+                        "closes": "16:30"
                     },
                     {
                         "@type": "OpeningHoursSpecification",
-                        "dayOfWeek": "Saturday",
+                        "dayOfWeek": "Wednesday",
                         "opens": "09:00",
-                        "closes": "17:00"
+                        "closes": "13:30"
+                    },
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": "Friday",
+                        "opens": "09:00",
+                        "closes": "16:30"
                     }
                 ]
             },
@@ -318,28 +324,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Conversion-Optimized Top Bar -->
-    <div style="background: #8b4a3b; color: white; padding: 10px 0; font-size: 0.9rem; position: sticky; top: 0; z-index: 1000;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="color: #4CAF50;">●</span>
-                <span>Same-Day Appointments Available</span>
-            </div>
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <a href="tel:239-427-4757" style="color: white; text-decoration: none; font-weight: 600;">
-                    📞 (239) 427-4757
-                </a>
-                <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" 
-                   target="_blank" 
-                   style="background: #f4a87c; color: #8b4a3b; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: 600;">
-                    Book Now
-                </a>
-            </div>
+    <!-- Simple Announcement Bar -->
+    <div style="background: #8b4a3b; color: white; padding: 8px 0; font-size: 0.9rem; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <span style="color: #4CAF50;">●</span>
+            <span>Same-Day Appointments Available</span>
+            <span style="margin: 0 10px;">•</span>
+            <span>Licensed & Insured</span>
+            <span style="margin: 0 10px;">•</span>
+            <span>HSA/FSA Accepted</span>
         </div>
     </div>
 
     <!-- Header -->
-    <header style="background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 62px; z-index: 999;">
+    <header style="background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 50px; z-index: 999;">
         <div style="max-width: 1200px; margin: 0 auto; padding: 15px 20px;">
             <nav style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
                 <div style="display: flex; align-items: center; gap: 12px;">

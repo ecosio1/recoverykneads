@@ -1,4 +1,157 @@
+// Recovery Kneads Website JavaScript with Enhanced Animations
+
+// Animation Configuration
+const ANIMATION_CONFIG = {
+    duration: {
+        fast: 200,
+        normal: 300,
+        slow: 500,
+        extra_slow: 800
+    },
+    easing: {
+        smooth: 'cubic-bezier(0.4, 0, 0.2, 1)',
+        bounce: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+        elastic: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+    },
+    reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+};
+
+// Utility functions for animations
+function animateElement(element, keyframes, options = {}) {
+    if (ANIMATION_CONFIG.reducedMotion) {
+        // Skip animations for users who prefer reduced motion
+        if (options.onComplete) options.onComplete();
+        return;
+    }
+    
+    const animation = element.animate(keyframes, {
+        duration: options.duration || ANIMATION_CONFIG.duration.normal,
+        easing: options.easing || ANIMATION_CONFIG.easing.smooth,
+        fill: 'forwards',
+        ...options
+    });
+    
+    if (options.onComplete) {
+        animation.onfinish = options.onComplete;
+    }
+    
+    return animation;
+}
+
+function fadeIn(element, duration = ANIMATION_CONFIG.duration.normal) {
+    return animateElement(element, [
+        { opacity: 0, transform: 'translateY(20px)' },
+        { opacity: 1, transform: 'translateY(0)' }
+    ], { duration });
+}
+
+function slideIn(element, direction = 'left', duration = ANIMATION_CONFIG.duration.normal) {
+    const transforms = {
+        left: ['translateX(-100%)', 'translateX(0)'],
+        right: ['translateX(100%)', 'translateX(0)'],
+        up: ['translateY(-100%)', 'translateY(0)'],
+        down: ['translateY(100%)', 'translateY(0)']
+    };
+    
+    return animateElement(element, [
+        { transform: transforms[direction][0], opacity: 0 },
+        { transform: transforms[direction][1], opacity: 1 }
+    ], { duration, easing: ANIMATION_CONFIG.easing.smooth });
+}
+
+function scaleIn(element, duration = ANIMATION_CONFIG.duration.normal) {
+    return animateElement(element, [
+        { transform: 'scale(0.8)', opacity: 0 },
+        { transform: 'scale(1)', opacity: 1 }
+    ], { duration, easing: ANIMATION_CONFIG.easing.bounce });
+}
+
+function pulse(element, intensity = 1.05) {
+    return animateElement(element, [
+        { transform: 'scale(1)' },
+        { transform: `scale(${intensity})` },
+        { transform: 'scale(1)' }
+    ], { 
+        duration: ANIMATION_CONFIG.duration.fast,
+        easing: ANIMATION_CONFIG.easing.elastic
+    });
+}
+
 // Recovery Kneads Website JavaScript
+
+// Enhanced button loading states
+function showButtonLoading(button, loadingText = 'Loading...') {
+    if (button.classList.contains('loading')) return;
+    
+    const originalText = button.textContent;
+    const originalHTML = button.innerHTML;
+    
+    button.classList.add('loading');
+    button.disabled = true;
+    button.dataset.originalText = originalText;
+    button.dataset.originalHTML = originalHTML;
+    
+    // Create loading spinner
+    const spinner = document.createElement('span');
+    spinner.className = 'loading-spinner';
+    spinner.innerHTML = '◯';
+    
+    button.innerHTML = '';
+    button.appendChild(spinner);
+    button.appendChild(document.createTextNode(' ' + loadingText));
+    
+    // Animate spinner
+    animateElement(spinner, [
+        { transform: 'rotate(0deg)' },
+        { transform: 'rotate(360deg)' }
+    ], {
+        duration: 1000,
+        iterations: Infinity,
+        easing: 'linear'
+    });
+}
+
+function hideButtonLoading(button) {
+    if (!button.classList.contains('loading')) return;
+    
+    button.classList.remove('loading');
+    button.disabled = false;
+    
+    const originalHTML = button.dataset.originalHTML || button.dataset.originalText || 'Submit';
+    button.innerHTML = originalHTML;
+    
+    // Add success pulse
+    pulse(button, 1.02);
+}
+
+// Auto-Hide Header on Scroll
+document.addEventListener('DOMContentLoaded', function() {
+    let lastScrollTop = 0;
+    let scrollThreshold = 10; // Minimum scroll distance to trigger hide/show
+    const header = document.getElementById('main-header');
+    
+    if (!header) return; // Exit if header not found
+    
+    window.addEventListener('scroll', function() {
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Prevent negative scrolling
+        if (currentScrollTop < 0) return;
+        
+        // Only act if scrolled more than threshold
+        if (Math.abs(currentScrollTop - lastScrollTop) < scrollThreshold) return;
+        
+        if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
+            // Scrolling down & not at the very top - hide header
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            // Scrolling up or at top - show header
+            header.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollTop = currentScrollTop;
+    });
+});
 
 // Global booking state
 let bookingState = {
@@ -1052,7 +1205,7 @@ function showBookingSuccess(bookingData, mailtoLink) {
                 <p style="margin: 15px 0; color: #155724;">We'll contact you within 24 hours to confirm your appointment time.</p>
                 
                 <div style="margin-top: 20px;">
-                    <p style="font-size: 0.9rem; color: #666;">Questions? Call us at <a href="tel:+12394274757" style="color: #D4AF37;">(239) 427-4757</a></p>
+                    <p style="font-size: 0.9rem; color: #666;">Questions? Call us at <a href="tel:+12394274757" style="color: #f4a87c;">(239) 427-4757</a></p>
                 </div>
             </div>
         `;
@@ -1603,6 +1756,143 @@ function checkRealTimeAvailability(date, time, duration) {
     return !bookedSlots.some(slot => slot.date === dateStr && slot.time === hour);
 }
 
+// FAQ Page Functionality
+function initFAQFunctionality() {
+    // Initialize FAQ toggles
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    const faqCategories = document.querySelectorAll('.faq-category-btn');
+    const faqSearch = document.getElementById('faq-search');
+    const faqSections = document.querySelectorAll('.faq-section');
+    
+    // FAQ Question Toggle
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const faqItem = this.closest('.faq-item');
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = this.querySelector('.faq-icon');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            // Close all other FAQ items
+            faqQuestions.forEach(otherQuestion => {
+                if (otherQuestion !== this) {
+                    const otherItem = otherQuestion.closest('.faq-item');
+                    const otherAnswer = otherItem.querySelector('.faq-answer');
+                    const otherIcon = otherQuestion.querySelector('.faq-icon');
+                    
+                    otherQuestion.setAttribute('aria-expanded', 'false');
+                    otherItem.classList.remove('active');
+                    otherAnswer.style.maxHeight = '0';
+                    otherIcon.textContent = '+';
+                }
+            });
+            
+            // Toggle current FAQ item
+            if (!isExpanded) {
+                this.setAttribute('aria-expanded', 'true');
+                faqItem.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.textContent = '−';
+                
+                // Add entrance animation
+                setTimeout(() => {
+                    if (!ANIMATION_CONFIG.reducedMotion) {
+                        fadeIn(answer, ANIMATION_CONFIG.duration.normal);
+                    }
+                }, 100);
+            } else {
+                this.setAttribute('aria-expanded', 'false');
+                faqItem.classList.remove('active');
+                answer.style.maxHeight = '0';
+                icon.textContent = '+';
+            }
+        });
+    });
+    
+    // Category Filtering
+    faqCategories.forEach(categoryBtn => {
+        categoryBtn.addEventListener('click', function() {
+            const category = this.dataset.category;
+            
+            // Update active category button
+            faqCategories.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter FAQ sections
+            faqSections.forEach(section => {
+                if (category === 'all' || section.dataset.category === category) {
+                    section.style.display = 'block';
+                    if (!ANIMATION_CONFIG.reducedMotion) {
+                        fadeIn(section, ANIMATION_CONFIG.duration.normal);
+                    }
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+            
+            // Close all open FAQ items when switching categories
+            faqQuestions.forEach(question => {
+                const faqItem = question.closest('.faq-item');
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = question.querySelector('.faq-icon');
+                
+                question.setAttribute('aria-expanded', 'false');
+                faqItem.classList.remove('active');
+                answer.style.maxHeight = '0';
+                icon.textContent = '+';
+            });
+        });
+    });
+    
+    // Search Functionality
+    if (faqSearch) {
+        faqSearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    if (searchTerm && !ANIMATION_CONFIG.reducedMotion) {
+                        pulse(item, 1.02);
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Show all sections when searching
+            if (searchTerm) {
+                faqSections.forEach(section => {
+                    section.style.display = 'block';
+                });
+            } else {
+                // Reset to active category
+                const activeCategory = document.querySelector('.faq-category-btn.active').dataset.category;
+                faqSections.forEach(section => {
+                    if (activeCategory === 'all' || section.dataset.category === activeCategory) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            }
+        });
+    }
+    
+    // Keyboard navigation for FAQ items
+    faqQuestions.forEach(question => {
+        question.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
+}
+
 // Accessibility enhancements
 function enhanceAccessibility() {
     // Add keyboard navigation for service options
@@ -1624,8 +1914,9 @@ function enhanceAccessibility() {
     document.body.appendChild(statusRegion);
 }
 
-// Initialize accessibility features when DOM is loaded
+// FAQ Functionality
 document.addEventListener('DOMContentLoaded', function() {
+    initFAQFunctionality();
     setTimeout(enhanceAccessibility, 1000);
     
     // Auto-scroll to booking section if coming from blog or direct link
@@ -1638,7 +1929,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Optional: Add a subtle highlight effect to draw attention
                 const bookingContainer = document.getElementById('booking-calendar-container');
                 if (bookingContainer) {
-                    bookingContainer.style.boxShadow = '0 0 20px rgba(212, 175, 55, 0.5)';
+                    bookingContainer.style.boxShadow = '0 0 20px rgba(244, 168, 124, 0.5)';
                     setTimeout(() => {
                         bookingContainer.style.boxShadow = '';
                     }, 3000);

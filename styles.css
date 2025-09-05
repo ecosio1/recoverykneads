@@ -1,4 +1,15 @@
-/* Recovery Kneads CSS - Enhanced 3-Color Design System */
+/* Recovery Kneads CSS - Enhanced 3-Color Design System with Smooth Animations */
+
+/* Animation Variables */
+:root {
+    --animation-fast: 0.2s;
+    --animation-normal: 0.3s;
+    --animation-slow: 0.5s;
+    --animation-extra-slow: 0.8s;
+    --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --easing-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
 :root {
     /* Core 3-Color Palette */
