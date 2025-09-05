@@ -318,36 +318,52 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Skip Navigation Link for Accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <header role="banner">
-        <nav class="navbar" role="navigation" aria-label="Main navigation">
-            <div class="nav-container">
-                <div class="logo" role="img" aria-label="Recovery Kneads Professional Massage Therapy">
-                    <a href="index.html">
-                        <img src="logo-optimized.svg" alt="Recovery Kneads - Professional Massage Therapy Naples FL" class="logo-img" width="40" height="40" loading="eager">
-                        <div class="logo-text">
-                            <span class="logo-title">Recovery Kneads</span>
-                            <span class="logo-subtitle">Professional Massage Therapy</span>
-                        </div>
-                    </a>
-                </div>
-                <ul class="nav-menu" role="menubar">
-                    <li role="none"><a href="index.html" role="menuitem">Home</a></li>
-                    <li role="none"><a href="index.html#services" role="menuitem">Services</a></li>
-                    <li role="none"><a href="index.html#about" role="menuitem">About</a></li>
-                    <li role="none"><a href="blog/index.html" role="menuitem">Blog</a></li>
-                    <li role="none"><a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" role="menuitem" class="book-now-nav">Book Now</a></li>
-                    <li role="none"><a href="index.html#contact" role="menuitem">Contact</a></li>
-                </ul>
-                <button class="hamburger" aria-label="Toggle mobile navigation" aria-expanded="false" aria-controls="nav-menu">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </button>
+    <!-- Conversion-Optimized Top Bar -->
+    <div style="background: #8b4a3b; color: white; padding: 10px 0; font-size: 0.9rem; position: sticky; top: 0; z-index: 1000;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: #4CAF50;">●</span>
+                <span>Same-Day Appointments Available</span>
             </div>
-        </nav>
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <a href="tel:239-427-4757" style="color: white; text-decoration: none; font-weight: 600;">
+                    📞 (239) 427-4757
+                </a>
+                <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" 
+                   target="_blank" 
+                   style="background: #f4a87c; color: #8b4a3b; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: 600;">
+                    Book Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header style="background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 62px; z-index: 999;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 15px 20px;">
+            <nav style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 40px; height: 40px; background: #f4a87c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">RK</div>
+                    <div>
+                        <div style="font-size: 1.4rem; font-weight: 700; color: #8b4a3b;">Recovery Kneads</div>
+                        <div style="font-size: 0.85rem; color: #666;">Professional Massage Therapy</div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
+                    <a href="services.html" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Services & Pricing</a>
+                    <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" 
+                       target="_blank" 
+                       style="background: #f4a87c; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600;">
+                        Book Online
+                    </a>
+                    <a href="tel:239-427-4757" style="color: #8b4a3b; text-decoration: none; font-weight: 600;">
+                        📞 (239) 427-4757
+                    </a>
+                    <a href="contact.html" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Location</a>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <main id="main-content" role="main">
@@ -793,48 +809,44 @@
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="logo">
-                        <a href="index.html">
-                            <img src="logo.svg" alt="Recovery Kneads Logo" class="footer-logo">
-                            <div class="logo-text">
-                                <span class="logo-title">Recovery Kneads</span>
-                                <span class="logo-subtitle">Professional Massage Therapy</span>
-                            </div>
-                        </a>
+    <!-- Footer -->
+    <footer style="background: #8b4a3b; color: white; padding: 60px 0 30px;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                        <div style="width: 40px; height: 40px; background: #f4a87c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #8b4a3b; font-weight: bold;">RK</div>
+                        <div>
+                            <div style="font-size: 1.2rem; font-weight: 700;">Recovery Kneads</div>
+                            <div style="font-size: 0.85rem; opacity: 0.8;">Professional Massage Therapy</div>
+                        </div>
                     </div>
-                    <p>Professional massage therapy in Naples, FL. Dedicated to your wellness and athletic performance.</p>
+                    <p style="opacity: 0.8; line-height: 1.6;">Licensed massage therapy in Naples, FL. Dedicated to your wellness and recovery.</p>
                 </div>
-                <div class="footer-section">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><a href="therapeutic-massage-naples.html">Therapeutic Massage</a></li>
-                        <li><a href="sports-massage-naples.html">Sports Massage</a></li>
-                        <li><a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services">Book Now</a></li>
-                        <li><a href="blog/index.html">Blog</a></li>
-                    </ul>
+                
+                <div>
+                    <h4 style="margin-bottom: 20px;">Services</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="therapeutic-massage-naples.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Therapeutic Massage</a>
+                        <a href="sports-massage-naples.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Sports Massage</a>
+                        <a href="deep-tissue-massage-naples.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Deep Tissue Massage</a>
+                        <a href="services.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">View All Services</a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Service Areas</h4>
-                    <ul>
-                        <li>Naples, FL</li>
-                        <li>North Naples</li>
-                        <li>Pelican Bay</li>
-                        <li>Vanderbilt Beach</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p><a href="tel:+12394274757">(239) 427-4757</a></p>
-                    <p><a href="mailto:massagebyerikag@gmail.com">massagebyerikag@gmail.com</a></p>
-                    <p>8965 Tamiami Trail N, Suite #43<br>Naples, FL</p>
+                
+                <div>
+                    <h4 style="margin-bottom: 20px;">Contact Info</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="tel:239-427-4757" style="color: rgba(255,255,255,0.8); text-decoration: none;">📞 (239) 427-4757</a>
+                        <a href="mailto:massagebyerikag@gmail.com" style="color: rgba(255,255,255,0.8); text-decoration: none;">✉️ massagebyerikag@gmail.com</a>
+                        <div style="color: rgba(255,255,255,0.8);">📍 8965 Tamiami Trail N, Suite #43<br>Naples, FL 34108</div>
+                        <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" target="_blank" style="color: #f4a87c; text-decoration: none; font-weight: 600;">📅 Book Online 24/7</a>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Recovery Kneads. All rights reserved.</p>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 30px; text-align: center;">
+                <p style="opacity: 0.8; margin: 0;">&copy; 2024 Recovery Kneads. All rights reserved. Licensed Massage Therapist in Naples, FL.</p>
             </div>
         </div>
     </footer>
