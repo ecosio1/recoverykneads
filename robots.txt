@@ -21,6 +21,20 @@ Allow: /faq.html
 Allow: /north-naples-massage-therapy.html
 Allow: /old-naples-massage-therapy.html
 
+# New high-priority location pages
+Allow: /pelican-bay-massage-therapy.html
+Allow: /park-shore-massage-therapy.html
+Allow: /bonita-springs-massage-therapy.html
+Allow: /marco-island-massage-therapy.html
+Allow: /estero-massage-therapy.html
+
+# Blog content
+Allow: /blog/
+Allow: /blog/deep-tissue-vs-therapeutic-massage.html
+Allow: /blog/massage-for-golfers-naples.html
+Allow: /blog/how-long-massage-session.html
+Allow: /blog/first-massage-what-to-expect.html
+
 # Block access to any system files if they exist
 Disallow: /.*
 Disallow: /.git/
