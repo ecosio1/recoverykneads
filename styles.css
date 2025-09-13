@@ -2584,7 +2584,7 @@ footer::before {
     border-top: 1px solid rgba(255, 255, 255, 0.15);
     padding-top: var(--space-6);
     text-align: center;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.95);
     position: relative;
     font-size: var(--font-size-sm);
 }
@@ -5962,34 +5962,39 @@ footer::before {
     }
 }
 
-/* Header Logo Styling - Increased specificity */
-header .header-icon {
-    height: 60px !important;
-    width: auto !important;
-    max-height: none !important;
-    transition: transform var(--animation-normal) var(--easing-smooth);
+/* Fixed header height with bigger logos */
+header div[style*="padding: 15px 20px"] {
+    padding: 5px 20px !important;
+    height: 90px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
 }
 
-header .header-logo {
+.header-icon {
+    height: 110px !important;
+    width: 110px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+.header-logo {
     height: 50px !important;
-    width: auto !important;
-    max-height: none !important;
-    transition: transform var(--animation-normal) var(--easing-smooth);
+    width: 180px !important;
+    object-fit: cover !important;
+    object-position: center !important;
 }
 
-/* Hover effects for logo */
-.header-icon:hover,
-.header-logo:hover {
-    transform: scale(1.05);
-}
-
-/* Responsive logo sizing */
+/* Mobile responsive */
 @media (max-width: 768px) {
-    header .header-icon {
-        height: 45px !important;
+    .header-icon {
+        height: 60px !important;
+        max-height: none !important;
     }
     
-    header .header-logo {
-        height: 40px !important;
+    .header-logo {
+        height: 50px !important;
+        max-height: none !important;
     }
 }
