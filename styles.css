@@ -5962,16 +5962,18 @@ footer::before {
     }
 }
 
-/* Header Logo Styling */
-.header-icon {
-    height: 50px;
-    width: auto;
+/* Header Logo Styling - Increased specificity */
+header .header-icon {
+    height: 60px !important;
+    width: auto !important;
+    max-height: none !important;
     transition: transform var(--animation-normal) var(--easing-smooth);
 }
 
-.header-logo {
-    height: 45px;
-    width: auto;
+header .header-logo {
+    height: 50px !important;
+    width: auto !important;
+    max-height: none !important;
     transition: transform var(--animation-normal) var(--easing-smooth);
 }
 
@@ -5983,11 +5985,11 @@ footer::before {
 
 /* Responsive logo sizing */
 @media (max-width: 768px) {
-    .header-icon {
-        height: 40px;
+    header .header-icon {
+        height: 45px !important;
     }
     
-    .header-logo {
-        height: 35px;
+    header .header-logo {
+        height: 40px !important;
     }
 }
