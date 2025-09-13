@@ -5961,3 +5961,33 @@ footer::before {
         padding: 0 var(--space-2);
     }
 }
+
+/* Header Logo Styling */
+.header-icon {
+    height: 50px;
+    width: auto;
+    transition: transform var(--animation-normal) var(--easing-smooth);
+}
+
+.header-logo {
+    height: 45px;
+    width: auto;
+    transition: transform var(--animation-normal) var(--easing-smooth);
+}
+
+/* Hover effects for logo */
+.header-icon:hover,
+.header-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive logo sizing */
+@media (max-width: 768px) {
+    .header-icon {
+        height: 40px;
+    }
+    
+    .header-logo {
+        height: 35px;
+    }
+}
