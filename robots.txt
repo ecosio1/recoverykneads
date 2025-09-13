@@ -41,6 +41,15 @@ Disallow: /.git/
 Disallow: /node_modules/
 Disallow: /admin/
 
+# Block backup, broken, and test files
+Disallow: /*-backup.html
+Disallow: /*-broken.html
+Disallow: /*-test.html
+Disallow: /*-old.html
+Disallow: /faq-backup.html
+Disallow: /faq-broken.html
+Disallow: /index-broken.html
+
 # Allow access to CSS, JS, and images for proper rendering
 Allow: *.css
 Allow: *.js
