@@ -1,0 +1,26 @@
+{
+    "name": "Recovery Kneads",
+    "short_name": "Recovery Kneads",
+    "description": "Professional Massage Therapy in Naples FL",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "32x32",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#f4a87c",
+    "background_color": "#ffffff"
+}
