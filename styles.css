@@ -3737,14 +3737,16 @@ footer::before {
     background: var(--light-bg);
 }
 
-.faq-question::after {
-    content: '+';
+.faq-icon {
     font-size: 1.5rem;
     color: var(--primary-coral);
     transition: transform 0.3s ease;
+    font-weight: 300;
+    line-height: 1;
+    display: inline-block;
 }
 
-.faq-question.active::after {
+.faq-item.active .faq-icon {
     transform: rotate(45deg);
 }
 
