@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XLJ55RF5Z5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XLJ55RF5Z5');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K26QJMF7');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <!-- Favicon for all browsers -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -231,10 +249,10 @@
                 "priceRange": "$90-$170",
                 "address": {
                     "@type": "PostalAddress",
-                    "streetAddress": "8965 Tamiami Trail N, Suite #71",
+                    "streetAddress": "8965 Tamiami Trl N # 74, Suite 43",
                     "addressLocality": "Naples",
                     "addressRegion": "FL", 
-                    "postalCode": "34108",
+                    "postalCode": "34108-2583",
                     "addressCountry": "US"
                 },
                 "geo": {
@@ -332,236 +350,223 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
 </head>
-<body>
-    <!-- Simple Announcement Bar -->
-    <div style="background: #8b4a3b; color: white; padding: 8px 0; font-size: 0.9rem; text-align: center;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <span style="color: #4CAF50;"></span>
-            <span>To provide you with the best care, all services are by appointment only</span>
-            <span style="margin: 0 10px;">•</span>
-            <span>Licensed & Insured</span>
-            <span style="margin: 0 10px;">•</span>
-            <span>Professional Service</span>
-        </div>
-    </div>
+<body style="padding-top: 100px;">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K26QJMF7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Header -->
-    <header style="background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 50px; z-index: 999;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 15px 20px;">
-            <nav style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 40px; height: 40px; background: #f4a87c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">RK</div>
-                    <div>
-                        <div style="font-size: 1.4rem; font-weight: 700; color: #8b4a3b;">Recovery Kneads</div>
-                        <div style="font-size: 0.85rem; color: #666;">Professional Massage Therapy</div>
+    <!-- Combined Auto-Hide Header -->
+    <header id="main-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: transform 0.3s ease-in-out;">
+        <!-- Announcement Bar -->
+        <div style="background: #8b4a3b; color: white; padding: 8px 0; font-size: 0.9rem; text-align: center;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <span>To provide you with the best care, all services are by appointment only</span>
+                <span style="margin: 0 10px;">•</span>
+                <span>Licensed & Insured</span>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div style="background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 15px 20px;">
+                <nav style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                    <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                        <img src="icon only.png" alt="Recovery Kneads Icon" class="header-icon" loading="eager">
+                        <img src="text-logo.jpeg" alt="Recovery Kneads - Professional Massage Therapy Naples FL" class="header-logo" loading="eager">
+                    </a>
+
+                    <div style="display: flex; gap: 25px; align-items: center; flex-wrap: wrap;">
+                        <a href="services" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Services</a>
+                        <a href="pricing" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Pricing</a>
+                        <a href="about" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">About</a>
+                        <a href="blog/" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Blog</a>
+                        <a href="faq" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">FAQ</a>
+                        <a href="contact" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Contact</a>
+                        <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services"
+                           target="_blank"
+                           style="background: #f4a87c; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600;">
+                            Book Online
+                        </a>
+                        <a href="tel:239-427-4757" style="color: #8b4a3b; text-decoration: none; font-weight: 600;">
+                            (239) 427-4757
+                        </a>
                     </div>
-                </div>
-                
-                <div style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
-                    <a href="services" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Services & Pricing</a>
-                    <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" 
-                       target="_blank" 
-                       style="background: #f4a87c; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600;">
-                        Book Online
-                    </a>
-                    <a href="tel:239-427-4757" style="color: #8b4a3b; text-decoration: none; font-weight: 600;">
-                        (239) 427-4757
-                    </a>
-                    <a href="contact" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Location</a>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </div>
     </header>
 
     <main id="main-content" role="main">
         <!-- Hero Section -->
-        <section class="service-hero" role="banner" aria-labelledby="hero-heading">
-            <div class="hero-background">
-                <img src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=85" alt="Professional sports massage therapy for athletic performance and recovery" class="hero-bg-image" loading="eager" fetchpriority="high" width="1920" height="1080">
-                <div class="hero-overlay"></div>
-            </div>
-            <div class="container">
-                <div class="hero-container">
-                    <div class="hero-content">
-                        <nav aria-label="Breadcrumb" class="breadcrumb">
-                            <ol>
-                                <li><a href="/">Home</a></li>
-                                <li aria-current="page">Sports Massage</li>
-                            </ol>
-                        </nav>
-                        <div class="hero-badge">Peak Performance & Recovery</div>
-                        <h1 id="hero-heading">Sports Massage Naples</h1>
-                        <p class="hero-subtitle">Elevate Your Athletic Performance</p>
-                        <p class="hero-description">Whether you're training for your next race, hitting the gym regularly, or enjoying weekend activities, specialized sports massage helps you perform better, recover faster, and stay injury-free. Licensed therapist Recovery Kneads understands the unique needs of active individuals.</p>
-                        <div class="hero-buttons">
-                            <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" class="btn-primary">
-                                <span>Book Your Session - $90</span>
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M7 13L13 7M13 7H7M13 7V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </a>
-                            <a href="#benefits" class="btn-secondary">
-                                <span>See Athletic Benefits</span>
-                            </a>
-                        </div>
-                        <div class="service-highlights">
-                            <div class="highlight-item">
-                                <span class="highlight-icon"></span>
-                                <span>45 Minutes</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon"></span>
-                                <span>$90</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">🏃</span>
-                                <span>Sports Specialist</span>
-                            </div>
-                        </div>
+        <section style="background: linear-gradient(135deg, rgba(244, 168, 124, 0.9), rgba(232, 144, 107, 0.9)), url('https://images.unsplash.com/photo-1519824145371-296894a0daa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=85') center/cover; padding: 100px 0; color: white; text-align: center;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div style="background: rgba(255,255,255,0.2); display: inline-block; padding: 8px 20px; border-radius: 20px; margin-bottom: 20px; font-size: 0.9rem;">
+                        Peak Performance & Recovery
+                    </div>
+
+                    <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 20px; line-height: 1.2;">
+                        Sports Massage Naples
+                    </h1>
+
+                    <p style="font-size: 1.3rem; margin-bottom: 15px; opacity: 0.95;">
+                        Elevate Your Athletic Performance
+                    </p>
+
+                    <p style="font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; line-height: 1.5;">
+                        Whether you're training for your next race, hitting the gym regularly, or enjoying weekend activities, specialized sports massage helps you perform better, recover faster, and stay injury-free.
+                    </p>
+
+                    <!-- Trust Signals -->
+                    <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap; font-size: 0.95rem; opacity: 0.9;">
+                        <span>🏃 Sports Specialist</span>
+                        <span>⏱️ 45 Minutes</span>
+                        <span>💰 $90</span>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                        <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services"
+                           target="_blank"
+                           style="background: white; color: #f4a87c; padding: 18px 35px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                            Book Your Session Now
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M7 13L13 7M13 7H7M13 7V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="tel:239-427-4757"
+                           style="background: transparent; border: 2px solid white; color: white; padding: 18px 35px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem;">
+                            Call: (239) 427-4757
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Service Overview -->
-        <section class="service-overview" role="region" aria-labelledby="overview-heading">
-            <div class="container">
-                <div class="overview-grid">
-                    <div class="overview-content">
-                        <div class="section-badge">Athletic Excellence</div>
-                        <h2 id="overview-heading">What is Sports Massage?</h2>
-                        <p>Sports and deep tissue massage combines targeted therapeutic techniques to address muscle tension, improve circulation, and enhance recovery. This focused approach is effective for athletes, active individuals, or anyone seeking deeper muscle work to alleviate chronic tension and restore optimal function.</p>
-                        <p>This isn't just about relaxation—it's about optimizing your body's performance, preventing injuries, and helping you bounce back stronger after every workout. Whether you're a weekend warrior or training for a marathon, sports massage is an essential tool in your fitness arsenal.</p>
-                        <div class="key-features">
-                            <div class="feature-item">
-                                <span class="feature-icon"></span>
-                                <div>
-                                    <h4>Sport-Specific Techniques</h4>
-                                    <p>Targeted methods based on your activity and training needs</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon"></span>
-                                <div>
-                                    <h4>Performance Enhancement</h4>
-                                    <p>Improves flexibility, range of motion, and muscle function</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">🛡️</span>
-                                <div>
-                                    <h4>Injury Prevention</h4>
-                                    <p>Identifies and addresses potential problem areas before they become injuries</p>
-                                </div>
-                            </div>
+        <section style="padding: 80px 0; background: #f0e6d3;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+                    <div>
+                        <div style="background: #f4a87c; color: white; display: inline-block; padding: 8px 20px; border-radius: 20px; margin-bottom: 20px; font-size: 0.9rem;">
+                            Athletic Excellence
                         </div>
+                        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #8b4a3b;">What is Sports Massage?</h2>
+                        <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">Sports and deep tissue massage combines targeted therapeutic techniques to address muscle tension, improve circulation, and enhance recovery. This focused approach is effective for athletes, active individuals, or anyone seeking deeper muscle work to alleviate chronic tension and restore optimal function.</p>
+                        <p style="color: #666; line-height: 1.6;">This isn't just about relaxation—it's about optimizing your body's performance, preventing injuries, and helping you bounce back stronger after every workout. Whether you're a weekend warrior or training for a marathon, sports massage is an essential tool in your fitness arsenal.</p>
                     </div>
-                    <div class="overview-image">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=85" alt="Athletic training equipment and massage therapy setup for sports performance" loading="lazy" width="800" height="600">
+                    <div style="position: sticky; top: 120px;">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=85" alt="Athletic training equipment and massage therapy setup for sports performance" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Performance Benefits -->
-        <section id="benefits" class="benefits-section" role="region" aria-labelledby="benefits-heading">
-            <div class="container">
-                <div class="section-header text-center">
-                    <div class="section-badge">Athletic Advantages</div>
-                    <h2 id="benefits-heading">Maximize Your Athletic Potential</h2>
-                    <p class="section-description">Discover how sports massage gives you the competitive edge, helping you train harder, recover faster, and perform at your peak consistently.</p>
+        <section id="benefits" style="padding: 80px 0;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <div style="background: #f4a87c; color: white; display: inline-block; padding: 8px 20px; border-radius: 20px; margin-bottom: 20px; font-size: 0.9rem;">
+                        Athletic Advantages
+                    </div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #8b4a3b;">Maximize Your Athletic Potential</h2>
+                    <p style="color: #666; font-size: 1.1rem; max-width: 700px; margin: 0 auto;">Discover how sports massage gives you the competitive edge, helping you train harder, recover faster, and perform at your peak consistently.</p>
                 </div>
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🚀</div>
-                        <h3>Enhanced Performance</h3>
-                        <p>Improve muscle efficiency, increase power output, and achieve better results in your chosen sport or activity through optimized muscle function.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                    <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s ease;">
+                        <div style="font-size: 3rem; margin-bottom: 20px;">🚀</div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #8b4a3b;">Enhanced Performance</h3>
+                        <p style="color: #666; line-height: 1.6;">Improve muscle efficiency, increase power output, and achieve better results in your chosen sport or activity through optimized muscle function.</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon"></div>
-                        <h3>Faster Recovery</h3>
-                        <p>Reduce muscle soreness, clear metabolic waste, and get back to training sooner with improved circulation and lymphatic drainage.</p>
+                    <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s ease;">
+                        <div style="font-size: 3rem; margin-bottom: 20px;">⚡</div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #8b4a3b;">Faster Recovery</h3>
+                        <p style="color: #666; line-height: 1.6;">Reduce muscle soreness, clear metabolic waste, and get back to training sooner with improved circulation and lymphatic drainage.</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🛡️</div>
-                        <h3>Injury Prevention</h3>
-                        <p>Identify tight spots, imbalances, and potential problem areas before they lead to injury, keeping you active and healthy.</p>
+                    <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s ease;">
+                        <div style="font-size: 3rem; margin-bottom: 20px;">🛡️</div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #8b4a3b;">Injury Prevention</h3>
+                        <p style="color: #666; line-height: 1.6;">Identify tight spots, imbalances, and potential problem areas before they lead to injury, keeping you active and healthy.</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon"></div>
-                        <h3>Improved Range of Motion</h3>
-                        <p>Increase flexibility and joint mobility for better technique, reduced injury risk, and enhanced athletic performance.</p>
+                    <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s ease;">
+                        <div style="font-size: 3rem; margin-bottom: 20px;">🤸</div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #8b4a3b;">Improved Range of Motion</h3>
+                        <p style="color: #666; line-height: 1.6;">Increase flexibility and joint mobility for better technique, reduced injury risk, and enhanced athletic performance.</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon"></div>
-                        <h3>Muscle Maintenance</h3>
-                        <p>Keep your muscles in peak condition between training sessions with regular maintenance therapy tailored to your sport.</p>
+                    <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s ease;">
+                        <div style="font-size: 3rem; margin-bottom: 20px;">💪</div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #8b4a3b;">Muscle Maintenance</h3>
+                        <p style="color: #666; line-height: 1.6;">Keep your muscles in peak condition between training sessions with regular maintenance therapy tailored to your sport.</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🧠</div>
-                        <h3>Mental Edge</h3>
-                        <p>Reduce pre-competition anxiety, improve focus, and maintain the mental clarity needed for peak athletic performance.</p>
+                    <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s ease;">
+                        <div style="font-size: 3rem; margin-bottom: 20px;">🧠</div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #8b4a3b;">Mental Edge</h3>
+                        <p style="color: #666; line-height: 1.6;">Reduce pre-competition anxiety, improve focus, and maintain the mental clarity needed for peak athletic performance.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Types of Sports Massage -->
-        <section class="massage-types" role="region" aria-labelledby="types-heading">
-            <div class="container">
-                <div class="section-header text-center">
-                    <div class="section-badge">Customized Approach</div>
-                    <h2 id="types-heading">Sports Massage for Every Stage</h2>
-                    <p class="section-description">Different training phases and activities require different massage approaches. We tailor each session to your specific needs and timing.</p>
+        <section style="padding: 80px 0; background: #f0e6d3;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <div style="background: #f4a87c; color: white; display: inline-block; padding: 8px 20px; border-radius: 20px; margin-bottom: 20px; font-size: 0.9rem;">
+                        Customized Approach
+                    </div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #8b4a3b;">Sports Massage for Every Stage</h2>
+                    <p style="color: #666; font-size: 1.1rem; max-width: 700px; margin: 0 auto;">Different training phases and activities require different massage approaches. We tailor each session to your specific needs and timing.</p>
                 </div>
-                <div class="types-grid">
-                    <div class="type-card">
-                        <div class="type-icon">🏁</div>
-                        <h3>Pre-Event Massage</h3>
-                        <p><strong>Timing:</strong> 15 minutes to 2 hours before activity</p>
-                        <p><strong>Purpose:</strong> Warm up muscles, increase circulation, and prepare your body for peak performance. Light, stimulating techniques that energize without causing fatigue.</p>
-                        <ul>
-                            <li>Increases blood flow and muscle temperature</li>
-                            <li>Improves flexibility and range of motion</li>
-                            <li>Reduces pre-competition anxiety</li>
-                            <li>Enhances mental focus and readiness</li>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                    <div style="background: white; padding: 35px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div style="font-size: 3rem; margin-bottom: 20px; text-align: center;">🏁</div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #8b4a3b; text-align: center;">Pre-Event Massage</h3>
+                        <p style="color: #666; margin-bottom: 10px; line-height: 1.6;"><strong>Timing:</strong> 15 minutes to 2 hours before activity</p>
+                        <p style="color: #666; margin-bottom: 20px; line-height: 1.6;"><strong>Purpose:</strong> Warm up muscles, increase circulation, and prepare your body for peak performance. Light, stimulating techniques that energize without causing fatigue.</p>
+                        <ul style="list-style: none; padding: 0; margin: 0; color: #666;">
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative; line-height: 1.6;"><span style="position: absolute; left: 0; color: #f4a87c; font-weight: bold;">✓</span> Increases blood flow and muscle temperature</li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative; line-height: 1.6;"><span style="position: absolute; left: 0; color: #f4a87c; font-weight: bold;">✓</span> Improves flexibility and range of motion</li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative; line-height: 1.6;"><span style="position: absolute; left: 0; color: #f4a87c; font-weight: bold;">✓</span> Reduces pre-competition anxiety</li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative; line-height: 1.6;"><span style="position: absolute; left: 0; color: #f4a87c; font-weight: bold;">✓</span> Enhances mental focus and readiness</li>
                         </ul>
                     </div>
-                    <div class="type-card">
-                        <div class="type-icon">🎖️</div>
-                        <h3>Post-Event Massage</h3>
-                        <p><strong>Timing:</strong> 30 minutes to 2 hours after activity</p>
-                        <p><strong>Purpose:</strong> Aid recovery, reduce muscle soreness, and help your body transition back to normal function. Gentle techniques that promote healing.</p>
-                        <ul>
-                            <li>Reduces delayed onset muscle soreness (DOMS)</li>
-                            <li>Promotes faster recovery between sessions</li>
-                            <li>Prevents muscle stiffness and tension</li>
-                            <li>Supports natural healing processes</li>
+                    <div style="background: white; padding: 35px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div style="font-size: 3rem; margin-bottom: 20px; text-align: center;">🎖️</div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #8b4a3b; text-align: center;">Post-Event Massage</h3>
+                        <p style="color: #666; margin-bottom: 10px; line-height: 1.6;"><strong>Timing:</strong> 30 minutes to 2 hours after activity</p>
+                        <p style="color: #666; margin-bottom: 20px; line-height: 1.6;"><strong>Purpose:</strong> Aid recovery, reduce muscle soreness, and help your body transition back to normal function. Gentle techniques that promote healing.</p>
+                        <ul style="list-style: none; padding: 0; margin: 0; color: #666;">
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative; line-height: 1.6;"><span style="position: absolute; left: 0; color: #f4a87c; font-weight: bold;">✓</span> Reduces delayed onset muscle soreness (DOMS)</li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative; line-height: 1.6;"><span style="position: absolute; left: 0; color: #f4a87c; font-weight: bold;">✓</span> Promotes faster recovery between sessions</li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative; line-height: 1.6;"><span style="position: absolute; left: 0; color: #f4a87c; font-weight: bold;">✓</span> Prevents muscle stiffness and tension</li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative; line-height: 1.6;"><span style="position: absolute; left: 0; color: #f4a87c; font-weight: bold;">✓</span> Supports natural healing processes</li>
                         </ul>
                     </div>
-                    <div class="type-card">
-                        <div class="type-icon">🔄</div>
-                        <h3>Maintenance Massage</h3>
-                        <p><strong>Timing:</strong> Regular sessions during training cycles</p>
-                        <p><strong>Purpose:</strong> Keep muscles in optimal condition, prevent injuries, and address imbalances before they become problems. Deeper, more thorough work.</p>
-                        <ul>
-                            <li>Maintains muscle flexibility and health</li>
-                            <li>Identifies and addresses muscle imbalances</li>
-                            <li>Prevents overuse injuries</li>
-                            <li>Supports consistent training performance</li>
+                    <div style="background: white; padding: 35px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div style="font-size: 3rem; margin-bottom: 20px; text-align: center;">🔄</div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #8b4a3b; text-align: center;">Maintenance Massage</h3>
+                        <p style="color: #666; margin-bottom: 10px; line-height: 1.6;"><strong>Timing:</strong> Regular sessions during training cycles</p>
+                        <p style="color: #666; margin-bottom: 20px; line-height: 1.6;"><strong>Purpose:</strong> Keep muscles in optimal condition, prevent injuries, and address imbalances before they become problems. Deeper, more thorough work.</p>
+                        <ul style="list-style: none; padding: 0; margin: 0; color: #666;">
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative; line-height: 1.6;"><span style="position: absolute; left: 0; color: #f4a87c; font-weight: bold;">✓</span> Maintains muscle flexibility and health</li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative; line-height: 1.6;"><span style="position: absolute; left: 0; color: #f4a87c; font-weight: bold;">✓</span> Identifies and addresses muscle imbalances</li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative; line-height: 1.6;"><span style="position: absolute; left: 0; color: #f4a87c; font-weight: bold;">✓</span> Prevents overuse injuries</li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative; line-height: 1.6;"><span style="position: absolute; left: 0; color: #f4a87c; font-weight: bold;">✓</span> Supports consistent training performance</li>
                         </ul>
                     </div>
-                    <div class="type-card">
-                        <div class="type-icon">🩹</div>
-                        <h3>Rehabilitation Massage</h3>
-                        <p><strong>Timing:</strong> During injury recovery phases</p>
-                        <p><strong>Purpose:</strong> Support healing from injury, restore normal function, and safely return to activity. Gentle, targeted techniques that promote tissue repair.</p>
-                        <ul>
-                            <li>Promotes healing of injured tissues</li>
-                            <li>Reduces scar tissue formation</li>
-                            <li>Restores normal movement patterns</li>
-                            <li>Supports safe return to activity</li>
+                    <div style="background: white; padding: 35px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div style="font-size: 3rem; margin-bottom: 20px; text-align: center;">🩹</div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #8b4a3b; text-align: center;">Rehabilitation Massage</h3>
+                        <p style="color: #666; margin-bottom: 10px; line-height: 1.6;"><strong>Timing:</strong> During injury recovery phases</p>
+                        <p style="color: #666; margin-bottom: 20px; line-height: 1.6;"><strong>Purpose:</strong> Support healing from injury, restore normal function, and safely return to activity. Gentle, targeted techniques that promote tissue repair.</p>
+                        <ul style="list-style: none; padding: 0; margin: 0; color: #666;">
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative; line-height: 1.6;"><span style="position: absolute; left: 0; color: #f4a87c; font-weight: bold;">✓</span> Promotes healing of injured tissues</li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative; line-height: 1.6;"><span style="position: absolute; left: 0; color: #f4a87c; font-weight: bold;">✓</span> Reduces scar tissue formation</li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative; line-height: 1.6;"><span style="position: absolute; left: 0; color: #f4a87c; font-weight: bold;">✓</span> Restores normal movement patterns</li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative; line-height: 1.6;"><span style="position: absolute; left: 0; color: #f4a87c; font-weight: bold;">✓</span> Supports safe return to activity</li>
                         </ul>
                     </div>
                 </div>
@@ -569,47 +574,49 @@
         </section>
 
         <!-- What to Expect Section -->
-        <section class="what-to-expect" role="region" aria-labelledby="expect-heading">
-            <div class="container">
-                <div class="expect-content">
-                    <div class="expect-text">
-                        <div class="section-badge">Your Athletic Session</div>
-                        <h2 id="expect-heading">What to Expect During Your Sports Massage</h2>
-                        <p>Your sports massage is tailored to your athletic needs, training schedule, and performance goals. Here's what happens during your focused 45-minute session:</p>
-                        
-                        <div class="session-flow">
-                            <div class="flow-step">
-                                <div class="step-number">1</div>
-                                <div class="step-content">
-                                    <h4>Athletic Assessment (5 minutes)</h4>
-                                    <p>Discuss your sport, training schedule, recent activities, and any areas of concern. This helps customize the session for your specific athletic needs.</p>
+        <section style="padding: 80px 0;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+                    <div>
+                        <div style="background: #f4a87c; color: white; display: inline-block; padding: 8px 20px; border-radius: 20px; margin-bottom: 20px; font-size: 0.9rem;">
+                            Your Athletic Session
+                        </div>
+                        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #8b4a3b;">What to Expect During Your Sports Massage</h2>
+                        <p style="color: #666; line-height: 1.6; margin-bottom: 30px;">Your sports massage is tailored to your athletic needs, training schedule, and performance goals. Here's what happens during your focused 45-minute session:</p>
+
+                        <div style="display: flex; flex-direction: column; gap: 25px;">
+                            <div style="display: flex; gap: 20px;">
+                                <div style="background: linear-gradient(135deg, #f4a87c, #e8906b); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0;">1</div>
+                                <div>
+                                    <h4 style="color: #8b4a3b; margin-bottom: 10px; font-size: 1.2rem;">Athletic Assessment (5 minutes)</h4>
+                                    <p style="color: #666; line-height: 1.6;">Discuss your sport, training schedule, recent activities, and any areas of concern. This helps customize the session for your specific athletic needs.</p>
                                 </div>
                             </div>
-                            <div class="flow-step">
-                                <div class="step-number">2</div>
-                                <div class="step-content">
-                                    <h4>Movement Evaluation (5 minutes)</h4>
-                                    <p>Quick assessment of your posture, range of motion, and muscle condition to identify areas that need attention during your session.</p>
+                            <div style="display: flex; gap: 20px;">
+                                <div style="background: linear-gradient(135deg, #f4a87c, #e8906b); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0;">2</div>
+                                <div>
+                                    <h4 style="color: #8b4a3b; margin-bottom: 10px; font-size: 1.2rem;">Movement Evaluation (5 minutes)</h4>
+                                    <p style="color: #666; line-height: 1.6;">Quick assessment of your posture, range of motion, and muscle condition to identify areas that need attention during your session.</p>
                                 </div>
                             </div>
-                            <div class="flow-step">
-                                <div class="step-number">3</div>
-                                <div class="step-content">
-                                    <h4>Targeted Sports Massage (30 minutes)</h4>
-                                    <p>Focused work on the muscle groups most affected by your sport. Uses deeper pressure and sport-specific techniques to address your athletic needs.</p>
+                            <div style="display: flex; gap: 20px;">
+                                <div style="background: linear-gradient(135deg, #f4a87c, #e8906b); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0;">3</div>
+                                <div>
+                                    <h4 style="color: #8b4a3b; margin-bottom: 10px; font-size: 1.2rem;">Targeted Sports Massage (30 minutes)</h4>
+                                    <p style="color: #666; line-height: 1.6;">Focused work on the muscle groups most affected by your sport. Uses deeper pressure and sport-specific techniques to address your athletic needs.</p>
                                 </div>
                             </div>
-                            <div class="flow-step">
-                                <div class="step-number">4</div>
-                                <div class="step-content">
-                                    <h4>Recovery Planning (5 minutes)</h4>
-                                    <p>Receive specific recommendations for post-session care, training modifications, and strategies to maximize your athletic performance.</p>
+                            <div style="display: flex; gap: 20px;">
+                                <div style="background: linear-gradient(135deg, #f4a87c, #e8906b); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0;">4</div>
+                                <div>
+                                    <h4 style="color: #8b4a3b; margin-bottom: 10px; font-size: 1.2rem;">Recovery Planning (5 minutes)</h4>
+                                    <p style="color: #666; line-height: 1.6;">Receive specific recommendations for post-session care, training modifications, and strategies to maximize your athletic performance.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="expect-image">
-                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=85" alt="Professional sports massage therapist working on athlete's performance recovery" loading="lazy" width="800" height="600">
+                    <div style="position: sticky; top: 120px;">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=85" alt="Professional sports massage therapist working on athlete's performance recovery" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
                     </div>
                 </div>
             </div>
@@ -847,7 +854,7 @@
                     <div style="display: flex; flex-direction: column; gap: 8px;">
                         <a href="tel:239-427-4757" style="color: rgba(255,255,255,0.8); text-decoration: none;">(239) 427-4757</a>
                         <a href="mailto:massagebyerikag@gmail.com" style="color: rgba(255,255,255,0.8); text-decoration: none;">massagebyerikag@gmail.com</a>
-                        <div style="color: rgba(255,255,255,0.8);">8965 Tamiami Trail N, Suite #71<br>Naples, FL 34108</div>
+                        <div style="color: rgba(255,255,255,0.8);">8965 Tamiami Trl N # 74, Suite 43<br>Naples, FL 34108-2583</div>
                         <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" target="_blank" style="color: #f4a87c; text-decoration: none; font-weight: 600;">Book Online 24/7</a>
                     </div>
                 </div>

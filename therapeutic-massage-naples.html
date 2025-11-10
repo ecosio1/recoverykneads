@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XLJ55RF5Z5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XLJ55RF5Z5');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K26QJMF7');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <!-- Favicon for all browsers -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -217,10 +235,10 @@
                 "priceRange": "$90-$170",
                 "address": {
                     "@type": "PostalAddress",
-                    "streetAddress": "8965 Tamiami Trail N, Suite #71",
+                    "streetAddress": "8965 Tamiami Trl N # 74, Suite 43",
                     "addressLocality": "Naples",
                     "addressRegion": "FL", 
-                    "postalCode": "34108",
+                    "postalCode": "34108-2583",
                     "addressCountry": "US"
                 },
                 "geo": {
@@ -318,45 +336,52 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
 </head>
-<body>
-    <!-- Simple Announcement Bar -->
-    <div style="background: #8b4a3b; color: white; padding: 8px 0; font-size: 0.9rem; text-align: center;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <span style="color: #4CAF50;"></span>
-            <span>To provide you with the best care, all services are by appointment only</span>
-            <span style="margin: 0 10px;">•</span>
-            <span>Licensed & Insured</span>
-            <span style="margin: 0 10px;">•</span>
-            <span>Professional Service</span>
-        </div>
-    </div>
+<body style="padding-top: 100px;">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K26QJMF7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Header -->
-    <header style="background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 50px; z-index: 999;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 15px 20px;">
-            <nav style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 40px; height: 40px; background: #f4a87c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">RK</div>
-                    <div>
-                        <div style="font-size: 1.4rem; font-weight: 700; color: #8b4a3b;">Recovery Kneads</div>
-                        <div style="font-size: 0.85rem; color: #666;">Professional Massage Therapy</div>
+    <!-- Combined Auto-Hide Header -->
+    <header id="main-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: transform 0.3s ease-in-out;">
+        <!-- Announcement Bar -->
+        <div style="background: #8b4a3b; color: white; padding: 8px 0; font-size: 0.9rem; text-align: center;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <span>To provide you with the best care, all services are by appointment only</span>
+                <span style="margin: 0 10px;">•</span>
+                <span>Licensed & Insured</span>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div style="background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 15px 20px;">
+                <nav style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                    <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                        <img src="icon only.png" alt="Recovery Kneads Icon" class="header-icon" loading="eager">
+                        <img src="text-logo.jpeg" alt="Recovery Kneads - Professional Massage Therapy Naples FL" class="header-logo" loading="eager">
+                    </a>
+
+                    <div style="display: flex; gap: 25px; align-items: center; flex-wrap: wrap;">
+                        <a href="services" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Services</a>
+                        <a href="pricing" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Pricing</a>
+                        <a href="about" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">About</a>
+                        <a href="blog/" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Blog</a>
+                        <a href="faq" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">FAQ</a>
+                        <a href="contact" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Contact</a>
+                        <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services"
+                           target="_blank"
+                           style="background: #f4a87c; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600;">
+                            Book Online
+                        </a>
+                        <a href="tel:239-427-4757" style="color: #8b4a3b; text-decoration: none; font-weight: 600;">
+                            (239) 427-4757
+                        </a>
                     </div>
-                </div>
-                
-                <div style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
-                    <a href="services" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Services & Pricing</a>
-                    <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" 
-                       target="_blank" 
-                       style="background: #f4a87c; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600;">
-                        Book Online
-                    </a>
-                    <a href="tel:239-427-4757" style="color: #8b4a3b; text-decoration: none; font-weight: 600;">
-                        (239) 427-4757
-                    </a>
-                    <a href="contact" style="color: #8b4a3b; text-decoration: none; font-weight: 500;">Location</a>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -766,7 +791,7 @@
                     <div style="display: flex; flex-direction: column; gap: 8px;">
                         <a href="tel:239-427-4757" style="color: rgba(255,255,255,0.8); text-decoration: none;">(239) 427-4757</a>
                         <a href="mailto:massagebyerikag@gmail.com" style="color: rgba(255,255,255,0.8); text-decoration: none;">massagebyerikag@gmail.com</a>
-                        <div style="color: rgba(255,255,255,0.8);">8965 Tamiami Trail N, Suite #71<br>Naples, FL 34108</div>
+                        <div style="color: rgba(255,255,255,0.8);">8965 Tamiami Trl N # 74, Suite 43<br>Naples, FL 34108-2583</div>
                         <a href="https://book.squareup.com/appointments/7kl091khfcdu9k/location/L6BYJ6PXFF95P/services" target="_blank" style="color: #f4a87c; text-decoration: none; font-weight: 600;">Book Online 24/7</a>
                     </div>
                 </div>

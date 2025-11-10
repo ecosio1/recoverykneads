@@ -1,6 +1,11 @@
 # URL Rewriting for Clean URLs
 RewriteEngine On
 
+# Remove Google tracking parameters and other query strings
+# Strip hl, gei, source, gsas, ahbb and other tracking parameters
+RewriteCond %{QUERY_STRING} ^(.*)(?:^|&)(?:hl|gei|source|gsas|ahbb|utm_source|utm_medium|utm_campaign|fbclid|gclid)=[^&]*(?:&(.*))?$ [NC]
+RewriteRule ^(.*)$ /$1?%1%2 [R=301,L]
+
 # Remove .html extension from URLs
 # Redirect .html URLs to clean URLs
 RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
